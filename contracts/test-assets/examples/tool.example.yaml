@@ -1,0 +1,36 @@
+id: TOOL-SIM-EMIT-VEHICLE-EVENT-001
+version: v1
+title: 仿真车辆事件注入工具
+description: 向世界仿真模型注入车辆状态事件。
+domain: vehicle_cloud
+capability: emit_simulated_vehicle_event
+runtime:
+  type: api
+  entrypoint: world-sim/service-api/events
+inputs:
+  schema:
+    vehicle_id: string
+    event_type: string
+    payload: object
+outputs:
+  schema:
+    event_id: string
+    trace_id: string
+    accepted: boolean
+dependencies:
+  - world-sim/service-api
+permissions:
+  systems:
+    - world-sim
+  data_access: synthetic_write
+safety:
+  level: medium
+  dry_run_supported: true
+  production_allowed: false
+  rollback_supported: true
+observability:
+  logs: true
+  metrics: true
+  traces: true
+review:
+  status: draft

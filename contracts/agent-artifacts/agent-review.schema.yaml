@@ -1,0 +1,47 @@
+schema_id: agent-artifact.review.v1
+description: Agent 产物评审记录契约
+required:
+  - review_id
+  - artifact_id
+  - reviewer
+  - decision
+  - checks
+  - created_at
+fields:
+  review_id:
+    type: string
+  artifact_id:
+    type: string
+  reviewer:
+    type: object
+    required:
+      - type
+      - id
+    fields:
+      type:
+        type: string
+        enum:
+          - human
+          - agent
+      id:
+        type: string
+  decision:
+    type: string
+    enum:
+      - approve
+      - request_changes
+      - reject
+      - needs_human_review
+  checks:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+        - status
+  comments:
+    type: array
+    items:
+      type: string
+  created_at:
+    type: string

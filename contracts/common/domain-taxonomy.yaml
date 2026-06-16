@@ -1,0 +1,119 @@
+taxonomy_id: common.domain-taxonomy.v1
+description: VIT 平台测试资产、Agent 产物和质量门禁共用的业务域分类
+usage:
+  - contracts/test-assets
+  - contracts/agent-artifacts
+  - vv-automation/harness/quality-gates
+  - agents/workflows
+domains:
+  - id: order
+    name: 订单域
+    description: 订单创建、接驾、行程中、完成、取消、异常订单等订单生命周期能力。
+    examples:
+      - create_order
+      - cancel_order
+      - order_status_sync
+
+  - id: dispatch
+    name: 调度域
+    description: 车单匹配、运力池、调度策略、派单、改派、调度结果解释。
+    examples:
+      - vehicle_order_matching
+      - dispatch_strategy
+      - capacity_pool
+
+  - id: vehicle
+    name: 车辆域
+    description: 车辆基础状态、位置、服务状态、上下线、接驾和行程执行状态。
+    examples:
+      - vehicle_status
+      - vehicle_location
+      - vehicle_availability
+
+  - id: vehicle_cloud
+    name: 车云协同域
+    description: 车端状态上报、云端指令下发、远程控制、车云状态一致性、OTA 验证。
+    examples:
+      - vehicle_status_report
+      - cloud_command
+      - ota_validation
+
+  - id: station
+    name: 场站域
+    description: 场站、站点、路线、上下车点、服务范围、场站验收规则。
+    examples:
+      - pickup_point
+      - station_service_area
+      - route_acceptance
+
+  - id: mobile_passenger
+    name: 乘客端域
+    description: 乘客 App/小程序叫车、状态展示、行程、支付、消息推送、弱网体验。
+    examples:
+      - passenger_order_flow
+      - passenger_status_push
+      - passenger_payment
+
+  - id: mobile_driver
+    name: 司机端域
+    description: 司机端任务、车辆接驾、行程状态、消息推送和异常处理。
+    examples:
+      - driver_task_status
+      - driver_arrival_confirm
+      - driver_exception_handling
+
+  - id: oms
+    name: 运营管理域
+    description: 运管系统中的订单管理、车辆管理、任务管理、运营看板、异常处理。
+    examples:
+      - oms_order_view
+      - oms_vehicle_view
+      - operation_dashboard
+
+  - id: ras
+    name: Robotaxi 业务服务域
+    description: Robotaxi 自研业务服务能力，承载叫车、订单、调度、状态聚合等核心业务链路。
+    examples:
+      - ras_order_service
+      - ras_dispatch_service
+      - ras_status_aggregation
+
+  - id: payment
+    name: 支付域
+    description: 支付方式、支付状态、退款、优惠券、支付异常。
+    examples:
+      - pay_order
+      - refund_order
+      - coupon_apply
+
+  - id: billing_settlement
+    name: 计费结算域
+    description: 里程计费、时长计费、优惠计算、账单生成、结算对账。
+    examples:
+      - fare_calculation
+      - bill_generation
+      - settlement_reconciliation
+
+  - id: data_quality
+    name: 数据质量域
+    description: 数据采集、清洗、脱敏、血缘、异常检测、脏数据和投毒风险。
+    examples:
+      - data_lineage
+      - dirty_data_detection
+      - poisoning_risk_check
+
+  - id: simulation
+    name: 仿真域
+    description: 世界仿真模型、虚拟环境、实体、事件、故障、故事和仿真轨迹。
+    examples:
+      - simulation_story
+      - virtual_entity
+      - simulation_trace
+
+  - id: ci_ct
+    name: 持续验证域
+    description: 自动冒烟、线上巡检、问题回归、持续测试、质量门禁。
+    examples:
+      - smoke_test
+      - online巡检
+      - regression_pipeline

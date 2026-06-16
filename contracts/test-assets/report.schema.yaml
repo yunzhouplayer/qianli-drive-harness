@@ -1,0 +1,89 @@
+schema_id: test-asset.report.v1
+description: 测试执行报告和证据聚合契约
+required:
+  - id
+  - version
+  - execution
+  - summary
+  - results
+  - evidence
+  - risks
+fields:
+  id:
+    type: string
+    example: REPORT-ORDER-ARRIVAL-STATUS-SYNC-001
+  version:
+    type: string
+  execution:
+    type: object
+    required:
+      - run_id
+      - started_at
+      - finished_at
+      - environment
+    fields:
+      run_id:
+        type: string
+      started_at:
+        type: string
+      finished_at:
+        type: string
+      environment:
+        type: string
+      trigger:
+        type: string
+        enum:
+          - manual
+          - ci
+          - scheduled
+          - agent
+          - regression
+  summary:
+    type: object
+    required:
+      - status
+      - total_cases
+      - passed
+      - failed
+    fields:
+      status:
+        type: string
+        enum:
+          - passed
+          - failed
+          - blocked
+          - flaky
+      total_cases:
+        type: integer
+      passed:
+        type: integer
+      failed:
+        type: integer
+      blocked:
+        type: integer
+  results:
+    type: array
+    items:
+      type: object
+      required:
+        - case_id
+        - status
+        - validators
+  evidence:
+    type: array
+    items:
+      type: object
+      required:
+        - type
+        - ref
+  risks:
+    type: array
+    items:
+      type: object
+      required:
+        - level
+        - description
+  recommendations:
+    type: array
+    items:
+      type: string

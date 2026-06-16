@@ -1,0 +1,69 @@
+schema_id: agent-artifact.generated-fixture.v1
+description: Agent 生成 Fixture 草案契约
+required:
+  - artifact_id
+  - artifact_type
+  - agent
+  - source_task
+  - target_asset
+  - generated_content
+  - assumptions
+  - data_safety
+  - quality_checks
+  - review
+fields:
+  artifact_id:
+    type: string
+  artifact_type:
+    type: string
+    enum:
+      - generated_fixture
+  agent:
+    type: object
+    required:
+      - role
+      - version
+  source_task:
+    type: object
+    required:
+      - type
+      - ref
+  target_asset:
+    type: object
+    required:
+      - contract
+      - path
+    fields:
+      contract:
+        type: string
+        const: contracts/test-assets/fixture.schema.yaml
+      path:
+        type: string
+  generated_content:
+    type: object
+    required:
+      - fixture
+    fields:
+      fixture:
+        type: object
+        description: 必须符合 test-assets/fixture.schema.yaml
+  assumptions:
+    type: array
+    items:
+      type: string
+  data_safety:
+    type: object
+    required:
+      - pii_used
+      - production_data_used
+      - cleanup_required
+  quality_checks:
+    type: object
+    required:
+      - isolation_check
+      - cleanup_check
+      - sensitive_data_check
+  review:
+    type: object
+    required:
+      - status

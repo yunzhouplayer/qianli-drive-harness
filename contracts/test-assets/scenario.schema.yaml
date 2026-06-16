@@ -1,0 +1,99 @@
+schema_id: test-asset.scenario.v1
+description: 业务级测试场景契约
+required:
+  - id
+  - version
+  - title
+  - domain
+  - source
+  - risk
+  - coverage
+  - cases
+  - review
+fields:
+  id:
+    type: string
+    description: 场景唯一 ID
+    example: SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+  version:
+    type: string
+    example: v1
+  title:
+    type: string
+  description:
+    type: string
+  domain:
+    type: string
+    ref: contracts/common/domain-taxonomy.yaml
+  source:
+    type: object
+    required:
+      - type
+      - ref
+    fields:
+      type:
+        type: string
+        ref: contracts/common/source-taxonomy.yaml
+      ref:
+        type: string
+  risk:
+    type: object
+    required:
+      - level
+      - impact_tags
+    fields:
+      level:
+        type: string
+        ref: contracts/common/risk-taxonomy.yaml#/risk_levels
+      impact_tags:
+        type: array
+        items:
+          type: string
+  coverage:
+    type: object
+    required:
+      - target
+      - dimensions
+    fields:
+      target:
+        type: string
+        description: 场景覆盖目标
+      dimensions:
+        type: array
+        items:
+          type: string
+        example:
+          - normal_flow
+          - weak_network
+          - delayed_event
+  simulation_story:
+    type: string
+    description: 可选，关联世界仿真故事
+  cases:
+    type: array
+    items:
+      type: string
+    description: 关联 Case ID 或文件路径
+  owner:
+    type: string
+  tags:
+    type: array
+    items:
+      type: string
+  created_by:
+    type: string
+    enum:
+      - human
+      - agent
+  review:
+    type: object
+    required:
+      - status
+    fields:
+      status:
+        type: string
+        ref: contracts/common/review-status.yaml
+      reviewers:
+        type: array
+        items:
+          type: string

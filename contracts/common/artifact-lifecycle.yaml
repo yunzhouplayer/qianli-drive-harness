@@ -1,0 +1,47 @@
+taxonomy_id: common.artifact-lifecycle.v1
+description: 测试资产和 Agent 产物从草稿到执行报告的生命周期
+states:
+  - id: draft
+    name: 草稿
+    description: 资产初始创建，尚未校验。
+
+  - id: candidate
+    name: 候选
+    description: 通过基础结构检查，准备进入评审。
+
+  - id: approved
+    name: 已批准
+    description: 通过评审和必要门禁，可进入执行准备。
+
+  - id: executable
+    name: 可执行
+    description: Fixture、Validator、Tool、Evidence 等依赖完整，可被 Harness 执行。
+
+  - id: executed
+    name: 已执行
+    description: 已产生执行结果。
+
+  - id: reportable
+    name: 可报告
+    description: 执行结果和证据完整，可进入报告和看板。
+
+  - id: archived
+    name: 已归档
+    description: 历史资产，保留追溯但不再主动执行。
+
+transitions:
+  - from: draft
+    to: candidate
+    required_gate: schema_gate
+  - from: candidate
+    to: approved
+    required_gate: review_gate
+  - from: approved
+    to: executable
+    required_gate: fixture_gate
+  - from: executable
+    to: executed
+    required_gate: runtime_gate
+  - from: executed
+    to: reportable
+    required_gate: evidence_gate

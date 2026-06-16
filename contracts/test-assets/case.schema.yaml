@@ -1,0 +1,101 @@
+schema_id: test-asset.case.v1
+description: 可执行测试用例契约
+required:
+  - id
+  - version
+  - title
+  - scenario
+  - execution
+  - fixture
+  - validators
+  - expected_result
+  - review
+fields:
+  id:
+    type: string
+    example: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+  version:
+    type: string
+    example: v1
+  title:
+    type: string
+  description:
+    type: string
+  scenario:
+    type: string
+    description: 归属 Scenario ID 或文件路径
+  source:
+    type: object
+    fields:
+      type:
+        type: string
+      ref:
+        type: string
+  execution:
+    type: object
+    required:
+      - type
+      - environment
+      - timeout_seconds
+    fields:
+      type:
+        type: string
+        ref: contracts/common/execution-type.yaml#/execution_types
+      environment:
+        type: string
+        ref: contracts/common/execution-type.yaml#/environments
+      timeout_seconds:
+        type: integer
+      retry:
+        type: object
+        fields:
+          enabled:
+            type: boolean
+          max_attempts:
+            type: integer
+  fixture:
+    type: string
+    description: Fixture ID 或文件路径
+  steps:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+        - action
+  tools:
+    type: array
+    items:
+      type: string
+    description: 可选，依赖的 Tool ID 或文件路径
+  validators:
+    type: array
+    items:
+      type: string
+  expected_result:
+    type: object
+    required:
+      - summary
+      - evidence
+  risk:
+    type: object
+    fields:
+      level:
+        type: string
+      impact_tags:
+        type: array
+        items:
+          type: string
+  tags:
+    type: array
+    items:
+      type: string
+  created_by:
+    type: string
+    enum:
+      - human
+      - agent
+  review:
+    type: object
+    required:
+      - status

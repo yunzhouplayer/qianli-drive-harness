@@ -1,0 +1,31 @@
+gate_run_id: GATE-RUN-20260616-0001
+asset:
+  id: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+  type: case
+  path: contracts/test-assets/examples/case.example.yaml
+trigger:
+  type: manual
+  actor: qa-platform
+results:
+  - gate_id: schema_gate
+    status: passed
+    findings: []
+  - gate_id: traceability_gate
+    status: passed
+    findings: []
+  - gate_id: fixture_gate
+    status: passed
+    findings: []
+  - gate_id: validator_gate
+    status: passed
+    findings: []
+  - gate_id: evidence_gate
+    status: warning
+    findings:
+      - severity: low
+        message: Evidence plan is declared through expected_result but no runtime evidence path exists before execution.
+decision:
+  status: warning
+  executable: true
+  reportable: false
+  reason: 可进入试运行，但不能作为发布准入证据。

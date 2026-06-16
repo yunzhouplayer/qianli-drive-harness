@@ -1,0 +1,106 @@
+schema_id: test-asset.tool.v1
+description: 测试工具能力描述契约
+required:
+  - id
+  - version
+  - title
+  - domain
+  - capability
+  - inputs
+  - outputs
+  - safety
+  - permissions
+fields:
+  id:
+    type: string
+    example: TOOL-ORDER-CREATE-SYNTHETIC-001
+  version:
+    type: string
+  title:
+    type: string
+  description:
+    type: string
+  domain:
+    type: string
+    ref: contracts/common/domain-taxonomy.yaml
+  capability:
+    type: string
+    description: 工具能力说明
+  runtime:
+    type: object
+    fields:
+      type:
+        type: string
+        enum:
+          - cli
+          - api
+          - sdk
+          - script
+          - service
+      entrypoint:
+        type: string
+  inputs:
+    type: object
+    required:
+      - schema
+  outputs:
+    type: object
+    required:
+      - schema
+  dependencies:
+    type: array
+    items:
+      type: string
+  permissions:
+    type: object
+    required:
+      - systems
+      - data_access
+    fields:
+      systems:
+        type: array
+        items:
+          type: string
+      data_access:
+        type: string
+        enum:
+          - none
+          - read_only
+          - synthetic_write
+          - test_env_write
+          - production_read
+          - production_write_forbidden
+  safety:
+    type: object
+    required:
+      - level
+      - dry_run_supported
+      - production_allowed
+    fields:
+      level:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
+          - restricted
+      dry_run_supported:
+        type: boolean
+      production_allowed:
+        type: boolean
+      rollback_supported:
+        type: boolean
+  observability:
+    type: object
+    fields:
+      logs:
+        type: boolean
+      metrics:
+        type: boolean
+      traces:
+        type: boolean
+  review:
+    type: object
+    fields:
+      status:
+        type: string

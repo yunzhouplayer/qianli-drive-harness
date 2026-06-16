@@ -1,0 +1,38 @@
+taxonomy_id: common.execution-type.v1
+description: Harness 用例和工具共用的执行类型
+execution_types:
+  - id: api
+    name: 接口自动化
+    description: 通过 API 或 SDK 调用验证后端逻辑。
+
+  - id: ui
+    name: UI 自动化
+    description: 通过用户界面验证 App、Web、运管系统等前端体验。
+
+  - id: scenario
+    name: 场景自动化
+    description: 跨接口、跨系统、跨角色的业务流程验证。
+
+  - id: simulation
+    name: 仿真回归
+    description: 调用世界仿真模型构造虚拟环境和事件进行验证。
+
+  - id: data_check
+    name: 数据校验
+    description: 校验数据采集、流转、质量、血缘和一致性。
+
+  - id: mixed
+    name: 混合执行
+    description: 同时包含接口、UI、仿真、数据校验等多种执行方式。
+
+environments:
+  - id: local
+    name: 本地环境
+  - id: test
+    name: 测试环境
+  - id: staging
+    name: 预发环境
+  - id: simulation
+    name: 仿真环境
+  - id: ci
+    name: CI 环境

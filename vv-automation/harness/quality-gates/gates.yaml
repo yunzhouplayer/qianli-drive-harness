@@ -1,0 +1,111 @@
+gate_set_id: harness-quality-gates.v1
+description: V&V 自动化 Harness 质量门禁集合
+gates:
+  - id: schema_gate
+    title: Schema Gate
+    applies_to:
+      - scenario
+      - case
+      - fixture
+      - validator
+      - tool
+      - report
+      - agent_artifact
+    checks:
+      - required_fields_present
+      - enum_values_valid
+      - referenced_contract_exists
+    fail_policy: block
+
+  - id: traceability_gate
+    title: Traceability Gate
+    applies_to:
+      - scenario
+      - case
+      - agent_artifact
+      - report
+    checks:
+      - source_type_present
+      - source_ref_present
+      - source_ref_resolvable
+    fail_policy: block
+
+  - id: fixture_gate
+    title: Fixture Gate
+    applies_to:
+      - fixture
+      - case
+    checks:
+      - data_scope_declared
+      - isolation_strategy_declared
+      - cleanup_required_declared
+      - cleanup_actions_present_when_required
+      - pii_policy_declared
+    fail_policy: block
+
+  - id: validator_gate
+    title: Validator Gate
+    applies_to:
+      - validator
+      - case
+    checks:
+      - validator_reference_present
+      - deterministic_rules_present
+      - failure_output_declared
+      - evidence_fields_declared
+    fail_policy: block
+
+  - id: tool_safety_gate
+    title: Tool Safety Gate
+    applies_to:
+      - tool
+      - generated_tool
+    checks:
+      - input_schema_present
+      - output_schema_present
+      - permission_declared
+      - safety_level_declared
+      - dry_run_declared
+      - production_allowed_declared
+    fail_policy: block
+
+  - id: evidence_gate
+    title: Evidence Gate
+    applies_to:
+      - case
+      - report
+      - validator
+    checks:
+      - evidence_type_declared
+      - evidence_ref_or_plan_present
+      - validator_result_linked
+    fail_policy: warning
+
+  - id: agent_artifact_gate
+    title: Agent Artifact Gate
+    applies_to:
+      - agent_artifact
+    checks:
+      - agent_role_declared
+      - source_task_declared
+      - target_asset_declared
+      - assumptions_declared
+      - quality_checks_present
+      - hallucination_risk_declared
+    fail_policy: block
+
+  - id: review_gate
+    title: Review Gate
+    applies_to:
+      - scenario
+      - case
+      - fixture
+      - validator
+      - tool
+      - agent_artifact
+    checks:
+      - review_status_present
+      - high_risk_requires_human_review
+      - restricted_tool_requires_human_review
+      - production_access_forbidden_or_reviewed
+    fail_policy: block

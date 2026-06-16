@@ -1,0 +1,62 @@
+schema_id: agent-artifact.generated-validator.v1
+description: Agent 生成 Validator 草案契约
+required:
+  - artifact_id
+  - artifact_type
+  - agent
+  - source_task
+  - target_asset
+  - generated_content
+  - assumptions
+  - quality_checks
+  - review
+fields:
+  artifact_id:
+    type: string
+  artifact_type:
+    type: string
+    enum:
+      - generated_validator
+  agent:
+    type: object
+    required:
+      - role
+      - version
+  source_task:
+    type: object
+    required:
+      - type
+      - ref
+  target_asset:
+    type: object
+    required:
+      - contract
+      - path
+    fields:
+      contract:
+        type: string
+        const: contracts/test-assets/validator.schema.yaml
+      path:
+        type: string
+  generated_content:
+    type: object
+    required:
+      - validator
+    fields:
+      validator:
+        type: object
+        description: 必须符合 test-assets/validator.schema.yaml
+  assumptions:
+    type: array
+    items:
+      type: string
+  quality_checks:
+    type: object
+    required:
+      - deterministic_rule_check
+      - input_reference_check
+      - failure_output_check
+  review:
+    type: object
+    required:
+      - status

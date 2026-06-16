@@ -1,0 +1,90 @@
+schema_id: test-asset.fixture.v1
+description: 测试数据和环境上下文契约
+required:
+  - id
+  - version
+  - title
+  - data_scope
+  - isolation
+  - entities
+  - cleanup
+fields:
+  id:
+    type: string
+    example: FIXTURE-ORDER-ARRIVAL-STATUS-SYNC-001
+  version:
+    type: string
+  title:
+    type: string
+  description:
+    type: string
+  data_scope:
+    type: string
+    enum:
+      - synthetic
+      - masked_snapshot
+      - seeded
+      - simulation_generated
+  isolation:
+    type: object
+    required:
+      - strategy
+    fields:
+      strategy:
+        type: string
+        enum:
+          - dedicated_namespace
+          - unique_ids
+          - transaction_rollback
+          - disposable_environment
+          - read_only
+      collision_policy:
+        type: string
+  environment:
+    type: object
+    fields:
+      target:
+        type: string
+      region:
+        type: string
+      map_area:
+        type: string
+      network_profile:
+        type: string
+  entities:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - type
+        - initial_state
+  secrets:
+    type: object
+    fields:
+      required:
+        type: boolean
+      source:
+        type: string
+        description: 只能引用外部密钥管理，不允许写明文密钥
+  cleanup:
+    type: object
+    required:
+      - required
+      - actions
+    fields:
+      required:
+        type: boolean
+      actions:
+        type: array
+        items:
+          type: string
+  safety:
+    type: object
+    fields:
+      production_safe:
+        type: boolean
+      pii_allowed:
+        type: boolean
+      notes:
+        type: string

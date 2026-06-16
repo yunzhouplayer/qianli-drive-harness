@@ -1,0 +1,31 @@
+id: REPORT-ORDER-ARRIVAL-STATUS-SYNC-001
+version: v1
+execution:
+  run_id: RUN-20260616-0001
+  started_at: "2026-06-16T10:00:00+08:00"
+  finished_at: "2026-06-16T10:01:00+08:00"
+  environment: simulation
+  trigger: regression
+summary:
+  status: passed
+  total_cases: 1
+  passed: 1
+  failed: 0
+  blocked: 0
+results:
+  - case_id: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+    status: passed
+    validators:
+      - validator_id: VALIDATOR-ORDER-ARRIVAL-STATUS-SYNC-001
+        status: passed
+evidence:
+  - type: simulation_trace
+    ref: evidence/RUN-20260616-0001/simulation_trace.json
+  - type: validator_result
+    ref: evidence/RUN-20260616-0001/validator_result.json
+risks:
+  - level: P3
+    description: 当前仅覆盖正常网络，弱网和重复事件仍需补充。
+recommendations:
+  - 补充弱网推送延迟场景。
+  - 补充重复车辆到站事件幂等性场景。

@@ -1,0 +1,49 @@
+id: VALIDATOR-ORDER-ARRIVAL-STATUS-SYNC-001
+version: v1
+title: 车辆到站状态同步一致性校验器
+description: 校验车辆到站事件后，OMS、乘客端和调度链路状态在 30 秒内同步为 ARRIVED。
+inputs:
+  - simulation_trace
+  - oms_order_status_timeline
+  - passenger_client_status_timeline
+  - dispatch_event_log
+rules:
+  - id: oms_arrived_within_30_seconds
+    type: latency
+    assertion:
+      trigger_event: vehicle_arrived_pickup_point
+      target_observation: oms_order_status_timeline.ARRIVED
+      max_latency_seconds: 30
+  - id: passenger_arrived_within_30_seconds
+    type: latency
+    assertion:
+      trigger_event: vehicle_arrived_pickup_point
+      target_observation: passenger_client_status_timeline.ARRIVED
+      max_latency_seconds: 30
+  - id: no_status_regression_after_arrived
+    type: state_machine
+    assertion:
+      forbidden_transition:
+        from: ARRIVED
+        to: PICKING_UP
+supported_rule_types:
+  - latency
+  - state_machine
+  - existence
+result:
+  pass_condition: all_rules_passed
+  failure_output:
+    - failed_rule_id
+    - observed_latency_seconds
+    - related_trace_id
+    - state_snapshot
+evidence:
+  required: true
+  fields:
+    - trace_id
+    - order_id
+    - vehicle_id
+    - status_timeline
+created_by: agent
+review:
+  status: draft

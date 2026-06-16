@@ -1,0 +1,76 @@
+policy_set_id: harness-quality-gate-policies.v1
+description: Harness 质量门禁策略
+risk_policies:
+  - risk_level: P0
+    ref: contracts/common/risk-taxonomy.yaml#/risk_levels/P0
+    required_gates:
+      - schema_gate
+      - traceability_gate
+      - fixture_gate
+      - validator_gate
+      - evidence_gate
+      - review_gate
+    human_review_required: true
+    ci_execution_allowed: false
+  - risk_level: P1
+    ref: contracts/common/risk-taxonomy.yaml#/risk_levels/P1
+    required_gates:
+      - schema_gate
+      - traceability_gate
+      - fixture_gate
+      - validator_gate
+      - evidence_gate
+      - review_gate
+    human_review_required: true
+    ci_execution_allowed: true
+  - risk_level: P2
+    ref: contracts/common/risk-taxonomy.yaml#/risk_levels/P2
+    required_gates:
+      - schema_gate
+      - traceability_gate
+      - fixture_gate
+      - validator_gate
+    human_review_required: false
+    ci_execution_allowed: true
+  - risk_level: P3
+    ref: contracts/common/risk-taxonomy.yaml#/risk_levels/P3
+    required_gates:
+      - schema_gate
+      - traceability_gate
+    human_review_required: false
+    ci_execution_allowed: true
+
+agent_policies:
+  generated_assets:
+    required_gates:
+      - agent_artifact_gate
+      - schema_gate
+      - traceability_gate
+    human_review_required_for:
+      - P0
+      - P1
+      - generated_tool
+      - generated_fixture
+      - generated_validator
+  assumptions:
+    missing_assumptions_policy: warning
+    unverified_assumptions_policy: warning
+
+tool_policies:
+  production_allowed_default: false
+  restricted_tool_requires_human_review: true
+  dry_run_required_for:
+    - synthetic_write
+    - test_env_write
+    - production_read
+  forbidden_data_access:
+    - production_write_forbidden
+
+data_policies:
+  pii_allowed_default: false
+  production_data_allowed_default: false
+  cleanup_required_for:
+    - synthetic
+    - seeded
+    - simulation_generated
+    - masked_snapshot

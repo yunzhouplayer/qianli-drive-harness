@@ -1,0 +1,69 @@
+schema_id: agent-artifact.generated-tool.v1
+description: Agent 生成测试工具草案契约
+required:
+  - artifact_id
+  - artifact_type
+  - agent
+  - source_task
+  - target_asset
+  - generated_content
+  - assumptions
+  - safety
+  - quality_checks
+  - review
+fields:
+  artifact_id:
+    type: string
+  artifact_type:
+    type: string
+    enum:
+      - generated_tool
+  agent:
+    type: object
+    required:
+      - role
+      - version
+  source_task:
+    type: object
+    required:
+      - type
+      - ref
+  target_asset:
+    type: object
+    required:
+      - contract
+      - path
+    fields:
+      contract:
+        type: string
+        const: contracts/test-assets/tool.schema.yaml
+      path:
+        type: string
+  generated_content:
+    type: object
+    required:
+      - tool
+    fields:
+      tool:
+        type: object
+        description: 必须符合 test-assets/tool.schema.yaml
+  assumptions:
+    type: array
+    items:
+      type: string
+  safety:
+    type: object
+    required:
+      - dry_run_supported
+      - production_allowed
+      - permission_level
+  quality_checks:
+    type: object
+    required:
+      - input_output_schema_check
+      - permission_check
+      - rollback_or_cleanup_check
+  review:
+    type: object
+    required:
+      - status

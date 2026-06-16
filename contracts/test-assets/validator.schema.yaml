@@ -1,0 +1,80 @@
+schema_id: test-asset.validator.v1
+description: 确定性校验规则契约
+required:
+  - id
+  - version
+  - title
+  - inputs
+  - rules
+  - result
+fields:
+  id:
+    type: string
+    example: VALIDATOR-ORDER-ARRIVAL-STATUS-SYNC-001
+  version:
+    type: string
+  title:
+    type: string
+  description:
+    type: string
+  inputs:
+    type: array
+    items:
+      type: string
+    example:
+      - execution_result
+      - trace
+      - logs
+      - state_snapshots
+  rules:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - type
+        - assertion
+  supported_rule_types:
+    type: array
+    items:
+      type: string
+    default:
+      - equality
+      - latency
+      - state_machine
+      - existence
+      - range
+      - schema
+      - consistency
+      - data_quality
+  result:
+    type: object
+    required:
+      - pass_condition
+      - failure_output
+    fields:
+      pass_condition:
+        type: string
+      failure_output:
+        type: array
+        items:
+          type: string
+  evidence:
+    type: object
+    fields:
+      required:
+        type: boolean
+      fields:
+        type: array
+        items:
+          type: string
+  created_by:
+    type: string
+    enum:
+      - human
+      - agent
+  review:
+    type: object
+    fields:
+      status:
+        type: string

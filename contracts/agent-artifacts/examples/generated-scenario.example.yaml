@@ -1,0 +1,47 @@
+artifact_id: ARTIFACT-SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+artifact_type: generated_scenario
+agent:
+  role: test-design-agent
+  version: v1
+source_task:
+  type: vehicle_acceptance_issue
+  ref: vehicle-acceptance/issue-intake/VA-ISSUE-0001-arrival-status-sync.md
+target_asset:
+  contract: contracts/test-assets/scenario.schema.yaml
+  path: vv-automation/harness/assets/scenarios/order-arrival-status-sync.scenario.yaml
+generated_content:
+  scenario:
+    id: SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+    version: v1
+    title: 车辆到站后订单状态跨系统同步
+    domain: order
+    source:
+      type: vehicle_acceptance_issue
+      ref: vehicle-acceptance/issue-intake/VA-ISSUE-0001-arrival-status-sync.md
+    risk:
+      level: P1
+      impact_tags:
+        - passenger_experience
+        - oms_operation
+    coverage:
+      target: 接驾阶段到站状态同步
+      dimensions:
+        - normal_network
+    cases:
+      - CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+    created_by: agent
+    review:
+      status: draft
+assumptions:
+  - 状态同步阈值默认为 30 秒。
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+    - oms_operation
+quality_checks:
+  traceability_check: pass
+  schema_self_check: pass
+  hallucination_risk: low
+review:
+  status: pending_review

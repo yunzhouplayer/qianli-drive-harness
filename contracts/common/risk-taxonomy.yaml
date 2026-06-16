@@ -1,0 +1,50 @@
+taxonomy_id: common.risk-taxonomy.v1
+description: 测试资产、Agent 产物和质量门禁共用的风险等级与影响标签
+risk_levels:
+  - id: P0
+    name: 阻断级风险
+    description: 核心链路阻断、严重安全合规问题、可能导致发布禁止。
+    human_review_required: true
+
+  - id: P1
+    name: 高风险
+    description: 核心业务异常、明显影响用户体验、运营效率或关键质量指标。
+    human_review_required: true
+
+  - id: P2
+    name: 中风险
+    description: 一般功能异常、局部影响、存在规避方案。
+    human_review_required: false
+
+  - id: P3
+    name: 低风险
+    description: 体验细节、非核心问题、低影响优化项。
+    human_review_required: false
+
+impact_tags:
+  - id: passenger_experience
+    name: 乘客体验
+  - id: driver_experience
+    name: 司机体验
+  - id: dispatch_quality
+    name: 调度质量
+  - id: order_lifecycle
+    name: 订单生命周期
+  - id: billing_settlement
+    name: 计费结算
+  - id: vehicle_cloud_consistency
+    name: 车云一致性
+  - id: oms_operation
+    name: 运管操作
+  - id: station_acceptance
+    name: 场站验收
+  - id: data_quality
+    name: 数据质量
+  - id: security_compliance
+    name: 安全合规
+  - id: release_gate
+    name: 发布准入
+  - id: simulation_fidelity
+    name: 仿真保真度
+  - id: ci_ct_stability
+    name: 持续验证稳定性

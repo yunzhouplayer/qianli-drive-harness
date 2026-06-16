@@ -1,0 +1,26 @@
+taxonomy_id: common.review-status.v1
+description: 测试资产、Agent 产物和质量门禁共用的评审状态
+statuses:
+  - id: draft
+    name: 草稿
+    description: 初始草案，尚未进入正式评审。
+
+  - id: pending_review
+    name: 待评审
+    description: 已提交评审，等待人工或 Review Agent 检查。
+
+  - id: changes_requested
+    name: 要求修改
+    description: 评审未通过，需要补充或修改。
+
+  - id: approved
+    name: 已批准
+    description: 已通过评审，可进入候选或执行链路。
+
+  - id: rejected
+    name: 已拒绝
+    description: 明确不采纳。
+
+  - id: deprecated
+    name: 已废弃
+    description: 历史资产，不再建议使用。

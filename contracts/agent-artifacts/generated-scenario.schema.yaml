@@ -1,0 +1,69 @@
+schema_id: agent-artifact.generated-scenario.v1
+description: Agent 生成测试场景草案契约
+required:
+  - artifact_id
+  - artifact_type
+  - agent
+  - source_task
+  - target_asset
+  - generated_content
+  - assumptions
+  - risk
+  - quality_checks
+  - review
+fields:
+  artifact_id:
+    type: string
+    example: ARTIFACT-SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+  artifact_type:
+    type: string
+    enum:
+      - generated_scenario
+  agent:
+    type: object
+    required:
+      - role
+      - version
+  source_task:
+    type: object
+    required:
+      - type
+      - ref
+  target_asset:
+    type: object
+    required:
+      - contract
+      - path
+    fields:
+      contract:
+        type: string
+        const: contracts/test-assets/scenario.schema.yaml
+      path:
+        type: string
+  generated_content:
+    type: object
+    required:
+      - scenario
+    fields:
+      scenario:
+        type: object
+        description: 必须符合 test-assets/scenario.schema.yaml
+  assumptions:
+    type: array
+    items:
+      type: string
+  risk:
+    type: object
+    required:
+      - level
+      - impact_tags
+  quality_checks:
+    type: object
+    required:
+      - traceability_check
+      - schema_self_check
+      - hallucination_risk
+  review:
+    type: object
+    required:
+      - status

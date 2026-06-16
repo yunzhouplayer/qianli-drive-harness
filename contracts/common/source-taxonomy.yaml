@@ -1,0 +1,38 @@
+taxonomy_id: common.source-taxonomy.v1
+description: 测试资产、Agent 产物和报告共用的追溯来源分类
+sources:
+  - id: requirement
+    name: 产品需求
+    description: 来自 PRD、需求评审、迭代需求或业务规则变更。
+
+  - id: defect
+    name: 缺陷
+    description: 来自研发、测试或线上记录的缺陷。
+
+  - id: vehicle_acceptance_issue
+    name: 整车验收问题
+    description: 来自真实车辆、真实场站、真实路线验收测试的问题。
+
+  - id: online_issue
+    name: 线上问题
+    description: 来自线上监控、用户反馈、运营反馈或线上巡检的问题。
+
+  - id: exploratory_test
+    name: 探索性测试
+    description: 来自测试人员探索性测试发现的风险或场景。
+
+  - id: regression_gap
+    name: 回归缺口
+    description: 来自回归失败、漏测分析或覆盖率分析发现的缺口。
+
+  - id: manual_design
+    name: 人工设计
+    description: 测试人员基于经验主动设计的测试资产。
+
+  - id: simulation_discovery
+    name: 仿真发现
+    description: 来自世界仿真模型批量探索、异常注入或边界场景发现的问题。
+
+  - id: agent_suggestion
+    name: Agent 建议
+    description: Agent 基于需求、缺陷、历史经验或评估结果提出的测试建议。

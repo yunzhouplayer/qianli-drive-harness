@@ -1,0 +1,44 @@
+id: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+version: v1
+title: 正常网络下车辆到站状态 30 秒内同步
+description: 模拟车辆到站事件，校验 OMS、乘客端和调度链路状态一致。
+scenario: SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+source:
+  type: vehicle_acceptance_issue
+  ref: vehicle-acceptance/issue-intake/VA-ISSUE-0001-arrival-status-sync.md
+execution:
+  type: simulation
+  environment: simulation
+  timeout_seconds: 60
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: contracts/test-assets/examples/fixture.example.yaml
+steps:
+  - name: 初始化订单和车辆
+    action: prepare_fixture
+  - name: 注入车辆到站事件
+    action: emit_vehicle_arrived_event
+  - name: 采集状态时间线
+    action: collect_status_timelines
+tools:
+  - TOOL-SIM-EMIT-VEHICLE-EVENT-001
+validators:
+  - contracts/test-assets/examples/validator.example.yaml
+expected_result:
+  summary: OMS、乘客端和调度链路在 30 秒内同步 ARRIVED。
+  evidence:
+    - simulation_trace
+    - status_timeline
+    - validator_result
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+    - oms_operation
+tags:
+  - regression
+  - simulation
+created_by: agent
+review:
+  status: draft

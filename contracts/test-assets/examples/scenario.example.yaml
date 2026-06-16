@@ -1,0 +1,33 @@
+id: SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+version: v1
+title: 车辆到站后订单状态跨系统同步
+description: 验证车辆到达上车点后，OMS、乘客端和调度链路能在阈值内同步 ARRIVED 状态。
+domain: order
+source:
+  type: vehicle_acceptance_issue
+  ref: vehicle-acceptance/issue-intake/VA-ISSUE-0001-arrival-status-sync.md
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+    - oms_operation
+    - dispatch_quality
+coverage:
+  target: 接驾阶段车辆到站状态同步一致性
+  dimensions:
+    - normal_network
+    - delayed_push
+    - duplicate_vehicle_event
+simulation_story: world-sim/scenario-registry/order-arrival-status-sync.story.yaml
+cases:
+  - contracts/test-assets/examples/case.example.yaml
+owner: qa-platform
+tags:
+  - order
+  - arrival
+  - status-sync
+created_by: agent
+review:
+  status: draft
+  reviewers:
+    - qa-owner
