@@ -4,6 +4,10 @@
 
 本项目用于沉淀软件测试侧的测试开发 Harness、多 Agent 协同配置、测试资产规范，以及与整车验收业务、世界仿真模型之间的标准接口。
 
+如果需要快速理解整个平台全貌，优先阅读：
+
+- [docs/vit-platform-overview.md](docs/vit-platform-overview.md)
+
 ## 核心边界
 
 - `vehicle-acceptance/`：整车测试验收域，负责任务排布、状态查询、结果反馈和真实问题沉淀。
