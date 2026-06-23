@@ -168,11 +168,11 @@ vm.runInContext(fs.readFileSync("app.js", "utf8"), sandbox);
     throw new Error("Expected P0/P1 cases to require human review.");
   }
 
-  if (artifacts.collaboration.agents.length !== 4) {
-    throw new Error("Expected collaboration board for four agents.");
+  if (artifacts.collaboration.agents.length !== 5) {
+    throw new Error("Expected collaboration board for five agents.");
   }
 
-  ["product-agent", "development-agent", "testing-agent", "review-agent"].forEach((agentId) => {
+  ["product-agent", "development-agent", "testing-agent", "review-agent", "critic-agent"].forEach((agentId) => {
     if (!artifacts.collaboration.agents.some((agent) => agent.id === agentId)) {
       throw new Error(`Expected collaboration agent: ${agentId}.`);
     }

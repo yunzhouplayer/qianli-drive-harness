@@ -1,5 +1,7 @@
 binding_id: agile-testcase-generation.v1
 workflow: agents/workflows/agile-testcase-generation.md
+prompt_template: agents/prompts/agile-testcase-generation.md
+eval_suite: agents/evals/prompt-regression
 agents:
   - role: product-agent
     role_file: agents/roles/product-agent.md
@@ -22,9 +24,27 @@ agents:
       - test-strategy-design
       - functional-testcase-generation
       - testcase-review
+
+  - role: review-agent
+    role_file: agents/roles/review-agent.md
+    skills:
+      - schema-gate-review
+      - traceability-gate-review
+      - evidence-gate-review
+      - release-readiness-review
+
+  - role: critic-agent
+    role_file: agents/roles/critic-agent.md
+    skills:
+      - reflection-review
+      - coverage-gap-analysis
+      - duplicate-detection
+      - repair-scope-design
 quality_targets:
   adoption_rate: 0.9
-  coverage_rate: 0.95
+  requirement_coverage_rate: 1.0
+  test_point_coverage_rate: 0.95
+  max_duplicate_rate: 0.05
 review_rules:
   - risk_level: P0
     human_review_required: true
@@ -34,3 +54,12 @@ review_rules:
     human_review_required: false
   - risk_level: P3
     human_review_required: false
+reflection_rules:
+  - finding_type: coverage_gap
+    action: repair_or_compensate
+  - finding_type: traceability_gap
+    action: block_until_fixed
+  - finding_type: quality_gap
+    action: require_review
+  - finding_type: clarification_gap
+    action: require_human_confirmation

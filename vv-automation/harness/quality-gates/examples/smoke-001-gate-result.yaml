@@ -29,8 +29,13 @@ results:
     findings:
       - severity: high
         message: P1 asset requires human review before becoming executable.
+  - gate_id: reflection_gate
+    status: warning
+    findings:
+      - severity: medium
+        message: Smoke asset predates Critic reflection output; require reflection review before release readiness.
 decision:
   status: blocked
   executable: false
   reportable: false
-  reason: 契约链路可表达，但 P1 风险资产未经过人工评审，不能进入执行链路。
+  reason: 契约链路可表达，但 P1 风险资产未经过人工评审，且尚无 Critic 反思结果，不能进入执行链路。

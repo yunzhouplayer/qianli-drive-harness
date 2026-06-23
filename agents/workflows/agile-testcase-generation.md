@@ -2,7 +2,7 @@
 
 ## 目标
 
-通过 Product Agent、Development Agent、Testing Agent 三类 Agent 的协作，实现从需求导入到测试用例评审的测试开发闭环。
+通过 Product Agent、Development Agent、Testing Agent、Review Agent 和 Critic Agent 五类 Agent 的协作，实现从需求导入到测试资产准入的测试开发闭环。
 
 ## 敏捷映射
 
@@ -12,8 +12,8 @@
 | Sprint Planning | Product + Development + Testing 共同确认范围、风险和测试策略 |
 | Development | Development Agent 输出技术影响和测试工具建议 |
 | Testing | Testing Agent 生成测试点、策略和用例 |
-| Review | Testing Agent 自动评审，P0/P1 进入人工评审 |
-| Retrospective | 汇总采纳率、覆盖率、人工修改点和改进建议 |
+| Review | Review Agent 执行资产准入、Schema、追溯、Evidence 和 Review Gate 检查 |
+| Retrospective | Critic Agent 汇总覆盖缺口、重复项、澄清缺口和 repair 建议 |
 
 ## 阶段
 
@@ -75,25 +75,47 @@ Testing Agent 负责：
 
 ### 7. 用例评审
 
-自动评审：
+Review Agent 负责：
 
-- 检查来源追溯。
-- 检查步骤和预期结果完整性。
-- 检查风险等级。
-- 检查重复用例。
-- 检查覆盖率。
+- 检查测试资产是否符合 `contracts/test-assets/`。
+- 检查 Agent 产物是否符合 `contracts/agent-artifacts/`。
+- 检查来源追溯、Fixture、Validator 和 Evidence 引用。
+- 检查风险等级和人工评审状态。
+- 输出 Harness Gate 结果和准出判断。
 
 人工评审：
 
 - P0/P1 用例必须人工评审。
 - 需求澄清不足时必须人工确认。
 
+### 8. Critic 反思与修复
+
+Critic Agent 负责：
+
+- 检查每个需求单元是否形成 `需求单元 -> 测试点 -> 测试用例` 闭环。
+- 检查测试点和用例是否重复、过泛或缺少边界/异常路径。
+- 检查澄清项是否被后续资产实际消费。
+- 对未覆盖需求提出最小 repair 范围。
+- 对确定性补偿资产标记 warning 和人工复核要求。
+
+输出：
+
+- `Reflection Findings`。
+- `Coverage Gaps`。
+- `Traceability Gaps`。
+- `Quality Gaps`。
+- `Clarification Gaps`。
+- `Repair Scope`。
+
 ## 质量目标
 
 - 需求清晰时，测试用例采纳率目标高于 90%。
+- 需求清晰时，需求闭环覆盖率目标为 100%。
 - 需求清晰时，测试点覆盖率目标高于 95%。
 - 中间产物必须可查看、可追溯。
 - Agent 产物必须进入质量门禁。
+- Critic 发现的 `coverage_gap` 必须触发 repair 或确定性补偿。
+- 确定性补偿资产必须标记为 warning，并进入人工复核。
 
 ## 参考实践
 

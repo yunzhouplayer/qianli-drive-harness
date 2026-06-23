@@ -995,6 +995,8 @@ function buildCollaborationBoard(intake, review, technical, testPoints, strategy
   const p0Cases = cases.filter((testCase) => testCase.priority === "P0").length;
   const p1Cases = cases.filter((testCase) => testCase.priority === "P1").length;
   const blockedAssets = gateResults.results.filter((item) => item.status === "blocked").length;
+  const uncoveredRequirements = reviewResult.uncoveredRequirementUnitIds?.length || 0;
+  const criticWarnings = blockedAssets + uncoveredRequirements;
   return {
     artifactId: "AGILE-COLLABORATION-001",
     method: "agile-test-development",
@@ -1031,9 +1033,18 @@ function buildCollaborationBoard(intake, review, technical, testPoints, strategy
         role: "Harness Gate 与准出质量校验",
         owns: ["CASE-REVIEW", "QUALITY-GATES", "RELEASE-READINESS"],
         produced: [reviewResult.artifactId, gateResults.gateSet],
-        handoffTo: "human-reviewer",
+        handoffTo: "critic-agent",
         status: blockedAssets ? "needs_human_review" : "done",
         summary: `${blockedAssets} 个资产被门禁阻断，P0/P1 用例需人工确认后进入主资产。`,
+      },
+      {
+        id: "critic-agent",
+        role: "反思评审与缺口修复建议",
+        owns: ["REFLECTION-FINDINGS", "COVERAGE-GAPS", "REPAIR-SCOPE"],
+        produced: [reviewResult.artifactId, gateResults.gateSet],
+        handoffTo: "human-reviewer",
+        status: criticWarnings ? "needs_review" : "done",
+        summary: `${uncoveredRequirements} 个需求闭环缺口，${blockedAssets} 个门禁阻断；覆盖或质量缺口需进入 repair 或人工复核。`,
       },
     ],
   };
@@ -2019,7 +2030,7 @@ function renderReadiness({ releaseReadiness }) {
 function renderCollaboration({ collaboration }) {
   $("#collaboration").innerHTML = `
     <h3>Agent 敏捷协作看板</h3>
-    <p class="muted">这里展示 Product、Development、Testing、Review/Harness Gate 在本轮测试开发中的产物、交接对象和状态。配置 LLM 后，后端会优先生成结构化候选资产。</p>
+    <p class="muted">这里展示 Product、Development、Testing、Review/Harness Gate、Critic 在本轮测试开发中的产物、交接对象和状态。配置 LLM 后，后端会优先生成结构化候选资产。</p>
     <table><thead><tr><th>Agent</th><th>职责</th><th>产物</th><th>交接给</th><th>状态</th><th>摘要</th></tr></thead><tbody>
       ${collaboration.agents
         .map(

@@ -2,9 +2,9 @@
 
 ## 结论
 
-本 MVP 用于验证 Product Agent、Development Agent、Testing Agent 和 Review Agent / Harness Gate 通过敏捷式协作生成、审查和沉淀测试资产的可行性。
+本 MVP 用于验证 Product Agent、Development Agent、Testing Agent、Review Agent / Harness Gate 和 Critic Agent 通过敏捷式协作生成、审查、反思和沉淀测试资产的可行性。
 
-第一阶段聚焦功能测试用例生成，采用“两阶段 LLM/RAG 推理 + 规则兜底”的方式验证流程、追溯和评审门禁。未配置 `OPENAI_API_KEY` 时，工具自动回退为本地 RAG + 规则链路；配置 Key 后，先由 LLM 基于原始需求 intake 拆分需求单元并列出 Product Agent 待澄清项，用户补充澄清后，再由 LLM/RAG 生成 Dev Agent 技术影响、Test Agent 测试点/用例和 Review Agent / Harness Gate 门禁结果。
+第一阶段聚焦功能测试用例生成，采用“两阶段 LLM/RAG 推理 + 规则兜底”的方式验证流程、追溯、评审门禁和 Critic 反思闭环。未配置 `OPENAI_API_KEY` 时，工具自动回退为本地 RAG + 规则链路；配置 Key 后，先由 LLM 基于原始需求 intake 拆分需求单元并列出 Product Agent 待澄清项，用户补充澄清后，再由 LLM/RAG 生成 Dev Agent 技术影响、Test Agent 测试点/用例、Review Agent / Harness Gate 门禁结果和 Critic Agent 反思发现。
 
 ## 用户目标
 
@@ -23,6 +23,7 @@
 - RAG 业务知识检索。
 - 可选 LLM 需求解析和后续 Agent 推理。
 - Agent 资产展示，包括澄清项、技术影响、测试点、用例和门禁结果。
+- Critic 反思展示，包括覆盖缺口、追溯缺口、质量缺口、澄清缺口和 repair/补偿状态。
 - 测试点提取。
 - 功能测试策略生成。
 - 功能测试用例生成。
@@ -36,14 +37,16 @@
 - 后端持久化。
 - 用户权限系统。
 - 接口测试、性能测试、兼容性测试的完整生成。
-- 真实覆盖率计算。
+- 生产级覆盖率统计和长期趋势看板。
 
 ## 质量目标
 
 - 需求清晰时，目标采纳率高于 90%。
-- 需求清晰时，目标覆盖率高于 95%。
+- 需求清晰时，需求闭环覆盖率目标为 100%。
+- 需求清晰时，测试点覆盖率目标高于 95%。
 - 每条用例必须可追溯到需求输入、澄清项或技术影响项。
 - P0/P1 用例必须人工评审。
+- Critic 发现的覆盖缺口必须触发 repair 或确定性补偿；确定性补偿资产必须标记 warning。
 
 ## 关键页面
 
@@ -54,6 +57,7 @@
 - 测试策略。
 - 测试用例。
 - 用例评审。
+- LLM/RAG 增强与 Critic 反思。
 - 追溯视图。
 
 ## MVP 成功标准
@@ -61,8 +65,9 @@
 - 用户能在网页中输入多段需求。
 - 工具能生成所有中间产物。
 - 工具能展示中间产物 JSON。
-- 工具能展示四类 Agent 的协作过程。
+- 工具能展示五类 Agent 的协作过程。
 - 工具能生成不少于 5 条结构化功能测试用例。
 - 工具能标记 P0/P1 用例需人工评审。
 - 工具能导出 JSON 产物。
 - 工具能导出 `contracts/test-assets/case.schema.yaml` 风格测试资产。
+- 工具能输出需求闭环覆盖率、测试点覆盖率和 Critic 反思发现。

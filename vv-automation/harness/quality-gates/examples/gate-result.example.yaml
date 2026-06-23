@@ -24,6 +24,11 @@ results:
     findings:
       - severity: low
         message: Evidence plan is declared through expected_result but no runtime evidence path exists before execution.
+  - gate_id: reflection_gate
+    status: warning
+    findings:
+      - severity: low
+        message: No Critic reflection artifact exists for this static example; require reflection before release readiness.
 decision:
   status: warning
   executable: true

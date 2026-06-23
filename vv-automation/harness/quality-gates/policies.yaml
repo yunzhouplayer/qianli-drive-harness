@@ -10,6 +10,7 @@ risk_policies:
       - validator_gate
       - evidence_gate
       - review_gate
+      - reflection_gate
     human_review_required: true
     ci_execution_allowed: false
   - risk_level: P1
@@ -21,6 +22,7 @@ risk_policies:
       - validator_gate
       - evidence_gate
       - review_gate
+      - reflection_gate
     human_review_required: true
     ci_execution_allowed: true
   - risk_level: P2
@@ -30,6 +32,7 @@ risk_policies:
       - traceability_gate
       - fixture_gate
       - validator_gate
+      - reflection_gate
     human_review_required: false
     ci_execution_allowed: true
   - risk_level: P3
@@ -37,6 +40,7 @@ risk_policies:
     required_gates:
       - schema_gate
       - traceability_gate
+      - reflection_gate
     human_review_required: false
     ci_execution_allowed: true
 
@@ -46,6 +50,7 @@ agent_policies:
       - agent_artifact_gate
       - schema_gate
       - traceability_gate
+      - reflection_gate
     human_review_required_for:
       - P0
       - P1
@@ -55,6 +60,12 @@ agent_policies:
   assumptions:
     missing_assumptions_policy: warning
     unverified_assumptions_policy: warning
+  reflection:
+    coverage_gap_policy: block
+    traceability_gap_policy: block
+    quality_gap_policy: warning
+    clarification_gap_policy: block
+    deterministic_compensation_policy: warning_requires_human_review
 
 tool_policies:
   production_allowed_default: false

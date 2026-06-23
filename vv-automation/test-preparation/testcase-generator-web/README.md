@@ -4,7 +4,7 @@
 
 这是测试用例自动生成工具的静态网页 MVP。
 
-当前版本以“真实需求文档解析 + 两阶段 Agent 协作 + 规则兜底 + RAG + 可选 LLM 推理”为主。Product、Development、Testing、Review/Harness Gate 会产出可审计的中间产物和交接状态；配置 `OPENAI_API_KEY` 后，后端会先调用真实 LLM 做需求单元拆分和待澄清项识别，再在用户补充澄清后调用 LLM 推理技术影响、测试点、测试用例和 Harness Gate。它用于验证需求导入、文档解析、澄清、测试点、测试策略、用例生成、用例评审、门禁和追溯查看的端到端体验。
+当前版本以“真实需求文档解析 + 两阶段 Agent 协作 + 规则兜底 + RAG + 可选 LLM 推理”为主。Product、Development、Testing、Review/Harness Gate、Critic 会产出可审计的中间产物和交接状态；配置 `OPENAI_API_KEY` 后，后端会先调用真实 LLM 做需求单元拆分和待澄清项识别，再在用户补充澄清后调用 LLM 推理技术影响、测试点、测试用例和 Harness Gate。它用于验证需求导入、文档解析、澄清、测试点、测试策略、用例生成、用例评审、反思修复、门禁和追溯查看的端到端体验。
 
 ## 运行方式
 
@@ -68,9 +68,10 @@ node server-real-llm-smoke.mjs
 ## 当前能力
 
 - 多文本需求导入。
-- Agent 敏捷协作看板，展示 Product、Development、Testing、Review/Harness Gate 四类角色的产物、交接对象和状态。
+- 工作流架构图见 [testcase-generator-workflow.md](../../../docs/architecture/testcase-generator-workflow.md)。
+- Agent 敏捷协作看板，展示 Product、Development、Testing、Review/Harness Gate、Critic 五类角色的产物、交接对象和状态。
 - 两阶段生成流程：先“分析需求”并列出待澄清项；用户补充澄清后，再“生成后续测试资产”。
-- LLM/RAG Agent 推理入口：后端基于原始需求 intake 和知识库检索业务规则，可选调用 LLM，输出需求解析发现、Product Agent 澄清项、Dev Agent 技术影响、Test Agent 测试点/用例、Review Agent / Harness Gate 门禁；失败或无 Key 时回退到本地 RAG 同构产物。
+- LLM/RAG Agent 推理入口：后端基于原始需求 intake 和知识库检索业务规则，可选调用 LLM，输出需求解析发现、Product Agent 澄清项、Dev Agent 技术影响、Test Agent 测试点/用例、Review Agent / Harness Gate 门禁、Critic 反思发现；失败或无 Key 时回退到本地 RAG 同构产物。
 - PDF 文档正文解析，产物中记录解析文件数、页数、字符数和解析器。
 - 文本类文件正文解析。
 - 图片、截图、扫描件支持通过“多模态转写 / 图片说明”人工转写后进入同一需求分析链路。

@@ -109,3 +109,20 @@ gates:
       - restricted_tool_requires_human_review
       - production_access_forbidden_or_reviewed
     fail_policy: block
+
+  - id: reflection_gate
+    title: Reflection Gate
+    applies_to:
+      - scenario
+      - case
+      - agent_artifact
+      - generated_case
+      - generated_scenario
+    checks:
+      - critic_findings_present_when_agent_generated
+      - coverage_gaps_resolved_or_repair_scoped
+      - traceability_gaps_resolved
+      - quality_gaps_reviewed
+      - clarification_gaps_confirmed_or_blocked
+      - deterministic_compensation_marked_warning
+    fail_policy: block

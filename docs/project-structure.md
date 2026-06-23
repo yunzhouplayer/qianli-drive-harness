@@ -151,7 +151,7 @@ qianli-drive-harness/
 - `harness/reports/`：报告、看板、指标、质量趋势。
 - `harness/observability/`：结构化日志、指标、链路追踪、执行诊断。
 - `harness/evidence/`：测试证据、截图、日志、trace、仿真轨迹、回归证明。
-- `harness/quality-gates/`：Schema 检查、安全检查、数据污染检查、Agent 产物准入。
+- `harness/quality-gates/`：Schema 检查、安全检查、数据污染检查、Agent 产物准入、Review/Critic 结果准入。
 - `test-preparation/`：需求分析、测试策略、用例生成。
 - `test-execution/`：接口/UI/场景自动化执行组织。
 - `test-feedback/`：缺陷分析、测试建议、结果归因。
@@ -183,7 +183,7 @@ Agent 负责生成、修改、评审、分析测试资产；Harness 负责约束
 
 建议职责：
 
-- `roles/`：需求 Agent、测试策略 Agent、测试开发 Agent、评审 Agent、分析 Agent。
+- `roles/`：Product、Development、Testing、Review、Critic 等通用测试开发 Agent。
 - `workflows/`：需求到用例、用例到工具、缺陷到回归、验收反馈到仿真故事等协作流程。
 - `prompts/`：Prompt 模板。
 - `policies/`：安全合规、数据边界、环境权限、输出约束。
@@ -191,6 +191,16 @@ Agent 负责生成、修改、评审、分析测试资产；Harness 负责约束
 - `skill-bindings/`：Agent 与 Skill 的绑定关系，声明不同角色可调用哪些能力。
 
 建议在 `evals/` 下优先建立 `prompt-regression/`，避免 Prompt 变更后只看输出是否“像样”，却没有回归基线。
+
+当前已沉淀的通用角色：
+
+- Product Agent：需求解析、验收标准和澄清项。
+- Development Agent：技术影响、系统边界和可测性。
+- Testing Agent：测试点、测试策略和测试用例。
+- Review Agent：Schema、追溯、Evidence 和准出门禁。
+- Critic Agent：反思评审、覆盖缺口、重复项和 repair 范围。
+
+这些角色不绑定单一网页工具，可复用于需求到测试资产、缺陷到回归、整车验收问题到软件回归、仿真故事生成和 CI/CT 准入评审。
 
 ### `skills/`
 

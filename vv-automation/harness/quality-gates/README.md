@@ -26,6 +26,7 @@ draft
 | Evidence Gate | 检查执行证据可留存 |
 | Agent Artifact Gate | 检查 Agent 产物假设、风险和自检记录 |
 | Review Gate | 检查高风险资产是否经过人工评审 |
+| Reflection Gate | 检查 Critic 反思发现是否已处理 |
 
 ## 准入策略
 
@@ -38,6 +39,8 @@ draft
 - Fixture 必须声明数据隔离和清理动作。
 - Validator 必须包含确定性规则，不能只依赖人工观察。
 - Report 必须关联 Evidence 和 Validator 结果。
+- Critic 发现 `coverage_gap` 或 `traceability_gap` 时不得直接准出。
+- 确定性补偿资产必须以 `warning` 进入人工复核，不能直接作为高质量最终资产。
 
 ## 门禁结果
 
@@ -64,4 +67,6 @@ draft
 - 敏感数据扫描。
 - Tool 权限和环境策略检查。
 - Agent 产物自检和人工评审状态检查。
+- Critic reflection finding 检查器。
+- coverage gap、duplicate candidate、repair scope 的准入判断。
 - CI/CT 中的门禁执行器。
