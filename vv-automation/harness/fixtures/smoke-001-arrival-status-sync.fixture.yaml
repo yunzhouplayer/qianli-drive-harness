@@ -1,0 +1,36 @@
+id: FIXTURE-ORDER-ARRIVAL-STATUS-SYNC-001
+version: v1
+title: 车辆到站状态同步测试数据
+description: 准备一个乘客、一个接驾中订单、一台被调度车辆和一个上车点。
+data_scope: synthetic
+isolation:
+  strategy: unique_ids
+  collision_policy: fail_fast
+environment:
+  target: simulation
+  region: shanghai_test_region
+  map_area: station_pickup_zone_alpha
+  network_profile: normal
+entities:
+  - id: passenger_smoke_001
+    type: passenger
+    initial_state: waiting_for_pickup
+  - id: vehicle_smoke_001
+    type: vehicle
+    initial_state: PICKING_UP
+  - id: order_smoke_001
+    type: order
+    initial_state: PICKING_UP
+secrets:
+  required: false
+  source: external_secret_manager
+cleanup:
+  required: true
+  actions:
+    - reset_order_status
+    - reset_vehicle_status
+    - purge_simulation_trace
+safety:
+  production_safe: false
+  pii_allowed: false
+  notes: 仅使用合成数据，不访问真实乘客信息和真实车辆轨迹。

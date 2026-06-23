@@ -1,0 +1,56 @@
+artifact_id: ARTIFACT-SMOKE-001-GENERATED-SCENARIO
+artifact_type: generated_scenario
+agent:
+  role: test-design-agent
+  version: v1
+source_task:
+  type: vehicle_acceptance_issue
+  ref: vehicle-acceptance/issue-intake/SMOKE-001-arrival-status-sync.md
+target_asset:
+  contract: contracts/test-assets/scenario.schema.yaml
+  path: vv-automation/harness/assets/scenarios/smoke-001-arrival-status-sync.scenario.yaml
+generated_content:
+  scenario:
+    id: SCN-ORDER-ARRIVAL-STATUS-SYNC-001
+    version: v1
+    title: 车辆到站后订单状态跨系统同步
+    description: 验证车辆到达上车点后，OMS 与乘客端能在阈值内同步 ARRIVED 状态。
+    domain: order
+    source:
+      type: vehicle_acceptance_issue
+      ref: vehicle-acceptance/issue-intake/SMOKE-001-arrival-status-sync.md
+    risk:
+      level: P1
+      impact_tags:
+        - passenger_experience
+        - oms_operation
+        - dispatch_quality
+    coverage:
+      target: 接驾阶段到站状态同步一致性
+      dimensions:
+        - normal_network
+        - status_push
+    cases:
+      - vv-automation/harness/assets/cases/smoke-001-arrival-status-sync.case.yaml
+    owner: qa-platform
+    tags:
+      - smoke-test
+      - order
+      - status-sync
+    created_by: agent
+    review:
+      status: pending_review
+assumptions:
+  - 状态同步阈值暂定为 30 秒。
+  - 本次冒烟只验证正常网络链路，不覆盖弱网和重复事件。
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+    - oms_operation
+quality_checks:
+  traceability_check: pass
+  schema_self_check: pass
+  hallucination_risk: low
+review:
+  status: pending_review

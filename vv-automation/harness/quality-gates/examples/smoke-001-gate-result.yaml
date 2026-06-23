@@ -1,0 +1,36 @@
+gate_run_id: GATE-RUN-SMOKE-001
+asset:
+  id: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+  type: case
+  path: vv-automation/harness/assets/cases/smoke-001-arrival-status-sync.case.yaml
+trigger:
+  type: manual
+  actor: qa-platform
+results:
+  - gate_id: schema_gate
+    status: passed
+    findings: []
+  - gate_id: traceability_gate
+    status: passed
+    findings: []
+  - gate_id: fixture_gate
+    status: passed
+    findings: []
+  - gate_id: validator_gate
+    status: passed
+    findings: []
+  - gate_id: evidence_gate
+    status: warning
+    findings:
+      - severity: low
+        message: Evidence plan is implied by expected_result but no dedicated evidence asset exists yet.
+  - gate_id: review_gate
+    status: blocked
+    findings:
+      - severity: high
+        message: P1 asset requires human review before becoming executable.
+decision:
+  status: blocked
+  executable: false
+  reportable: false
+  reason: 契约链路可表达，但 P1 风险资产未经过人工评审，不能进入执行链路。

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>测试用例自动生成工具 MVP</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">V&V 自动化 / 需求驱动测试开发</p>
+        <h1>测试用例自动生成工具</h1>
+      </div>
+      <div class="metrics">
+        <div>
+          <span id="coverageMetric">0%</span>
+          <label>需求闭环覆盖率</label>
+        </div>
+        <div>
+          <span id="adoptionMetric">0%</span>
+          <label>采纳率预测</label>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section>
+          <h2>流程</h2>
+          <ol class="steps" id="stepList">
+            <li class="active">需求导入</li>
+            <li>需求分析评审</li>
+            <li>人工澄清</li>
+            <li>测试点提取</li>
+            <li>测试策略</li>
+            <li>用例生成</li>
+            <li>用例评审</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Agent</h2>
+          <div class="agent product">Product</div>
+          <div class="agent dev">Development</div>
+          <div class="agent test">Testing</div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>需求导入</h2>
+            <button id="addText">+ 文本</button>
+          </div>
+          <div id="requirementInputs" class="input-stack">
+            <textarea placeholder="输入需求文本，例如：用户可在乘客端发起叫车，系统应在可服务区域内匹配最近空闲车辆，并实时展示订单状态。"></textarea>
+          </div>
+          <div class="file-row">
+            <label for="fileInput">多模态输入</label>
+            <input id="fileInput" type="file" multiple accept=".pdf,.txt,.md,.csv,.json,.png,.jpg,.jpeg,.webp,text/*,application/pdf,image/*">
+            <span>PDF 和文本文件会解析正文；图片、截图、扫描件请在下方补充转写内容。</span>
+          </div>
+          <div id="fileParseStatus" class="parse-status muted">尚未解析上传文档。</div>
+          <div class="clarification-entry">
+            <label for="multimodalNotes">多模态转写 / 图片说明</label>
+            <textarea id="multimodalNotes" placeholder="对图片、截图、扫描件、UE 标注等材料进行人工转写，例如：页面包含站点推荐列表，需展示历史站点和热点站点。"></textarea>
+          </div>
+          <div class="clarification-entry">
+            <label for="humanClarifications">人工澄清 / 补充说明</label>
+            <textarea id="humanClarifications" placeholder="针对澄清项补充明确口径，例如：实时状态同步阈值为 30 秒；无车时 3 秒内提示暂无可用车辆。"></textarea>
+          </div>
+          <div class="actions">
+            <button id="analyzeRequirements" class="primary">分析需求</button>
+            <button id="runPipeline" disabled>生成后续测试资产</button>
+            <button id="exportJson">导出 JSON</button>
+            <button id="exportAssets">导出测试资产</button>
+          </div>
+        </section>
+
+        <section class="tabs">
+          <button class="tab" data-tab="collaboration">协作看板</button>
+          <button class="tab" data-tab="llm">LLM/RAG 增强</button>
+          <button class="tab active" data-tab="review">需求评审</button>
+          <button class="tab" data-tab="units">需求单元</button>
+          <button class="tab" data-tab="clarify">澄清项</button>
+          <button class="tab" data-tab="tech">技术影响</button>
+          <button class="tab" data-tab="points">测试点</button>
+          <button class="tab" data-tab="strategy">测试策略</button>
+          <button class="tab" data-tab="cases">测试用例</button>
+          <button class="tab" data-tab="readiness">准出门禁</button>
+          <button class="tab" data-tab="trace">追溯</button>
+          <button class="tab" data-tab="artifacts">产物 JSON</button>
+          <button class="tab" data-tab="assets">测试资产</button>
+        </section>
+
+        <section id="collaboration" class="tab-panel"></section>
+        <section id="llm" class="tab-panel"></section>
+        <section id="review" class="tab-panel active"></section>
+        <section id="units" class="tab-panel"></section>
+        <section id="clarify" class="tab-panel"></section>
+        <section id="tech" class="tab-panel"></section>
+        <section id="points" class="tab-panel"></section>
+        <section id="strategy" class="tab-panel"></section>
+        <section id="cases" class="tab-panel"></section>
+        <section id="readiness" class="tab-panel"></section>
+        <section id="trace" class="tab-panel"></section>
+        <section id="artifacts" class="tab-panel"></section>
+        <section id="assets" class="tab-panel"></section>
+      </section>
+    </main>
+
+    <script src="app.js?v=20260618-llm-staged"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+id: CASE-ORDER-ARRIVAL-STATUS-SYNC-NORMAL-001
+version: v1
+title: 正常网络下车辆到站状态 30 秒内同步
+description: 注入车辆到站事件，校验 OMS 与乘客端状态同步延迟不超过 30 秒。
+scenario: vv-automation/harness/assets/scenarios/smoke-001-arrival-status-sync.scenario.yaml
+source:
+  type: vehicle_acceptance_issue
+  ref: vehicle-acceptance/issue-intake/SMOKE-001-arrival-status-sync.md
+execution:
+  type: simulation
+  environment: simulation
+  timeout_seconds: 60
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: vv-automation/harness/fixtures/smoke-001-arrival-status-sync.fixture.yaml
+steps:
+  - name: 准备乘客、车辆和订单
+    action: prepare_fixture
+  - name: 注入车辆到站事件
+    action: emit_vehicle_arrived_event
+  - name: 采集 OMS 和乘客端状态时间线
+    action: collect_status_timelines
+validators:
+  - vv-automation/harness/validators/smoke-001-arrival-status-sync.validator.yaml
+expected_result:
+  summary: OMS 与乘客端在车辆到站事件后 30 秒内同步为 ARRIVED。
+  evidence:
+    - status_timeline
+    - dispatch_event_log
+    - validator_result
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+    - oms_operation
+tags:
+  - smoke-test
+  - simulation
+  - regression
+created_by: agent
+review:
+  status: pending_review

@@ -1,0 +1,36 @@
+binding_id: agile-testcase-generation.v1
+workflow: agents/workflows/agile-testcase-generation.md
+agents:
+  - role: product-agent
+    role_file: agents/roles/product-agent.md
+    skills:
+      - requirement-analysis
+      - clarification-management
+      - acceptance-criteria-design
+
+  - role: development-agent
+    role_file: agents/roles/development-agent.md
+    skills:
+      - technical-impact-analysis
+      - testability-analysis
+      - tooling-design
+
+  - role: testing-agent
+    role_file: agents/roles/testing-agent.md
+    skills:
+      - test-point-extraction
+      - test-strategy-design
+      - functional-testcase-generation
+      - testcase-review
+quality_targets:
+  adoption_rate: 0.9
+  coverage_rate: 0.95
+review_rules:
+  - risk_level: P0
+    human_review_required: true
+  - risk_level: P1
+    human_review_required: true
+  - risk_level: P2
+    human_review_required: false
+  - risk_level: P3
+    human_review_required: false

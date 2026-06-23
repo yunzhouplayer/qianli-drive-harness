@@ -29,3 +29,7 @@ coverage/
 reports/
 artifacts/
 tmp/
+
+# Local tool scratch data
+.hatch-pet-runs/
+.playwright-cli/
