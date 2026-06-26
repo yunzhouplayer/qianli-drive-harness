@@ -1,0 +1,59 @@
+template_id: TPL-EVIDENCE-001
+version: v1
+artifact_type: evidence
+stage: test_execution_evidence
+evidence:
+  evidence_id: EVIDENCE-RUN-CASE-001
+  run_id: RUN-YYYYMMDD-0001
+  case_id: CASE-DOMAIN-TOPIC-001
+  scenario_id: SCN-DOMAIN-TOPIC-001
+  collected_at: yyyy-mm-ddThh:mm:ssZ
+  collector:
+    type: harness_runtime
+    id: ""
+  environment:
+    target: local
+    build_version: ""
+    app_version: ""
+    data_scope: synthetic
+  items:
+    - id: EV-001
+      type: screenshot
+      ref: vv-automation/harness/evidence/RUN-YYYYMMDD-0001/screenshot.png
+      description: ""
+      produced_by: manual_or_runtime_or_validator
+      related_step: ""
+      related_validator_rule: ""
+      checksum: ""
+      retention:
+        required: true
+        days: 180
+  validator_results:
+    - validator_id: VALIDATOR-DOMAIN-TOPIC-001
+      status: pending
+      passed_rules: []
+      failed_rules: []
+      evidence_item_refs:
+        - EV-001
+  diagnostics:
+    logs: []
+    traces: []
+    requests: []
+    state_snapshots: []
+  privacy:
+    contains_pii: false
+    desensitized: true
+    sensitive_fields: []
+  integrity:
+    immutable_after_report: true
+    checksum_algorithm: sha256
+quality_checks:
+  evidence_type_declared: pending
+  evidence_ref_or_plan_present: pending
+  validator_result_linked: pending
+  pii_policy_declared: pending
+  retention_declared: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

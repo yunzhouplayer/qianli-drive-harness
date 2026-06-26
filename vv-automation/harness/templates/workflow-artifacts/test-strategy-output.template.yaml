@@ -1,0 +1,103 @@
+template_id: TPL-TEST-STRATEGY-OUTPUT-001
+version: v1
+artifact_type: test_strategy_output
+stage: test_strategy_generation
+source_standard:
+  id: TPL-TEST-STRATEGY-ENTRY-001
+  path: vv-automation/harness/templates/source-standards/test-strategy-generation-entry-standard.md
+metadata:
+  project: ""
+  feature: ""
+  owner: ""
+  created_by: human_or_agent
+  created_at: yyyy-mm-dd
+entry_inputs:
+  function_point_list_id: ""
+  requirement_analysis_id: ""
+  prototype_package_ref: ""
+entry_review:
+  module_structure_present: pending
+  function_points_complete: pending
+  prototype_screenshots_bound: pending
+  hidden_logic_resolved_or_tracked: pending
+  cross_module_dependencies_clear: pending
+scope:
+  in_scope_modules:
+    - module: ""
+      submodules:
+        - ""
+  out_of_scope:
+    - item: ""
+      reason: ""
+assumptions:
+  - id: ASM-001
+    description: ""
+    risk_if_wrong: ""
+    owner: ""
+risk_analysis:
+  - id: RISK-001
+    risk_level: P1
+    impact_tags:
+      - order_lifecycle
+    description: ""
+    related_requirements:
+      - REQ-001
+    related_function_points:
+      - TF-MODULE-001
+    mitigation: ""
+test_approaches:
+  - type: functional
+    objective: ""
+    target_function_points:
+      - TF-MODULE-001
+    design_methods:
+      - equivalence_partitioning
+      - boundary_value_analysis
+    priority: P1
+  - type: data_consistency
+    objective: ""
+    target_function_points: []
+    design_methods: []
+    priority: P1
+coverage_plan:
+  requirement_coverage_target: 100
+  function_point_coverage_target: 100
+  ui_coverage_target: 100
+  exception_branch_coverage_target: 100
+  required_dimensions:
+    - normal_flow
+    - exception_flow
+    - boundary_condition
+    - permission_or_state_constraint
+case_generation_rules:
+  case_id_pattern: CASE-{DOMAIN}-{TOPIC}-{SEQ}
+  p0_p1_review_required: true
+  each_case_must_link_function_point: true
+  each_case_must_have_fixture: true
+  each_case_must_have_validator: true
+execution_plan:
+  environments:
+    - local
+  smoke_candidates:
+    - TF-MODULE-001
+  regression_candidates: []
+  manual_review_required:
+    - reason: P0/P1 risk
+      targets: []
+dependencies:
+  systems:
+    - name: ""
+      dependency_type: upstream_or_downstream
+      test_double_allowed: true
+  data:
+    - ""
+quality_checks:
+  entry_inputs_passed: pending
+  risk_level_assigned: pending
+  coverage_targets_defined: pending
+  out_of_scope_declared: pending
+  case_generation_rules_defined: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

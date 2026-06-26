@@ -1,0 +1,79 @@
+template_id: TPL-FIXTURE-001
+version: v1
+artifact_type: fixture
+stage: test_execution_preparation
+source_contract:
+  schema_id: test-asset.fixture.v1
+  path: contracts/test-assets/fixture.schema.yaml
+fixture:
+  id: FIXTURE-DOMAIN-TOPIC-001
+  version: v1
+  title: ""
+  description: ""
+  source:
+    type: requirement
+    refs:
+      - REQ-001
+  data_scope: synthetic
+  isolation:
+    strategy: unique_ids
+    collision_policy: fail_fast
+    namespace: ""
+  environment:
+    target: local
+    region: ""
+    map_area: ""
+    network_profile: normal
+    dependencies:
+      - system: ""
+        mode: real_or_mock
+        endpoint_ref: ""
+  entities:
+    - id: entity_001
+      type: passenger_or_order_or_vehicle_or_station
+      initial_state: ""
+      required_fields:
+        - name: ""
+          value: ""
+          source: synthetic
+      relationships:
+        - target_entity_id: ""
+          relation: ""
+  test_data:
+    seed: ""
+    files: []
+    generated_records:
+      - entity_id: entity_001
+        record_ref: ""
+  secrets:
+    required: false
+    source: external_secret_manager
+    plaintext_allowed: false
+  setup:
+    required: true
+    actions:
+      - id: SETUP-001
+        action: ""
+        expected_result: ""
+  cleanup:
+    required: true
+    actions:
+      - ""
+    verification:
+      - ""
+  safety:
+    production_safe: false
+    pii_allowed: false
+    data_desensitized: true
+    notes: ""
+quality_checks:
+  data_scope_declared: pending
+  isolation_strategy_declared: pending
+  cleanup_required_declared: pending
+  cleanup_actions_present_when_required: pending
+  pii_policy_declared: pending
+  plaintext_secret_absent: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

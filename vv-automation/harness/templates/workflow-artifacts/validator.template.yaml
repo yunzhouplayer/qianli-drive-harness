@@ -1,0 +1,74 @@
+template_id: TPL-VALIDATOR-001
+version: v1
+artifact_type: validator
+stage: test_execution_validation
+source_contract:
+  schema_id: test-asset.validator.v1
+  path: contracts/test-assets/validator.schema.yaml
+validator:
+  id: VALIDATOR-DOMAIN-TOPIC-001
+  version: v1
+  title: ""
+  description: ""
+  source:
+    type: requirement
+    refs:
+      - REQ-001
+  applies_to:
+    case_ids:
+      - CASE-DOMAIN-TOPIC-001
+    function_point_ids:
+      - TF-MODULE-001
+  inputs:
+    - execution_result
+    - logs
+    - state_snapshots
+  rules:
+    - id: rule_001
+      type: equality
+      assertion:
+        actual: ""
+        expected: ""
+        operator: equals
+      severity: blocker
+      failure_message: ""
+  supported_rule_types:
+    - equality
+    - latency
+    - state_machine
+    - existence
+    - range
+    - schema
+    - consistency
+    - data_quality
+  result:
+    pass_condition: all_rules_passed
+    failure_output:
+      - failed_rule_id
+      - actual_value
+      - expected_value
+      - evidence_ref
+      - diagnostic_hint
+  evidence:
+    required: true
+    fields:
+      - run_id
+      - case_id
+      - trace_id
+      - logs
+      - state_snapshot
+  deterministic_boundary:
+    ai_judgement_allowed: false
+    manual_observation_allowed: false
+    tolerance_notes: ""
+  created_by: human_or_agent
+  review:
+    status: draft
+    reviewers: []
+quality_checks:
+  validator_reference_present: pending
+  deterministic_rules_present: pending
+  failure_output_declared: pending
+  evidence_fields_declared: pending
+  ai_only_assertion_absent: pending
+  p0_p1_reviewed: pending

@@ -1,0 +1,79 @@
+template_id: TPL-TEST-CASE-YAML-001
+version: v1
+artifact_type: test_case
+stage: test_case_generation
+source_contract:
+  schema_id: test-asset.case.v1
+  path: contracts/test-assets/case.schema.yaml
+delivery_template:
+  id: TPL-TEST-CASE-XLSX-001
+  path: vv-automation/harness/templates/case-workbook/test-case-template.xlsx
+case:
+  id: CASE-DOMAIN-TOPIC-001
+  version: v1
+  title: ""
+  description: ""
+  scenario: SCN-DOMAIN-TOPIC-001
+  source:
+    type: requirement
+    ref: REQ-001
+  traceability:
+    requirement_ids:
+      - REQ-001
+    function_point_ids:
+      - TF-MODULE-001
+    strategy_id: ""
+    clarification_ids: []
+    ui_refs: []
+  execution:
+    type: manual
+    environment: local
+    timeout_seconds: 300
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-DOMAIN-TOPIC-001
+  preconditions:
+    - ""
+  steps:
+    - name: ""
+      action: ""
+      input_data: ""
+      expected_observation: ""
+  tools: []
+  validators:
+    - VALIDATOR-DOMAIN-TOPIC-001
+  expected_result:
+    summary: ""
+    evidence:
+      - screenshot
+      - validator_result
+  risk:
+    level: P1
+    impact_tags:
+      - passenger_experience
+  tags:
+    - functional
+  created_by: human_or_agent
+  review:
+    status: draft
+    reviewers: []
+    history: []
+xlsx_mapping:
+  用例ID: case.id
+  所属模块-子模块: case.traceability.function_point_ids
+  测试点: case.title
+  优先级: case.risk.level
+  用例类型: case.execution.type
+  前置条件: case.preconditions
+  测试步骤: case.steps
+  预期结果: case.expected_result.summary
+  评审结果: case.review.status
+quality_checks:
+  schema_fields_complete: pending
+  requirement_traceability_present: pending
+  function_point_traceability_present: pending
+  fixture_present: pending
+  validator_present: pending
+  p0_p1_reviewed: pending
+  expected_result_measurable: pending

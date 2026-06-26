@@ -1,0 +1,76 @@
+template_id: TPL-TRACEABILITY-MATRIX-001
+version: v1
+artifact_type: traceability_matrix
+stage: review_and_gate
+metadata:
+  project: ""
+  feature: ""
+  owner: ""
+  created_at: yyyy-mm-dd
+inputs:
+  requirement_analysis_id: ""
+  function_point_list_id: ""
+  strategy_id: ""
+  case_set_id: ""
+mappings:
+  - requirement_id: REQ-001
+    requirement_title: ""
+    source_refs:
+      - DOC-REQ-001#section
+    function_point_ids:
+      - TF-MODULE-001
+    strategy_items:
+      - approach_type: functional
+        risk_id: RISK-001
+    case_ids:
+      - CASE-DOMAIN-TOPIC-001
+    fixture_ids:
+      - FIXTURE-DOMAIN-TOPIC-001
+    validator_ids:
+      - VALIDATOR-DOMAIN-TOPIC-001
+    evidence_plan:
+      - screenshot
+      - validator_result
+    coverage_status: covered
+    gaps: []
+ui_mappings:
+  - ui_ref: UI-001
+    page_name: ""
+    element_name: ""
+    function_point_ids:
+      - TF-MODULE-001
+    case_ids:
+      - CASE-DOMAIN-TOPIC-001
+coverage_summary:
+  requirement_total: 0
+  requirement_covered: 0
+  requirement_coverage_rate: 0
+  function_point_total: 0
+  function_point_covered_by_case: 0
+  function_point_coverage_rate: 0
+  ui_element_total: 0
+  ui_element_covered: 0
+  ui_element_coverage_rate: 0
+  p0_p1_case_total: 0
+  p0_p1_reviewed: 0
+gaps:
+  coverage_gaps:
+    - id: GAP-COVERAGE-001
+      type: requirement_without_case
+      target_ref: REQ-001
+      severity: blocker
+      owner: ""
+      repair_action: ""
+      status: open
+  traceability_gaps: []
+  review_gaps: []
+quality_checks:
+  all_requirements_have_function_points: pending
+  all_function_points_have_cases: pending
+  all_cases_have_fixture_and_validator: pending
+  all_p0_p1_cases_reviewed: pending
+  unresolved_blocker_gaps_absent: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

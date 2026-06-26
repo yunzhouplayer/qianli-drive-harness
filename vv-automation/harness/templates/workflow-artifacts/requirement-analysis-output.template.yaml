@@ -1,0 +1,121 @@
+template_id: TPL-REQ-ANALYSIS-OUTPUT-001
+version: v1
+artifact_type: requirement_analysis_output
+stage: requirement_analysis
+source_standard:
+  id: TPL-REQ-DOC-ENTRY-001
+  path: vv-automation/harness/templates/source-standards/requirement-document-entry-standard.md
+metadata:
+  project: ""
+  feature: ""
+  owner: ""
+  created_by: human_or_agent
+  created_at: yyyy-mm-dd
+  source_documents:
+    - id: DOC-REQ-001
+      type: prd
+      title: ""
+      version: ""
+      path_or_url: ""
+      parsed_pages: 0
+      parsed_chars: 0
+document_entry_review:
+  status: pending
+  required_deliverables:
+    prd: missing
+    interface_document: not_applicable
+    prototype: missing
+    business_flow: missing
+    data_design: not_applicable
+  rejection_reasons: []
+  ambiguous_terms:
+    - term: ""
+      location: ""
+      clarification_needed: ""
+  non_text_content:
+    - id: UI-SNAPSHOT-001
+      type: prototype_or_flowchart
+      location: ""
+      text_description_present: false
+      readable: true
+      issues: []
+business_goals:
+  - id: BG-001
+    description: ""
+    success_metric: ""
+    source_refs:
+      - DOC-REQ-001#section
+requirement_units:
+  - id: REQ-001
+    module: ""
+    submodule: ""
+    title: ""
+    description: ""
+    requirement_type: functional
+    priority: P1
+    source_refs:
+      - DOC-REQ-001#section
+    business_rules:
+      - ""
+    preconditions:
+      - ""
+    triggers:
+      - ""
+    inputs:
+      - name: ""
+        rule: ""
+    outputs:
+      - name: ""
+        expected: ""
+    normal_flow:
+      - step: 1
+        description: ""
+    exception_flows:
+      - id: EX-001
+        condition: ""
+        expected_handling: ""
+    constraints:
+      - ""
+    dependencies:
+      upstream:
+        - ""
+      downstream:
+        - ""
+    ui_refs:
+      - UI-001
+    data_refs:
+      - ""
+    testability:
+      status: testable
+      notes: ""
+clarification_items:
+  - id: CLAR-001
+    requirement_id: REQ-001
+    question: ""
+    reason: ""
+    risk_if_unresolved: ""
+    owner: product
+    status: open
+    answer: ""
+acceptance_criteria:
+  - id: AC-001
+    requirement_id: REQ-001
+    given: ""
+    when: ""
+    then: ""
+    measurable_threshold: ""
+traceability:
+  requirement_count: 0
+  source_coverage:
+    covered_source_refs: []
+    uncovered_source_refs: []
+quality_checks:
+  required_deliverables_present: pending
+  requirement_units_have_source_refs: pending
+  ambiguous_terms_resolved_or_tracked: pending
+  non_text_content_described: pending
+  requirements_are_testable: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

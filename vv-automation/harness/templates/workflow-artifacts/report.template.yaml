@@ -1,0 +1,81 @@
+template_id: TPL-REPORT-001
+version: v1
+artifact_type: report
+stage: test_execution_report
+source_contract:
+  schema_id: test-asset.report.v1
+  path: contracts/test-assets/report.schema.yaml
+report:
+  id: REPORT-DOMAIN-TOPIC-001
+  version: v1
+  execution:
+    run_id: RUN-YYYYMMDD-0001
+    started_at: yyyy-mm-ddThh:mm:ssZ
+    finished_at: yyyy-mm-ddThh:mm:ssZ
+    environment: local
+    trigger: manual
+    executor: ""
+  scope:
+    scenario_ids:
+      - SCN-DOMAIN-TOPIC-001
+    case_ids:
+      - CASE-DOMAIN-TOPIC-001
+    requirement_ids:
+      - REQ-001
+    function_point_ids:
+      - TF-MODULE-001
+  summary:
+    status: blocked
+    total_cases: 0
+    passed: 0
+    failed: 0
+    blocked: 0
+    warnings: 0
+  results:
+    - case_id: CASE-DOMAIN-TOPIC-001
+      status: pending
+      started_at: ""
+      finished_at: ""
+      validators:
+        - validator_id: VALIDATOR-DOMAIN-TOPIC-001
+          status: pending
+          failed_rules: []
+      gate_result_ref: ""
+      evidence_refs:
+        - EVIDENCE-RUN-CASE-001
+  evidence:
+    - type: evidence_bundle
+      ref: vv-automation/harness/evidence/RUN-YYYYMMDD-0001/
+      description: ""
+  gate_results:
+    - gate_run_id: GATE-RUN-YYYYMMDD-0001
+      status: pending
+      executable: false
+      reportable: false
+  coverage:
+    requirement_coverage_rate: 0
+    function_point_coverage_rate: 0
+    case_execution_rate: 0
+    validator_pass_rate: 0
+  risks:
+    - level: P1
+      description: ""
+      related_case_ids: []
+      mitigation: ""
+  recommendations:
+    - ""
+  release_readiness:
+    status: not_ready
+    blockers: []
+    warnings: []
+quality_checks:
+  report_has_execution_window: pending
+  all_results_link_evidence: pending
+  validator_results_present: pending
+  gate_results_present: pending
+  risks_recorded_for_failures: pending
+  release_readiness_declared: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []

@@ -1,0 +1,287 @@
+version: 0.1.0
+description: Harness template registry for V&V automation workflow standards.
+templates:
+  - id: TPL-REQ-DOC-ENTRY-001
+    name: requirement-document-entry-standard
+    title: 需求文档准入标准
+    type: entry_standard
+    stage: requirement_intake
+    path: vv-automation/harness/templates/source-standards/requirement-document-entry-standard.md
+    source_file: /Users/langwen/Documents/00_workspace/模板/需求文档准入标准.md
+    governs:
+      - product_requirement_document
+      - interface_document
+      - prototype
+      - business_flow
+      - database_design_document
+    gate_mapping:
+      - traceability_gate
+      - review_gate
+    automatable_checks:
+      - required_deliverables_present
+      - version_present
+      - forbidden_ambiguous_terms_scan
+      - non_text_content_description_present
+    manual_review_checks:
+      - semantic_clarity
+      - business_flow_completeness
+      - cross_document_consistency
+      - testability
+  - id: TPL-TEST-FUNCTION-EXIT-002
+    name: test-function-point-exit-standard-v2
+    title: 测试功能点提取准出标准V2.0
+    type: exit_standard
+    stage: test_function_point_extraction
+    path: vv-automation/harness/templates/source-standards/test-function-point-exit-standard-v2.md
+    source_file: /Users/langwen/Documents/00_workspace/模板/测试功能点提取准出标准V2.0.md
+    governs:
+      - test_function_point
+      - requirement_function_traceability
+      - ui_function_mapping
+    gate_mapping:
+      - schema_gate
+      - traceability_gate
+      - review_gate
+    automatable_checks:
+      - required_fields_present
+      - function_point_id_unique
+      - requirement_reference_present
+      - ui_reference_present
+      - priority_present
+    manual_review_checks:
+      - single_business_rule_granularity
+      - no_technical_implementation_detail
+      - exception_branch_completeness
+      - naming_semantics
+  - id: TPL-TEST-STRATEGY-ENTRY-001
+    name: test-strategy-generation-entry-standard
+    title: 测试策略生成准入标准
+    type: entry_standard
+    stage: test_strategy_generation
+    path: vv-automation/harness/templates/source-standards/test-strategy-generation-entry-standard.md
+    source_file: /Users/langwen/Documents/00_workspace/模板/测试策略生成准入标准.md
+    governs:
+      - structured_function_point_document
+      - prototype_snapshot_binding
+      - module_dependency_context
+    gate_mapping:
+      - traceability_gate
+      - review_gate
+    automatable_checks:
+      - module_structure_present
+      - function_point_required_fields_present
+      - prototype_reference_present
+    manual_review_checks:
+      - hidden_logic_absence
+      - cross_module_dependency_clarity
+      - screenshot_annotation_quality
+  - id: TPL-TEST-CASE-XLSX-001
+    name: test-case-workbook-template
+    title: 测试用例表格模板
+    type: delivery_template
+    stage: test_case_delivery
+    path: vv-automation/harness/templates/case-workbook/test-case-template.xlsx
+    source_file: /Users/langwen/Documents/00_workspace/模板/测试用例模板_Sheet1_表格.xlsx
+    workbook:
+      sheets:
+        - name: Sheet1
+          header_row: 1
+          columns:
+            - 用例ID
+            - 所属模块-子模块
+            - 测试点
+            - 优先级
+            - 用例类型
+            - 前置条件
+            - 测试步骤
+            - 预期结果
+            - 评审结果
+    maps_to:
+      case_id: 用例ID
+      module: 所属模块-子模块
+      test_point: 测试点
+      risk_level: 优先级
+      execution_type: 用例类型
+      preconditions: 前置条件
+      steps: 测试步骤
+      expected_results: 预期结果
+      review_status: 评审结果
+  - id: TPL-REQ-ANALYSIS-OUTPUT-001
+    name: requirement-analysis-output
+    title: 需求解析输出模板
+    type: workflow_artifact_template
+    stage: requirement_analysis
+    path: vv-automation/harness/templates/workflow-artifacts/requirement-analysis-output.template.yaml
+    governed_by:
+      - TPL-REQ-DOC-ENTRY-001
+    produces:
+      - requirement_units
+      - clarification_items
+      - acceptance_criteria
+      - document_entry_review
+    gate_mapping:
+      - traceability_gate
+      - review_gate
+  - id: TPL-TEST-FUNCTION-LIST-001
+    name: test-function-point-list
+    title: 测试功能点清单模板
+    type: workflow_artifact_template
+    stage: test_function_point_extraction
+    path: vv-automation/harness/templates/workflow-artifacts/test-function-point-list.template.yaml
+    governed_by:
+      - TPL-TEST-FUNCTION-EXIT-002
+    produces:
+      - test_function_points
+      - requirement_function_traceability
+      - ui_function_mapping
+      - function_point_coverage_summary
+    gate_mapping:
+      - schema_gate
+      - traceability_gate
+      - review_gate
+  - id: TPL-TEST-STRATEGY-OUTPUT-001
+    name: test-strategy-output
+    title: 测试策略输出模板
+    type: workflow_artifact_template
+    stage: test_strategy_generation
+    path: vv-automation/harness/templates/workflow-artifacts/test-strategy-output.template.yaml
+    governed_by:
+      - TPL-TEST-STRATEGY-ENTRY-001
+    produces:
+      - test_scope
+      - risk_analysis
+      - test_approaches
+      - coverage_plan
+      - case_generation_rules
+    gate_mapping:
+      - traceability_gate
+      - review_gate
+  - id: TPL-TEST-CASE-YAML-001
+    name: test-case-yaml
+    title: 测试用例 YAML 模板
+    type: workflow_artifact_template
+    stage: test_case_generation
+    path: vv-automation/harness/templates/workflow-artifacts/test-case.template.yaml
+    governed_by:
+      - TPL-TEST-FUNCTION-EXIT-002
+      - TPL-TEST-CASE-XLSX-001
+    aligns_to:
+      - contracts/test-assets/case.schema.yaml
+    produces:
+      - case
+    gate_mapping:
+      - schema_gate
+      - traceability_gate
+      - fixture_gate
+      - validator_gate
+      - review_gate
+  - id: TPL-TRACEABILITY-MATRIX-001
+    name: traceability-matrix
+    title: 追溯矩阵模板
+    type: workflow_artifact_template
+    stage: review_and_gate
+    path: vv-automation/harness/templates/workflow-artifacts/traceability-matrix.template.yaml
+    governed_by:
+      - TPL-REQ-DOC-ENTRY-001
+      - TPL-TEST-FUNCTION-EXIT-002
+      - TPL-TEST-STRATEGY-ENTRY-001
+    produces:
+      - requirement_to_function_point_mapping
+      - function_point_to_case_mapping
+      - ui_to_case_mapping
+      - coverage_gaps
+    gate_mapping:
+      - traceability_gate
+      - review_gate
+  - id: TPL-FIXTURE-001
+    name: fixture
+    title: Fixture 数据准备模板
+    type: workflow_artifact_template
+    stage: test_execution_preparation
+    path: vv-automation/harness/templates/workflow-artifacts/fixture.template.yaml
+    aligns_to:
+      - contracts/test-assets/fixture.schema.yaml
+    produces:
+      - fixture
+      - setup_actions
+      - cleanup_actions
+      - data_isolation_policy
+    gate_mapping:
+      - schema_gate
+      - fixture_gate
+      - review_gate
+  - id: TPL-VALIDATOR-001
+    name: validator
+    title: Validator 断言模板
+    type: workflow_artifact_template
+    stage: test_execution_validation
+    path: vv-automation/harness/templates/workflow-artifacts/validator.template.yaml
+    aligns_to:
+      - contracts/test-assets/validator.schema.yaml
+    produces:
+      - validator
+      - deterministic_rules
+      - failure_outputs
+      - evidence_fields
+    gate_mapping:
+      - schema_gate
+      - validator_gate
+      - evidence_gate
+      - review_gate
+  - id: TPL-GATE-RESULT-001
+    name: gate-result
+    title: Gate Result 门禁结果模板
+    type: workflow_artifact_template
+    stage: harness_quality_gate
+    path: vv-automation/harness/templates/workflow-artifacts/gate-result.template.yaml
+    governed_by:
+      - harness-quality-gates.v1
+    produces:
+      - gate_results
+      - gate_findings
+      - admission_decision
+    gate_mapping:
+      - schema_gate
+  - id: TPL-EVIDENCE-001
+    name: evidence
+    title: Evidence 执行证据模板
+    type: workflow_artifact_template
+    stage: test_execution_evidence
+    path: vv-automation/harness/templates/workflow-artifacts/evidence.template.yaml
+    produces:
+      - evidence_bundle
+      - validator_result_links
+      - diagnostics
+      - privacy_record
+    gate_mapping:
+      - evidence_gate
+  - id: TPL-REPORT-001
+    name: report
+    title: Report 执行报告模板
+    type: workflow_artifact_template
+    stage: test_execution_report
+    path: vv-automation/harness/templates/workflow-artifacts/report.template.yaml
+    aligns_to:
+      - contracts/test-assets/report.schema.yaml
+    produces:
+      - execution_summary
+      - case_results
+      - evidence_refs
+      - risk_summary
+      - release_readiness
+    gate_mapping:
+      - schema_gate
+      - evidence_gate
+      - traceability_gate
+missing_recommended_templates:
+  p0: []
+  p1:
+    - id: TPL-DEFECT-ANALYSIS
+      title: 缺陷分析模板
+      reason: 等执行闭环稳定后，用于根因、影响面、回归范围和复现证据沉淀。
+    - id: TPL-REGRESSION-SUGGESTION
+      title: 回归建议模板
+      reason: 用于从缺陷、线上巡检和整车验收问题生成回归候选。
+    - id: TPL-TOOL-SPEC
+      title: 测试工具规格模板
+      reason: 等进入工具开发阶段后约束权限、输入输出、dry-run 和生产限制。

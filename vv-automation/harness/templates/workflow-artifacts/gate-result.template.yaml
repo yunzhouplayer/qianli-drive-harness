@@ -1,0 +1,75 @@
+template_id: TPL-GATE-RESULT-001
+version: v1
+artifact_type: gate_result
+stage: harness_quality_gate
+source_gate_set:
+  id: harness-quality-gates.v1
+  path: vv-automation/harness/quality-gates/gates.yaml
+gate_run:
+  gate_run_id: GATE-RUN-YYYYMMDD-0001
+  run_at: yyyy-mm-ddThh:mm:ssZ
+  trigger:
+    type: manual
+    actor: ""
+  asset:
+    id: ""
+    type: case
+    path: ""
+    version: v1
+    risk_level: P1
+  inputs:
+    source_refs: []
+    related_assets:
+      scenario: ""
+      case: ""
+      fixture: ""
+      validators: []
+      agent_artifacts: []
+      traceability_matrix: ""
+  results:
+    - gate_id: schema_gate
+      status: pending
+      checks:
+        - name: required_fields_present
+          status: pending
+          message: ""
+      findings: []
+    - gate_id: traceability_gate
+      status: pending
+      checks: []
+      findings: []
+    - gate_id: fixture_gate
+      status: pending
+      checks: []
+      findings: []
+    - gate_id: validator_gate
+      status: pending
+      checks: []
+      findings: []
+    - gate_id: evidence_gate
+      status: pending
+      checks: []
+      findings: []
+    - gate_id: review_gate
+      status: pending
+      checks: []
+      findings: []
+    - gate_id: reflection_gate
+      status: not_applicable
+      checks: []
+      findings: []
+  decision:
+    status: pending
+    executable: false
+    reportable: false
+    release_acceptable: false
+    reason: ""
+    required_actions:
+      - owner: ""
+        action: ""
+        due_at: ""
+quality_checks:
+  gate_ids_known: pending
+  failed_or_blocked_has_findings: pending
+  warning_not_release_acceptable: pending
+  decision_matches_gate_results: pending

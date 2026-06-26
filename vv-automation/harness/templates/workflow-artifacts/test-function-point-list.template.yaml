@@ -1,0 +1,82 @@
+template_id: TPL-TEST-FUNCTION-LIST-001
+version: v1
+artifact_type: test_function_point_list
+stage: test_function_point_extraction
+source_standard:
+  id: TPL-TEST-FUNCTION-EXIT-002
+  path: vv-automation/harness/templates/source-standards/test-function-point-exit-standard-v2.md
+metadata:
+  project: ""
+  feature: ""
+  owner: ""
+  created_by: human_or_agent
+  created_at: yyyy-mm-dd
+requirement_baseline:
+  requirement_analysis_id: ""
+  requirement_units:
+    - REQ-001
+function_points:
+  - function_point_id: TF-MODULE-001
+    module_name: ""
+    submodule_name: ""
+    function_point_name: ""
+    business_goal: ""
+    function_description: ""
+    preconditions:
+      - ""
+    trigger_conditions:
+      - ""
+    input_rules:
+      - field: ""
+        rule: ""
+    output_results:
+      - ""
+    requirement_refs:
+      - REQ-001
+    ui_refs:
+      - ui_element_id: UI-001
+        page_name: ""
+        element_name: ""
+        interaction: ""
+    business_rule_refs:
+      - ""
+    exception_branches:
+      - id: TF-MODULE-001-EX-001
+        condition: ""
+        expected_result: ""
+    boundary_conditions:
+      - ""
+    risk:
+      level: P1
+      impact_tags:
+        - passenger_experience
+    priority_reason: ""
+    test_design_hint:
+      recommended_case_types:
+        - functional
+      data_needs:
+        - ""
+      validator_hints:
+        - ""
+    granularity_review:
+      single_business_rule: pending
+      independently_verifiable: pending
+      no_technical_implementation_detail: pending
+      reviewer_notes: ""
+coverage_summary:
+  requirement_coverage_rate: 0
+  ui_element_coverage_rate: 0
+  exception_branch_coverage_rate: 0
+  uncovered_requirements: []
+  uncovered_ui_elements: []
+quality_checks:
+  required_fields_complete: pending
+  function_point_id_unique: pending
+  requirement_traceability_complete: pending
+  ui_traceability_complete: pending
+  naming_matches_verb_object_condition: pending
+  granularity_passed: pending
+review:
+  status: draft
+  reviewers: []
+  findings: []
