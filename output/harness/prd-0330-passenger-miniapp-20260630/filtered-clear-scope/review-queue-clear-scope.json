@@ -1,0 +1,1243 @@
+{
+  "artifact_type": "review_queue_filtered_clear_scope",
+  "summary": {
+    "clarification_items_total": 9,
+    "manual_review_cases_total": 90,
+    "p0_pending_review": 27,
+    "p1_pending_review": 63,
+    "filtered_out_cases": 71
+  },
+  "clarification_items": [],
+  "manual_review_cases": [
+    {
+      "id": "CASE-HARNESS-003",
+      "original_candidate_id": "CASE-FUNC-009",
+      "title": "用户登录：登录页优化，登录",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-005"
+      ],
+      "function_point_ids": [
+        "TP-009"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-006",
+      "original_candidate_id": "CASE-FUNC-015",
+      "title": "增加途经点：智驾云接⼝",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-008"
+      ],
+      "function_point_ids": [
+        "TP-015"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-007",
+      "original_candidate_id": "CASE-FUNC-017",
+      "title": "小程序所有页面的分享",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-009"
+      ],
+      "function_point_ids": [
+        "TP-017"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-009",
+      "original_candidate_id": "CASE-FUNC-021",
+      "title": "行程管理：基于目的地的增加途经点",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-011"
+      ],
+      "function_point_ids": [
+        "TP-021"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-011",
+      "original_candidate_id": "CASE-FUNC-029",
+      "title": "登录icon",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-015"
+      ],
+      "function_point_ids": [
+        "TP-029"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-013",
+      "original_candidate_id": "CASE-FUNC-033",
+      "title": "增加途经点-icon",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-017"
+      ],
+      "function_point_ids": [
+        "TP-033"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-014",
+      "original_candidate_id": "CASE-FUNC-039",
+      "title": "全局默认分享卡⽚信息",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-020"
+      ],
+      "function_point_ids": [
+        "TP-039"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-017",
+      "original_candidate_id": "CASE-FUNC-053",
+      "title": "登录页优化：",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-027"
+      ],
+      "function_point_ids": [
+        "TP-053"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-018",
+      "original_candidate_id": "CASE-FUNC-055",
+      "title": "新增：登录icon",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-028"
+      ],
+      "function_point_ids": [
+        "TP-055"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-019",
+      "original_candidate_id": "CASE-FUNC-057",
+      "title": "点击：登录icon",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-029"
+      ],
+      "function_point_ids": [
+        "TP-057"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-020",
+      "original_candidate_id": "CASE-FUNC-059",
+      "title": "\"登录页-⼿机快捷登录\"",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-030"
+      ],
+      "function_point_ids": [
+        "TP-059"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-021",
+      "original_candidate_id": "CASE-FUNC-061",
+      "title": "登录页-⼿ 【⾸页】",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-031"
+      ],
+      "function_point_ids": [
+        "TP-061"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-022",
+      "original_candidate_id": "CASE-FUNC-063",
+      "title": "⼿机快捷登录按钮，向下移动",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-032"
+      ],
+      "function_point_ids": [
+        "TP-063"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-023",
+      "original_candidate_id": "CASE-FUNC-073",
+      "title": "订单完成 【送驾页面】",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-037"
+      ],
+      "function_point_ids": [
+        "TP-073"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-027",
+      "original_candidate_id": "CASE-FUNC-087",
+      "title": "关闭：关闭后弹窗消失，不保存",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-044"
+      ],
+      "function_point_ids": [
+        "TP-087"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-031",
+      "original_candidate_id": "CASE-FUNC-099",
+      "title": "订单完成反馈页-新增-产品反馈icon",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-050"
+      ],
+      "function_point_ids": [
+        "TP-099"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-032",
+      "original_candidate_id": "CASE-FUNC-103",
+      "title": "增加途经点：(导航的信息准确时在做)",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-052"
+      ],
+      "function_point_ids": [
+        "TP-103"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-033",
+      "original_candidate_id": "CASE-FUNC-105",
+      "title": "点击：途经点icon，则在下车点上方增加⼀条",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-053"
+      ],
+      "function_point_ids": [
+        "TP-105"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-034",
+      "original_candidate_id": "CASE-FUNC-107",
+      "title": "最⼤增加的2个途经点，增加途经点显⽰可增加",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-054"
+      ],
+      "function_point_ids": [
+        "TP-107"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-035",
+      "original_candidate_id": "CASE-FUNC-111",
+      "title": "路径规划 新增：途经点选择页",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-056"
+      ],
+      "function_point_ids": [
+        "TP-111"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-036",
+      "original_candidate_id": "CASE-FUNC-119",
+      "title": "订单完成页：",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-060"
+      ],
+      "function_point_ids": [
+        "TP-119"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-037",
+      "original_candidate_id": "CASE-FUNC-121",
+      "title": "增加途经点，也是⼀个订单",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-061"
+      ],
+      "function_point_ids": [
+        "TP-121"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-038",
+      "original_candidate_id": "CASE-FUNC-123",
+      "title": "订单结束：路线要有对应的灰⾊途径",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-062"
+      ],
+      "function_point_ids": [
+        "TP-123"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-039",
+      "original_candidate_id": "CASE-FUNC-125",
+      "title": "7 页面分享：",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-063"
+      ],
+      "function_point_ids": [
+        "TP-125"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-044",
+      "original_candidate_id": "CASE-FUNC-169",
+      "title": "许，则取消弹窗",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-085"
+      ],
+      "function_point_ids": [
+        "TP-169"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-045",
+      "original_candidate_id": "CASE-FUNC-171",
+      "title": "10 ⾸页弹窗：",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-086"
+      ],
+      "function_point_ids": [
+        "TP-171"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-046",
+      "original_candidate_id": "CASE-FUNC-173",
+      "title": "弹窗：【⾸页弹窗】",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-087"
+      ],
+      "function_point_ids": [
+        "TP-173"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-047",
+      "original_candidate_id": "CASE-FUNC-175",
+      "title": "b.点击取消：弹窗消失",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-088"
+      ],
+      "function_point_ids": [
+        "TP-175"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-048",
+      "original_candidate_id": "CASE-FUNC-177",
+      "title": "所有弹窗消失",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-089"
+      ],
+      "function_point_ids": [
+        "TP-177"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-049",
+      "original_candidate_id": "CASE-FUNC-179",
+      "title": "c.滑动可以：滑动弹窗",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [
+        "REQ-SENT-090"
+      ],
+      "function_point_ids": [
+        "TP-179"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-062",
+      "original_candidate_id": "CASE-FUNC-207",
+      "title": "需要验证 站点：对于站点的推荐，提升站点选择的体验度 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-207"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-064",
+      "original_candidate_id": "CASE-FUNC-209",
+      "title": "需要验证 用户登录：登录页优化，登录 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-209"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-067",
+      "original_candidate_id": "CASE-FUNC-212",
+      "title": "需要验证 增加途经点：智驾云接⼝ 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-212"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-068",
+      "original_candidate_id": "CASE-FUNC-213",
+      "title": "需要验证 小程序所有页面的分享 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-213"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-070",
+      "original_candidate_id": "CASE-FUNC-215",
+      "title": "需要验证 行程管理：基于目的地的增加途经点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-215"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-073",
+      "original_candidate_id": "CASE-FUNC-218",
+      "title": "需要验证 现，后续再增加） 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-218"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-074",
+      "original_candidate_id": "CASE-FUNC-219",
+      "title": "需要验证 登录icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-219"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-076",
+      "original_candidate_id": "CASE-FUNC-221",
+      "title": "需要验证 增加途经点-icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-221"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-077",
+      "original_candidate_id": "CASE-FUNC-222",
+      "title": "需要验证 更改目的地站点-icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-222"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-078",
+      "original_candidate_id": "CASE-FUNC-223",
+      "title": "需要验证 更改途径站点-icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-223"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-079",
+      "original_candidate_id": "CASE-FUNC-224",
+      "title": "需要验证 全局默认分享卡⽚信息 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-224"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-086",
+      "original_candidate_id": "CASE-FUNC-231",
+      "title": "需要验证 登录页优化： 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-231"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-087",
+      "original_candidate_id": "CASE-FUNC-232",
+      "title": "需要验证 新增：登录icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-232"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-088",
+      "original_candidate_id": "CASE-FUNC-233",
+      "title": "需要验证 点击：登录icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-233"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-089",
+      "original_candidate_id": "CASE-FUNC-234",
+      "title": "需要验证 \"登录页-⼿机快捷登录\" 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-234"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-090",
+      "original_candidate_id": "CASE-FUNC-235",
+      "title": "需要验证 登录页-⼿ 【⾸页】 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-235"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-091",
+      "original_candidate_id": "CASE-FUNC-236",
+      "title": "需要验证 ⼿机快捷登录按钮，向下移动 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-236"
+      ],
+      "expected_result": "用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-093",
+      "original_candidate_id": "CASE-FUNC-238",
+      "title": "需要验证 d.为保护您的出行安全，行程中请系好安全带 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-238"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-094",
+      "original_candidate_id": "CASE-FUNC-239",
+      "title": "需要验证 接驾上车 【接驾上车页-车辆到达】 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-239"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-095",
+      "original_candidate_id": "CASE-FUNC-240",
+      "title": "需要验证 场景：接驾上车页（车辆到达时，继续跑⻢下 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-240"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-096",
+      "original_candidate_id": "CASE-FUNC-241",
+      "title": "需要验证 订单完成 【送驾页面】 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-241"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-100",
+      "original_candidate_id": "CASE-FUNC-245",
+      "title": "需要验证 上车开启行程” 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-245"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-101",
+      "original_candidate_id": "CASE-FUNC-246",
+      "title": "需要验证 新增加：座舱管家模块 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-246"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-103",
+      "original_candidate_id": "CASE-FUNC-248",
+      "title": "需要验证 关闭：关闭后弹窗消失，不保存 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-248"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-107",
+      "original_candidate_id": "CASE-FUNC-252",
+      "title": "需要验证 个⼈中 新增icon:产品反馈 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-252"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-108",
+      "original_candidate_id": "CASE-FUNC-253",
+      "title": "需要验证 个⼈中⼼页-新增-产品反馈icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-253"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-109",
+      "original_candidate_id": "CASE-FUNC-254",
+      "title": "需要验证 订单完成反馈页-新增-产品反馈icon 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-254"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-110",
+      "original_candidate_id": "CASE-FUNC-255",
+      "title": "需要验证 产品反馈 页面名称：产品反馈 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-255"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-111",
+      "original_candidate_id": "CASE-FUNC-256",
+      "title": "需要验证 增加途经点：(导航的信息准确时在做) 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-256"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-112",
+      "original_candidate_id": "CASE-FUNC-257",
+      "title": "需要验证 点击：途经点icon，则在下车点上方增加⼀条 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-257"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-113",
+      "original_candidate_id": "CASE-FUNC-258",
+      "title": "需要验证 最⼤增加的2个途经点，增加途经点显⽰可增加 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-258"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-114",
+      "original_candidate_id": "CASE-FUNC-259",
+      "title": "需要验证 钮”是置灰，如果是有任意⼀个地址有站点，则 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-259"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-115",
+      "original_candidate_id": "CASE-FUNC-260",
+      "title": "需要验证 路径规划 新增：途经点选择页 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-260"
+      ],
+      "expected_result": "途经点被正确保存到行程路线和订单数据中，顺序及展示一致。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-116",
+      "original_candidate_id": "CASE-FUNC-261",
+      "title": "需要验证 起点：右侧新增箭头按钮，点击可编辑起点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-261"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-117",
+      "original_candidate_id": "CASE-FUNC-262",
+      "title": "需要验证 终点：右侧新增箭头按钮，点击可编辑终点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-262"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-118",
+      "original_candidate_id": "CASE-FUNC-263",
+      "title": "需要验证 起点和终点：右侧新增箭头按钮，点击可编 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-263"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-119",
+      "original_candidate_id": "CASE-FUNC-264",
+      "title": "需要验证 订单完成页： 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-264"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-120",
+      "original_candidate_id": "CASE-FUNC-265",
+      "title": "需要验证 增加途经点，也是⼀个订单 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-265"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-121",
+      "original_candidate_id": "CASE-FUNC-266",
+      "title": "需要验证 订单结束：路线要有对应的灰⾊途径 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P0",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-266"
+      ],
+      "expected_result": "订单创建成功，车辆匹配和订单状态展示正确，无车场景给出明确失败提示。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-122",
+      "original_candidate_id": "CASE-FUNC-267",
+      "title": "需要验证 7 页面分享： 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-267"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-125",
+      "original_candidate_id": "CASE-FUNC-270",
+      "title": "需要验证 ⾸页-下车 【为您推荐的热⻔站点】 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-270"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-126",
+      "original_candidate_id": "CASE-FUNC-271",
+      "title": "需要验证 此区域默认为：10条推荐站点，下拉后不再加 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-271"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-127",
+      "original_candidate_id": "CASE-FUNC-272",
+      "title": "需要验证 为您推荐 载 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-272"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-128",
+      "original_candidate_id": "CASE-FUNC-273",
+      "title": "需要验证 前3条站点：为运营配置的热区站点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-273"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-131",
+      "original_candidate_id": "CASE-FUNC-276",
+      "title": "需要验证 附近的其他站点区、为您推荐的热⻔站点区 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-276"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-132",
+      "original_candidate_id": "CASE-FUNC-277",
+      "title": "需要验证 「{确认页的下车站点}」附近的其他站点区 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-277"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-133",
+      "original_candidate_id": "CASE-FUNC-278",
+      "title": "需要验证 a.为：确认页的下车站点，最近的3个站点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-278"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-134",
+      "original_candidate_id": "CASE-FUNC-279",
+      "title": "需要验证 为您推荐的热⻔站点区 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-279"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-135",
+      "original_candidate_id": "CASE-FUNC-280",
+      "title": "需要验证 a.为运营配置的热区站点，仅显⽰3条站点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-280"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-137",
+      "original_candidate_id": "CASE-FUNC-282",
+      "title": "需要验证 「{确认页的上车站点}」附近的其他站点区 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-282"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-138",
+      "original_candidate_id": "CASE-FUNC-283",
+      "title": "需要验证 a.为：确认页的上车站点，最近的3个站点 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-283"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-141",
+      "original_candidate_id": "CASE-FUNC-286",
+      "title": "需要验证 2个消息：车辆到达上车点提醒、车辆接驾提醒 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-286"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-142",
+      "original_candidate_id": "CASE-FUNC-287",
+      "title": "需要验证 车辆到达上车点提醒 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-287"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-143",
+      "original_candidate_id": "CASE-FUNC-288",
+      "title": "需要验证 车辆接驾提醒 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-288"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-144",
+      "original_candidate_id": "CASE-FUNC-289",
+      "title": "需要验证 许，则取消弹窗 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-289"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-145",
+      "original_candidate_id": "CASE-FUNC-290",
+      "title": "需要验证 10 ⾸页弹窗： 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-290"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-146",
+      "original_candidate_id": "CASE-FUNC-291",
+      "title": "需要验证 弹窗：【⾸页弹窗】 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-291"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-147",
+      "original_candidate_id": "CASE-FUNC-292",
+      "title": "需要验证 b.点击取消：弹窗消失 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-292"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-148",
+      "original_candidate_id": "CASE-FUNC-293",
+      "title": "需要验证 所有弹窗消失 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-293"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    },
+    {
+      "id": "CASE-HARNESS-149",
+      "original_candidate_id": "CASE-FUNC-294",
+      "title": "需要验证 c.滑动可以：滑动弹窗 的系统边界、状态流转和数据一致性。",
+      "risk_level": "P1",
+      "review_status": "pending_review",
+      "requirement_ids": [],
+      "function_point_ids": [
+        "TP-294"
+      ],
+      "expected_result": "系统行为与验收标准一致，关键状态和用户可见反馈正确。",
+      "recommended_action": "请确认用例标题、前置条件、步骤、预期结果、优先级和追溯关系是否可接受。"
+    }
+  ]
+}

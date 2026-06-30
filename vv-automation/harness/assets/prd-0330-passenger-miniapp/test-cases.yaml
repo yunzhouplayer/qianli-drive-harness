@@ -1,0 +1,1907 @@
+---
+template_id: TPL-TEST-CASE-YAML-001
+version: v1
+artifact_type: test_case_set
+stage: test_case_generation
+source_contract:
+  schema_id: test-asset.case.v1
+  path: contracts/test-assets/case.schema.yaml
+metadata:
+  project: 千里智行乘客端小程序
+  feature: 0330版本乘客端小程序PRD
+  case_count: 40
+cases:
+- id: CASE-0330-LOGIN-001
+  version: v1
+  title: 首页登录 icon 拉起手机快捷登录
+  description: 首页登录 icon 拉起手机快捷登录
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-LOGIN-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-LOGIN-001
+    function_point_ids:
+    - TF-LOGIN-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 未登录用户进入首页
+  steps:
+  - name: 执行验证
+    action: 点击首页登录 icon
+    expected_observation: 拉起登录页-手机快捷登录
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 拉起登录页-手机快捷登录
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 用户登录
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-LOGIN-002
+  version: v1
+  title: 手机快捷登录按钮位置展示
+  description: 手机快捷登录按钮位置展示
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-LOGIN-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-LOGIN-001
+    function_point_ids:
+    - TF-LOGIN-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户进入手机快捷登录页
+  steps:
+  - name: 执行验证
+    action: 查看手机快捷登录按钮位置
+    expected_observation: 按钮按 UE 要求向下移动且不遮挡其他内容
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 按钮按 UE 要求向下移动且不遮挡其他内容
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P2
+    impact_tags:
+    - passenger_experience
+  tags:
+  - UI验证
+  - 用户登录
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SAFETY-001
+  version: v1
+  title: 未匹配车辆仅展示安全 icon
+  description: 未匹配车辆仅展示安全 icon
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SAFETY-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SAFETY-001
+    function_point_ids:
+    - TF-SAFETY-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户在接驾上车页且未匹配车辆
+  steps:
+  - name: 执行验证
+    action: 查看安全保障区域
+    expected_observation: 仅展示独立安全 icon，不启动跑马灯
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 仅展示独立安全 icon，不启动跑马灯
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 安全保障
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SAFETY-002
+  version: v1
+  title: 匹配车辆后跑马灯文案 3 秒循环
+  description: 匹配车辆后跑马灯文案 3 秒循环
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SAFETY-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SAFETY-001
+    function_point_ids:
+    - TF-SAFETY-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户在接驾上车页且已匹配车辆
+  steps:
+  - name: 执行验证
+    action: 观察跑马灯至少 12 秒
+    expected_observation: 安全中心/请后排落座/安全员护航本次行程/请系好安全带按 3 秒间隔循环
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 安全中心/请后排落座/安全员护航本次行程/请系好安全带按 3 秒间隔循环
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 安全保障
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SAFETY-003
+  version: v1
+  title: 点击跑马灯跳转安全保障页
+  description: 点击跑马灯跳转安全保障页
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SAFETY-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SAFETY-001
+    function_point_ids:
+    - TF-SAFETY-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 接驾上车页展示跑马灯
+  steps:
+  - name: 执行验证
+    action: 点击跑马灯区域
+    expected_observation: 跳转到安全保障页
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 跳转到安全保障页
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 安全保障
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-UNLOCK-001
+  version: v1
+  title: 车辆到达自动弹出解锁弹窗
+  description: 车辆到达自动弹出解锁弹窗
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-VEHICLE-UNLOCK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-VEHICLE-UNLOCK-001
+    function_point_ids:
+    - TF-UNLOCK-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 订单处于接驾且车辆到达上车点
+  steps:
+  - name: 执行验证
+    action: 触发车辆到达事件
+    expected_observation: 小程序自动展示解锁弹窗
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 小程序自动展示解锁弹窗
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-UNLOCK-002
+  version: v1
+  title: 主动点击解锁按钮弹出解锁弹窗
+  description: 主动点击解锁按钮弹出解锁弹窗
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-VEHICLE-UNLOCK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-VEHICLE-UNLOCK-001
+    function_point_ids:
+    - TF-UNLOCK-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 订单处于可解锁状态
+  steps:
+  - name: 执行验证
+    action: 点击解锁按钮
+    expected_observation: 展示解锁弹窗
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示解锁弹窗
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-UNLOCK-003
+  version: v1
+  title: 立即解锁成功提示
+  description: 立即解锁成功提示
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-VEHICLE-UNLOCK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-VEHICLE-UNLOCK-001
+    function_point_ids:
+    - TF-UNLOCK-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 解锁弹窗已展示且车云接口可用
+  steps:
+  - name: 执行验证
+    action: 点击立即解锁并等待状态返回
+    expected_observation: 车门解锁成功，约车页展示车辆已解锁请上车开启行程
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 车门解锁成功，约车页展示车辆已解锁请上车开启行程
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 接口联动测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-AC-001
+  version: v1
+  title: 空调默认关闭和订单结束复位
+  description: 空调默认关闭和订单结束复位
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-AC-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-AC-001
+    function_point_ids:
+    - TF-AC-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 订单进入接驾页
+  steps:
+  - name: 执行验证
+    action: 查看座舱管家空调状态并结束订单
+    expected_observation: 初始为空调关闭，订单结束后仍为关闭状态
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 初始为空调关闭，订单结束后仍为关闭状态
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 状态测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-AC-002
+  version: v1
+  title: 空调调温关闭不保存
+  description: 空调调温关闭不保存
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-AC-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-AC-001
+    function_point_ids:
+    - TF-AC-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入空调半浮窗
+  steps:
+  - name: 执行验证
+    action: 左右滑动调温后直接关闭
+    expected_observation: 弹窗消失，设置不保存且不下发
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 弹窗消失，设置不保存且不下发
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-AC-003
+  version: v1
+  title: 空调保存设置生效
+  description: 空调保存设置生效
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-AC-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-AC-001
+    function_point_ids:
+    - TF-AC-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入空调半浮窗并调整温度
+  steps:
+  - name: 执行验证
+    action: 点击保存设置
+    expected_observation: 设置保存并通过车云接口生效
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 设置保存并通过车云接口生效
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 车云一致性测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SEAT-001
+  version: v1
+  title: 座椅中排后排和左右视图切换
+  description: 座椅中排后排和左右视图切换
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-SEAT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-SEAT-001
+    function_point_ids:
+    - TF-SEAT-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入座椅控制弹窗
+  steps:
+  - name: 执行验证
+    action: 切换中排/后排并点击左右按钮
+    expected_observation: 座椅视图随选择正确切换
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 座椅视图随选择正确切换
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SEAT-002
+  version: v1
+  title: 座椅加热四档保存生效
+  description: 座椅加热四档保存生效
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-SEAT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-SEAT-001
+    function_point_ids:
+    - TF-SEAT-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入座椅控制弹窗
+  steps:
+  - name: 执行验证
+    action: 分别选择无/低/中/高并保存
+    expected_observation: 档位与车端状态一致，低约34度/中约38度/高约42度
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 档位与车端状态一致，低约34度/中约38度/高约42度
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 车云一致性测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SEAT-003
+  version: v1
+  title: 座椅关闭不保存和订单结束复位
+  description: 座椅关闭不保存和订单结束复位
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-CABIN-SEAT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-CABIN-SEAT-001
+    function_point_ids:
+    - TF-SEAT-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 座椅弹窗中修改档位
+  steps:
+  - name: 执行验证
+    action: 关闭弹窗并结束订单
+    expected_observation: 关闭不保存，订单结束恢复不加热
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 关闭不保存，订单结束恢复不加热
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 状态测试
+  - 车辆控制
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-FEEDBACK-001
+  version: v1
+  title: 产品反馈入口跳转
+  description: 产品反馈入口跳转
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-FEEDBACK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-FEEDBACK-001
+    function_point_ids:
+    - TF-FEEDBACK-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户登录并进入个人中心/订单完成反馈页
+  steps:
+  - name: 执行验证
+    action: 点击产品反馈 icon
+    expected_observation: 均进入产品反馈页
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 均进入产品反馈页
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 产品反馈
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-FEEDBACK-002
+  version: v1
+  title: 问题说明 500 字限制和字数回显
+  description: 问题说明 500 字限制和字数回显
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-FEEDBACK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-FEEDBACK-001
+    function_point_ids:
+    - TF-FEEDBACK-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入产品反馈页
+  steps:
+  - name: 执行验证
+    action: 输入 500 字和 501 字内容
+    expected_observation: 500 字可输入并回显比例，超过 500 字被限制或提示
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 500 字可输入并回显比例，超过 500 字被限制或提示
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 边界测试
+  - 产品反馈
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-FEEDBACK-003
+  version: v1
+  title: 反馈图片上传数量和格式限制
+  description: 反馈图片上传数量和格式限制
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-FEEDBACK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-FEEDBACK-001
+    function_point_ids:
+    - TF-FEEDBACK-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入产品反馈页
+  steps:
+  - name: 执行验证
+    action: 上传 6 张支持格式图片，再尝试第 7 张和非支持格式
+    expected_observation: 最多 6 张，支持 bmp/jpg/png/jpeg，超限或格式不支持有提示
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 最多 6 张，支持 bmp/jpg/png/jpeg，超限或格式不支持有提示
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 文件上传测试
+  - 产品反馈
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-FEEDBACK-004
+  version: v1
+  title: 反馈图片上传失败提示
+  description: 反馈图片上传失败提示
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-FEEDBACK-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-FEEDBACK-001
+    function_point_ids:
+    - TF-FEEDBACK-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入产品反馈页
+  steps:
+  - name: 执行验证
+    action: 模拟网络异常或上传大于20MB图片
+    expected_observation: 提示上传失败，请重新上传
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 提示上传失败，请重新上传
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 异常测试
+  - 产品反馈
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-WAYPOINT-001
+  version: v1
+  title: 新增和删除途经点输入条
+  description: 新增和删除途经点输入条
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-WAYPOINT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-WAYPOINT-001
+    function_point_ids:
+    - TF-WAYPOINT-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入下车点选择页
+  steps:
+  - name: 执行验证
+    action: 点击途经点 icon 后删除途经点/目的地行
+    expected_observation: 新增序号输入条，删除逻辑符合 PRD
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 新增序号输入条，删除逻辑符合 PRD
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-WAYPOINT-002
+  version: v1
+  title: 途经点最多 2 个
+  description: 途经点最多 2 个
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-WAYPOINT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-WAYPOINT-001
+    function_point_ids:
+    - TF-WAYPOINT-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入下车点选择页
+  steps:
+  - name: 执行验证
+    action: 连续新增途经点
+    expected_observation: 最多新增 2 个，展示可增加个数
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 最多新增 2 个，展示可增加个数
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 边界测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-WAYPOINT-003
+  version: v1
+  title: 完成按钮置灰和高亮
+  description: 完成按钮置灰和高亮
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-WAYPOINT-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-WAYPOINT-001
+    function_point_ids:
+    - TF-WAYPOINT-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入途经点选择页
+  steps:
+  - name: 执行验证
+    action: 分别清空所有地址、填写任意有效站点
+    expected_observation: 无地址时完成置灰，有有效站点时高亮可点击
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 无地址时完成置灰，有有效站点时高亮可点击
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 状态测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-ROUTE-001
+  version: v1
+  title: 路径规划确认页编辑起终点和途经点
+  description: 路径规划确认页编辑起终点和途经点
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-ROUTE-CONFIRM-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-ROUTE-CONFIRM-001
+    function_point_ids:
+    - TF-ROUTE-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入路径规划确认页
+  steps:
+  - name: 执行验证
+    action: 点击起点/终点/途经点右侧箭头
+    expected_observation: 跳转对应选择页并可编辑
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 跳转对应选择页并可编辑
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-ROUTE-002
+  version: v1
+  title: 确认路径后立即约车
+  description: 确认路径后立即约车
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-ROUTE-CONFIRM-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-ROUTE-CONFIRM-001
+    function_point_ids:
+    - TF-ROUTE-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 路径规划确认页已有完整路线
+  steps:
+  - name: 执行验证
+    action: 点击确认/立即约车
+    expected_observation: 发起约车并跳转等待上车页
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 发起约车并跳转等待上车页
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 主流程测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-ROUTE-003
+  version: v1
+  title: 订单完成页灰色途径展示
+  description: 订单完成页灰色途径展示
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-ROUTE-CONFIRM-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-ROUTE-CONFIRM-001
+    function_point_ids:
+    - TF-ROUTE-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 带途经点订单已完成
+  steps:
+  - name: 执行验证
+    action: 查看订单完成页路线
+    expected_observation: 路线展示对应灰色途径
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 路线展示对应灰色途径
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 展示测试
+  - 增加途经点
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SHARE-001
+  version: v1
+  title: 登录和未登录统一分享卡片
+  description: 登录和未登录统一分享卡片
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SHARE-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SHARE-001
+    function_point_ids:
+    - TF-SHARE-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 分别处于登录和未登录状态
+  steps:
+  - name: 执行验证
+    action: 在多个页面触发分享
+    expected_observation: 分享卡片统一，文案为千里智行
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 分享卡片统一，文案为千里智行
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P2
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 兼容测试
+  - 页面分享
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-001
+  version: v1
+  title: 历史搜索最近 3 条倒序持久化
+  description: 历史搜索最近 3 条倒序持久化
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户完成多次站点搜索
+  steps:
+  - name: 执行验证
+    action: 进入下车点选择页并杀进程重进
+    expected_observation: 展示最近成功搜索 3 条且倒序，重进仍可见
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示最近成功搜索 3 条且倒序，重进仍可见
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 数据一致性测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-002
+  version: v1
+  title: 无历史搜索隐藏模块
+  description: 无历史搜索隐藏模块
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户无历史搜索记录
+  steps:
+  - name: 执行验证
+    action: 进入下车点选择页
+    expected_observation: 历史模块不展示，热点模块上移
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 历史模块不展示，热点模块上移
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-003
+  version: v1
+  title: 首页热门站点 10 条推荐规则
+  description: 首页热门站点 10 条推荐规则
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 运营配置热区站点且定位可用
+  steps:
+  - name: 执行验证
+    action: 进入首页下车点选择页
+    expected_observation: 展示 10 条推荐，前 3 运营热区，后 7 附近站点由近到远且不下拉加载
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示 10 条推荐，前 3 运营热区，后 7 附近站点由近到远且不下拉加载
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 推荐规则测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-004
+  version: v1
+  title: 确认页下车点推荐区数量
+  description: 确认页下车点推荐区数量
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-004
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入路径规划确认页-下车点选择页
+  steps:
+  - name: 执行验证
+    action: 查看推荐区
+    expected_observation: 展示确认下车点附近 3 条和热门 3 条
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示确认下车点附近 3 条和热门 3 条
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 推荐规则测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-005
+  version: v1
+  title: 确认页上车点推荐区数量
+  description: 确认页上车点推荐区数量
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-004
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 进入路径规划确认页-上车点选择页
+  steps:
+  - name: 执行验证
+    action: 查看推荐区
+    expected_observation: 展示确认上车点附近 3 条和热门 3 条
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示确认上车点附近 3 条和热门 3 条
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 推荐规则测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-STATION-006
+  version: v1
+  title: 跨区域选择站点提示
+  description: 跨区域选择站点提示
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-STATION-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-STATION-001
+    function_point_ids:
+    - TF-STATION-005
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户选择跨区域站点
+  steps:
+  - name: 执行验证
+    action: 确认站点选择
+    expected_observation: 给出跨区域选择提示
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 给出跨区域选择提示
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 异常测试
+  - 站点推荐
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SUBSCRIBE-001
+  version: v1
+  title: 消息订阅模板 ID 配置
+  description: 消息订阅模板 ID 配置
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SUBSCRIBE-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SUBSCRIBE-001
+    function_point_ids:
+    - TF-SUBSCRIBE-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 测试环境配置小程序订阅模板
+  steps:
+  - name: 执行验证
+    action: 检查车辆到达和车辆接驾模板
+    expected_observation: 两个模板 ID 与 PRD 一致
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 两个模板 ID 与 PRD 一致
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 配置测试
+  - 消息订阅
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SUBSCRIBE-002
+  version: v1
+  title: 未订阅进入首页提醒并拒绝取消
+  description: 未订阅进入首页提醒并拒绝取消
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SUBSCRIBE-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SUBSCRIBE-001
+    function_point_ids:
+    - TF-SUBSCRIBE-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户未订阅消息模板
+  steps:
+  - name: 执行验证
+    action: 进入首页并点击拒绝
+    expected_observation: 展示订阅提醒，拒绝后弹窗取消
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 展示订阅提醒，拒绝后弹窗取消
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 功能测试
+  - 消息订阅
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SUBSCRIBE-003
+  version: v1
+  title: 已订阅进入首页不提醒
+  description: 已订阅进入首页不提醒
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SUBSCRIBE-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SUBSCRIBE-001
+    function_point_ids:
+    - TF-SUBSCRIBE-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户已允许订阅
+  steps:
+  - name: 执行验证
+    action: 进入首页
+    expected_observation: 不再展示订阅提醒
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 不再展示订阅提醒
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 状态测试
+  - 消息订阅
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SUBSCRIBE-004
+  version: v1
+  title: 立即出发触发订阅链路
+  description: 立即出发触发订阅链路
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SUBSCRIBE-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SUBSCRIBE-001
+    function_point_ids:
+    - TF-SUBSCRIBE-004
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 用户在首页可发起出行
+  steps:
+  - name: 执行验证
+    action: 点击立即出发
+    expected_observation: 触发消息订阅链路，状态按授权结果处理
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 触发消息订阅链路，状态按授权结果处理
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 主流程测试
+  - 消息订阅
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-POPUP-001
+  version: v1
+  title: 单个首页弹窗点击跳转和取消
+  description: 单个首页弹窗点击跳转和取消
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-HOME-POPUP-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-HOME-POPUP-001
+    function_point_ids:
+    - TF-POPUP-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 后台配置单个首页弹窗
+  steps:
+  - name: 执行验证
+    action: 点击弹窗和取消按钮
+    expected_observation: 点击跳转并消失，取消后消失
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 点击跳转并消失，取消后消失
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 首页弹窗
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-POPUP-002
+  version: v1
+  title: 多个首页弹窗点击任意和滑动
+  description: 多个首页弹窗点击任意和滑动
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-HOME-POPUP-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-HOME-POPUP-001
+    function_point_ids:
+    - TF-POPUP-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 后台配置多个首页弹窗
+  steps:
+  - name: 执行验证
+    action: 滑动弹窗并点击任意一个
+    expected_observation: 支持滑动，点击任意一个后所有弹窗消失
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 支持滑动，点击任意一个后所有弹窗消失
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P1
+    impact_tags:
+    - passenger_experience
+  tags:
+  - 功能测试
+  - 首页弹窗
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SMS-001
+  version: v1
+  title: messageId 与 sms_code 存储关系
+  description: messageId 与 sms_code 存储关系
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SMS-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SMS-001
+    function_point_ids:
+    - TF-SMS-001
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 短信发送服务可用
+  steps:
+  - name: 执行验证
+    action: 发送短信并查询存储
+    expected_observation: messageId 与 sms_code 映射正确
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: messageId 与 sms_code 映射正确
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 接口测试
+  - 短信接入
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SMS-002
+  version: v1
+  title: 短信发送携带渠道标识
+  description: 短信发送携带渠道标识
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SMS-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SMS-001
+    function_point_ids:
+    - TF-SMS-002
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 短信渠道配置完成
+  steps:
+  - name: 执行验证
+    action: 发送短信并检查三方请求
+    expected_observation: 发送到火山云时携带自定义渠道标识
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 发送到火山云时携带自定义渠道标识
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 接口测试
+  - 短信接入
+  created_by: agent
+  review:
+    status: draft
+- id: CASE-0330-SMS-003
+  version: v1
+  title: 短信回调成功失败统计
+  description: 短信回调成功失败统计
+  scenario: SCN-0330-PASSENGER-MINIAPP-001
+  source:
+    type: requirement
+    ref: REQ-0330-SMS-001
+  traceability:
+    requirement_ids:
+    - REQ-0330-SMS-001
+    function_point_ids:
+    - TF-SMS-003
+    strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001
+  execution:
+    type: manual
+    environment: test
+    timeout_seconds: 600
+    retry:
+      enabled: false
+      max_attempts: 1
+  fixture: FIXTURE-0330-PASSENGER-MINIAPP-001
+  preconditions:
+  - 火山云回调 mock 可用
+  steps:
+  - name: 执行验证
+    action: 分别回调成功和失败结果
+    expected_observation: 系统根据标识路由并统计成功/失败结果
+  validators:
+  - VALIDATOR-0330-PASSENGER-MINIAPP-001
+  expected_result:
+    summary: 系统根据标识路由并统计成功/失败结果
+    evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+  risk:
+    level: P0
+    impact_tags:
+    - passenger_experience
+    - order_lifecycle
+    - vehicle_cloud_consistency
+  tags:
+  - 回调测试
+  - 短信接入
+  created_by: agent
+  review:
+    status: draft
+quality_checks:
+  schema_fields_complete: passed
+  requirement_traceability_present: passed
+  function_point_traceability_present: passed
+  fixture_present: passed
+  validator_present: passed
+  p0_p1_reviewed: blocked
+  expected_result_measurable: passed

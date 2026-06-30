@@ -1,0 +1,29 @@
+id: CASE-INVALID-MISSING-VALIDATOR-001
+version: v1
+title: 缺少 Validator 的失败样例
+description: 用于验证 Gate Runner 能阻断缺少确定性断言的用例。
+scenario: vv-automation/harness/assets/scenarios/smoke-001-arrival-status-sync.scenario.yaml
+source:
+  type: requirement
+  ref: docs/architecture/smoke-test-001.md
+execution:
+  type: manual
+  environment: local
+  timeout_seconds: 60
+fixture: vv-automation/harness/fixtures/smoke-001-arrival-status-sync.fixture.yaml
+steps:
+  - name: 执行测试步骤
+    action: manual_check
+expected_result:
+  summary: 示例用例应被 Gate Runner 阻断。
+  evidence:
+    - validator_result
+risk:
+  level: P2
+  impact_tags:
+    - ci_ct_stability
+tags:
+  - negative-example
+created_by: human
+review:
+  status: draft

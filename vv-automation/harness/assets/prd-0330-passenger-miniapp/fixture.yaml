@@ -1,0 +1,85 @@
+---
+template_id: TPL-FIXTURE-001
+version: v1
+artifact_type: fixture
+stage: test_execution_preparation
+fixture:
+  id: FIXTURE-0330-PASSENGER-MINIAPP-001
+  version: v1
+  title: 0330 乘客端小程序测试数据
+  description: 为登录、站点推荐、途经点、消息订阅、反馈、车控和短信回调准备通用测试数据。
+  source:
+    type: requirement
+    refs:
+    - REQ-0330-LOGIN-001
+    - REQ-0330-SAFETY-001
+    - REQ-0330-VEHICLE-UNLOCK-001
+    - REQ-0330-CABIN-AC-001
+    - REQ-0330-CABIN-SEAT-001
+    - REQ-0330-FEEDBACK-001
+    - REQ-0330-WAYPOINT-001
+    - REQ-0330-ROUTE-CONFIRM-001
+    - REQ-0330-SHARE-001
+    - REQ-0330-STATION-001
+    - REQ-0330-SUBSCRIBE-001
+    - REQ-0330-HOME-POPUP-001
+    - REQ-0330-SMS-001
+  data_scope: synthetic
+  isolation:
+    strategy: unique_ids
+    collision_policy: fail_fast
+    namespace: prd0330
+  environment:
+    target: test
+    region: test_region
+    network_profile: normal
+    dependencies:
+    - system: wechat_miniapp
+      mode: real_or_mock
+    - system: vehicle_cloud
+      mode: mock_allowed
+    - system: sms_provider_volcengine
+      mode: mock_allowed
+  entities:
+  - id: passenger_0330_001
+    type: passenger
+    initial_state: registered
+  - id: order_0330_001
+    type: order
+    initial_state: PICKING_UP
+  - id: vehicle_0330_001
+    type: vehicle
+    initial_state: ARRIVING
+  - id: station_hot_001
+    type: station
+    initial_state: configured_hot
+  secrets:
+    required: false
+    source: external_secret_manager
+    plaintext_allowed: false
+  setup:
+    required: true
+    actions:
+    - seed passenger/order/vehicle/station data
+    - configure message template ids
+    - configure popup and station recommendation mocks
+  cleanup:
+    required: true
+    actions:
+    - purge synthetic passenger history
+    - reset mock vehicle state
+    - clear generated upload files
+    - clear sms callback records
+  safety:
+    production_safe: false
+    pii_allowed: false
+    data_desensitized: true
+    notes: 仅使用合成数据，不访问真实乘客信息和真实车辆轨迹。
+  review:
+    status: draft
+quality_checks:
+  data_scope_declared: passed
+  isolation_strategy_declared: passed
+  cleanup_required_declared: passed
+  pii_policy_declared: passed
+  plaintext_secret_absent: passed

@@ -1,0 +1,265 @@
+---
+template_id: TPL-TEST-STRATEGY-OUTPUT-001
+version: v1
+artifact_type: test_strategy_output
+stage: test_strategy_generation
+metadata:
+  project: 千里智行乘客端小程序
+  feature: 0330版本乘客端小程序PRD
+  created_by: agent
+entry_inputs:
+  function_point_list_id: TF-LIST-0330-PASSENGER-MINIAPP-001
+  requirement_analysis_id: REQ-ANALYSIS-0330-PASSENGER-MINIAPP-001
+  prototype_package_ref: UE reviewed externally, not imported
+entry_review:
+  module_structure_present: passed
+  function_points_complete: passed
+  prototype_screenshots_bound: warning
+  hidden_logic_resolved_or_tracked: warning
+  cross_module_dependencies_clear: warning
+scope:
+  in_scope_modules:
+  - module: 用户登录
+    submodules:
+    - 首页新增登录 icon 并拉起手机快捷登录
+  - module: 安全保障
+    submodules:
+    - 接驾/送驾/订单完成页安全保障跑马灯
+  - module: 车辆控制
+    submodules:
+    - 车辆到达后开锁弹窗与解锁指令
+  - module: 车辆控制
+    submodules:
+    - 座舱管家空调控制
+  - module: 车辆控制
+    submodules:
+    - 座舱管家座椅加热控制
+  - module: 产品反馈
+    submodules:
+    - 产品反馈入口与反馈提交页
+  - module: 增加途经点
+    submodules:
+    - 下车点选择页增加途经点
+  - module: 增加途经点
+    submodules:
+    - 路径规划确认页展示和编辑起终点/途经点
+  - module: 页面分享
+    submodules:
+    - 所有页面统一分享卡片
+  - module: 站点推荐
+    submodules:
+    - 历史搜索与热门/附近站点推荐
+  - module: 消息订阅
+    submodules:
+    - 小程序消息订阅模板和触发逻辑
+  - module: 首页弹窗
+    submodules:
+    - 首页单个/多个弹窗交互
+  - module: 短信接入
+    submodules:
+    - 火山云短信发送回调结果统计
+  out_of_scope:
+  - item: 真实 world-sim 和真实车端执行
+    reason: 本轮先生成 Harness 资产，不接入 world-sim/真实车云
+risk_analysis:
+- id: RISK-VEHICLE-UNLOCK-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 车辆到达后开锁弹窗与解锁指令
+  related_requirements:
+  - REQ-0330-VEHICLE-UNLOCK-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-CABIN-AC-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 座舱管家空调控制
+  related_requirements:
+  - REQ-0330-CABIN-AC-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-CABIN-SEAT-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 座舱管家座椅加热控制
+  related_requirements:
+  - REQ-0330-CABIN-SEAT-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-WAYPOINT-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 下车点选择页增加途经点
+  related_requirements:
+  - REQ-0330-WAYPOINT-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-ROUTE-CONFIRM-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 路径规划确认页展示和编辑起终点/途经点
+  related_requirements:
+  - REQ-0330-ROUTE-CONFIRM-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-STATION-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 历史搜索与热门/附近站点推荐
+  related_requirements:
+  - REQ-0330-STATION-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-SUBSCRIBE-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 小程序消息订阅模板和触发逻辑
+  related_requirements:
+  - REQ-0330-SUBSCRIBE-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+- id: RISK-SMS-001
+  risk_level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  description: 火山云短信发送回调结果统计
+  related_requirements:
+  - REQ-0330-SMS-001
+  mitigation: P0 用例必须人工评审并在联调环境执行
+test_approaches:
+- type: functional
+  objective: 覆盖页面交互和业务主流程
+  target_function_points:
+  - TF-LOGIN-001
+  - TF-LOGIN-002
+  - TF-SAFETY-001
+  - TF-SAFETY-002
+  - TF-SAFETY-003
+  - TF-UNLOCK-001
+  - TF-UNLOCK-002
+  - TF-UNLOCK-003
+  - TF-AC-001
+  - TF-AC-002
+  - TF-AC-003
+  - TF-SEAT-001
+  - TF-SEAT-002
+  - TF-SEAT-003
+  - TF-FEEDBACK-001
+  - TF-FEEDBACK-002
+  - TF-FEEDBACK-003
+  - TF-WAYPOINT-001
+  - TF-WAYPOINT-002
+  - TF-WAYPOINT-003
+  - TF-ROUTE-001
+  - TF-ROUTE-002
+  - TF-ROUTE-003
+  - TF-SHARE-001
+  - TF-STATION-001
+  - TF-STATION-002
+  - TF-STATION-003
+  - TF-STATION-004
+  - TF-STATION-005
+  - TF-SUBSCRIBE-001
+  - TF-SUBSCRIBE-002
+  - TF-SUBSCRIBE-003
+  - TF-SUBSCRIBE-004
+  - TF-POPUP-001
+  - TF-POPUP-002
+  - TF-SMS-001
+  - TF-SMS-002
+  - TF-SMS-003
+  design_methods:
+  - equivalence_partitioning
+  - boundary_value_analysis
+  - state_transition
+  priority: P1
+- type: interface_integration
+  objective: 覆盖车云控制、站点推荐、短信回调等依赖接口
+  target_function_points:
+  - TF-UNLOCK-001
+  - TF-UNLOCK-002
+  - TF-UNLOCK-003
+  - TF-AC-001
+  - TF-AC-002
+  - TF-AC-003
+  - TF-SEAT-002
+  - TF-SEAT-003
+  - TF-WAYPOINT-001
+  - TF-WAYPOINT-002
+  - TF-WAYPOINT-003
+  - TF-ROUTE-001
+  - TF-ROUTE-002
+  - TF-STATION-001
+  - TF-STATION-003
+  - TF-STATION-004
+  - TF-SUBSCRIBE-001
+  - TF-SUBSCRIBE-002
+  - TF-SUBSCRIBE-004
+  - TF-SMS-001
+  - TF-SMS-002
+  - TF-SMS-003
+  design_methods:
+  - contract_check
+  - state_consistency
+  priority: P0
+coverage_plan:
+  requirement_coverage_target: 100
+  function_point_coverage_target: 100
+  ui_coverage_target: requires UE source
+  exception_branch_coverage_target: track known exception branches
+case_generation_rules:
+  case_id_pattern: CASE-0330-{MODULE}-{SEQ}
+  p0_p1_review_required: true
+  each_case_must_link_function_point: true
+  each_case_must_have_fixture: true
+  each_case_must_have_validator: true
+execution_plan:
+  environments:
+  - test
+  - mocked_integration
+  smoke_candidates:
+  - CASE-0330-LOGIN-001
+  - CASE-0330-STATION-003
+  - CASE-0330-SUBSCRIBE-002
+  regression_candidates:
+  - CASE-0330-UNLOCK-001
+  - CASE-0330-UNLOCK-002
+  - CASE-0330-UNLOCK-003
+  - CASE-0330-AC-001
+  - CASE-0330-AC-002
+  - CASE-0330-AC-003
+  - CASE-0330-SEAT-002
+  - CASE-0330-SEAT-003
+  - CASE-0330-WAYPOINT-001
+  - CASE-0330-WAYPOINT-002
+  - CASE-0330-WAYPOINT-003
+  - CASE-0330-ROUTE-001
+  - CASE-0330-ROUTE-002
+  - CASE-0330-STATION-001
+  - CASE-0330-STATION-003
+  - CASE-0330-STATION-004
+  - CASE-0330-STATION-005
+  - CASE-0330-SUBSCRIBE-001
+  - CASE-0330-SUBSCRIBE-002
+  - CASE-0330-SUBSCRIBE-004
+  - CASE-0330-SMS-001
+  - CASE-0330-SMS-002
+  - CASE-0330-SMS-003
+quality_checks:
+  entry_inputs_passed: warning
+  risk_level_assigned: passed
+  coverage_targets_defined: passed
+  out_of_scope_declared: passed
+  case_generation_rules_defined: passed
+review:
+  status: draft
+  reviewers: []
+  findings: []

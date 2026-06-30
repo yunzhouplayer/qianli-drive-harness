@@ -1,0 +1,51 @@
+---
+id: CASE-0330-STATION-003
+version: v1
+title: 首页热门站点 10 条推荐规则
+description: 校验首页下车点选择页热门站点推荐：前 3 条运营配置，后 7 条当前定位附近站点，由近到远且不下拉加载。
+scenario: vv-automation/harness/assets/prd-0330-passenger-miniapp/scenario.asset.yaml
+source:
+  type: requirement
+  ref: vv-automation/harness/assets/prd-0330-passenger-miniapp/requirement-analysis.yaml
+execution:
+  type: manual
+  environment: test
+  timeout_seconds: 600
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: vv-automation/harness/assets/prd-0330-passenger-miniapp/runtime-fixture.asset.yaml
+steps:
+- name: 准备站点推荐数据
+  action: 配置 3 条运营热区站点和 7 条附近站点
+- name: 进入首页下车点选择页
+  action: 打开下车点选择页并查看为您推荐的热门站点区域
+- name: 校验推荐顺序和数量
+  action: 核对前 3 条运营配置、后 7 条附近站点由近到远，不触发下拉加载
+validators:
+- vv-automation/harness/assets/prd-0330-passenger-miniapp/runtime-validator.asset.yaml
+expected_result:
+  summary: 展示 10 条推荐，前 3 条为运营热区配置，后 7 条为当前定位附近站点且由近到远，不下拉加载。
+  evidence:
+  - screenshot
+  - operation_log
+  - validator_result
+risk:
+  level: P0
+  impact_tags:
+  - passenger_experience
+  - dispatch_quality
+  - data_quality
+tags:
+- station_recommendation
+- P0
+- prd_0330
+created_by: agent
+review:
+  status: draft
+traceability:
+  requirement_ids:
+  - REQ-0330-STATION-001
+  function_point_ids:
+  - TF-STATION-003
+  strategy_id: STRATEGY-0330-PASSENGER-MINIAPP-001

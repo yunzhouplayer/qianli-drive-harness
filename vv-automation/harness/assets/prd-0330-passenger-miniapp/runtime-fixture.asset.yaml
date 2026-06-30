@@ -1,0 +1,39 @@
+---
+id: FIXTURE-0330-PASSENGER-MINIAPP-001
+version: v1
+title: 0330 乘客端小程序测试数据
+description: 为乘客端小程序 0330 版本准备合成乘客、订单、车辆、站点、订阅和短信回调测试数据。
+data_scope: synthetic
+isolation:
+  strategy: unique_ids
+  collision_policy: fail_fast
+environment:
+  target: test
+  region: test_region
+  network_profile: normal
+entities:
+- id: passenger_0330_001
+  type: passenger
+  initial_state: registered
+- id: order_0330_001
+  type: order
+  initial_state: PICKING_UP
+- id: vehicle_0330_001
+  type: vehicle
+  initial_state: ARRIVING
+- id: station_hot_001
+  type: station
+  initial_state: configured_hot
+secrets:
+  required: false
+  source: external_secret_manager
+cleanup:
+  required: true
+  actions:
+  - purge_synthetic_passenger_history
+  - reset_mock_vehicle_state
+  - clear_sms_callback_records
+safety:
+  production_safe: false
+  pii_allowed: false
+  notes: 仅使用合成数据，不访问真实乘客信息和真实车辆轨迹。

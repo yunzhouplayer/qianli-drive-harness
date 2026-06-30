@@ -1,0 +1,254 @@
+template_id: "TPL-GATE-RESULT-001"
+version: v1
+artifact_type: gate_result
+stage: harness_quality_gate
+source_gate_set:
+  id: "harness-quality-gates.v1"
+  path: "vv-automation/harness/quality-gates/gates.yaml"
+gate_run:
+  gate_run_id: "GATE-RUN-20260626061629"
+  run_at: "2026-06-26T06:16:29.876Z"
+  trigger:
+    type: manual
+    actor: "local-user"
+  asset:
+    id: "CASE-INVALID-MISSING-VALIDATOR-001"
+    type: case
+    path: "vv-automation/harness/quality-gates/examples/invalid-missing-validator.case.yaml"
+    version: v1
+    risk_level: P2
+  inputs:
+    source_refs:
+      - "docs/architecture/smoke-test-001.md"
+      - "vehicle-acceptance/issue-intake/SMOKE-001-arrival-status-sync.md"
+    related_assets:
+      scenario: "vv-automation/harness/assets/scenarios/smoke-001-arrival-status-sync.scenario.yaml"
+      case: "vv-automation/harness/quality-gates/examples/invalid-missing-validator.case.yaml"
+      fixture: "vv-automation/harness/fixtures/smoke-001-arrival-status-sync.fixture.yaml"
+      validators: []
+      agent_artifacts: []
+      traceability_matrix: ""
+  results:
+    -
+      gate_id: schema_gate
+      status: failed
+      checks:
+        -
+          name: case.id_present
+          status: passed
+          message: OK
+        -
+          name: case.version_present
+          status: passed
+          message: OK
+        -
+          name: case.title_present
+          status: passed
+          message: OK
+        -
+          name: case.scenario_present
+          status: passed
+          message: OK
+        -
+          name: case.execution_present
+          status: passed
+          message: OK
+        -
+          name: case.fixture_present
+          status: passed
+          message: OK
+        -
+          name: case.validators_present
+          status: failed
+          message: "case is missing required field: validators"
+        -
+          name: case.expected_result_present
+          status: passed
+          message: OK
+        -
+          name: case.review_present
+          status: passed
+          message: OK
+        -
+          name: fixture.id_present
+          status: passed
+          message: OK
+        -
+          name: fixture.version_present
+          status: passed
+          message: OK
+        -
+          name: fixture.title_present
+          status: passed
+          message: OK
+        -
+          name: fixture.data_scope_present
+          status: passed
+          message: OK
+        -
+          name: fixture.isolation_present
+          status: passed
+          message: OK
+        -
+          name: fixture.entities_present
+          status: passed
+          message: OK
+        -
+          name: fixture.cleanup_present
+          status: passed
+          message: OK
+        -
+          name: validator_asset_loaded
+          status: failed
+          message: No validator asset could be loaded.
+      findings:
+        -
+          severity: blocker
+          message: "case is missing required field: validators"
+        -
+          severity: blocker
+          message: Case must reference at least one resolvable validator asset.
+    -
+      gate_id: traceability_gate
+      status: passed
+      checks:
+        -
+          name: source_type_present
+          status: passed
+          message: OK
+        -
+          name: source_ref_present
+          status: passed
+          message: OK
+        -
+          name: source_ref_resolvable
+          status: passed
+          message: Source reference exists.
+        -
+          name: scenario_ref_resolvable
+          status: passed
+          message: OK
+        -
+          name: requirement_or_source_trace_present
+          status: passed
+          message: OK
+      findings: []
+    -
+      gate_id: fixture_gate
+      status: passed
+      checks:
+        -
+          name: data_scope_declared
+          status: passed
+          message: OK
+        -
+          name: isolation_strategy_declared
+          status: passed
+          message: OK
+        -
+          name: cleanup_required_declared
+          status: passed
+          message: OK
+        -
+          name: cleanup_actions_present_when_required
+          status: passed
+          message: OK
+        -
+          name: pii_policy_declared
+          status: passed
+          message: OK
+        -
+          name: plaintext_secret_absent
+          status: passed
+          message: OK
+      findings: []
+    -
+      gate_id: validator_gate
+      status: failed
+      checks:
+        -
+          name: validator_reference_present
+          status: failed
+          message: Case must reference at least one validator.
+      findings:
+        -
+          severity: blocker
+          message: Case must reference at least one validator.
+    -
+      gate_id: evidence_gate
+      status: warning
+      checks:
+        -
+          name: evidence_type_declared
+          status: passed
+          message: OK
+        -
+          name: validator_result_linked
+          status: passed
+          message: OK
+        -
+          name: evidence_ref_or_plan_present
+          status: warning
+          message: "Evidence plan is declared, but no runtime evidence path exists before execution."
+      findings:
+        -
+          severity: low
+          message: "Evidence plan is declared, but no runtime evidence path exists before execution."
+    -
+      gate_id: review_gate
+      status: passed
+      checks:
+        -
+          name: review_status_present
+          status: passed
+          message: OK
+        -
+          name: risk_level_checked
+          status: passed
+          message: Risk level is P2.
+        -
+          name: high_risk_requires_human_review
+          status: not_applicable
+          message: Human review is not required for this risk level.
+        -
+          name: related_generated_assets_reviewed
+          status: passed
+          message: Related generated asset review status is acceptable for this run.
+      findings: []
+    -
+      gate_id: reflection_gate
+      status: not_applicable
+      checks:
+        -
+          name: critic_findings_present_when_agent_generated
+          status: not_applicable
+          message: Asset is not agent generated.
+      findings: []
+  decision:
+    status: failed
+    executable: false
+    reportable: false
+    release_acceptable: false
+    reason: 存在失败门禁结果，资产不能进入执行链路。
+    required_actions:
+      -
+        owner: "qa-owner"
+        action: "[schema_gate] case is missing required field: validators"
+        due_at: ""
+      -
+        owner: "qa-owner"
+        action: "[schema_gate] Case must reference at least one resolvable validator asset."
+        due_at: ""
+      -
+        owner: "qa-owner"
+        action: "[validator_gate] Case must reference at least one validator."
+        due_at: ""
+      -
+        owner: "qa-owner"
+        action: "[evidence_gate] Evidence plan is declared, but no runtime evidence path exists before execution."
+        due_at: ""
+quality_checks:
+  gate_ids_known: passed
+  failed_or_blocked_has_findings: passed
+  warning_not_release_acceptable: passed
+  decision_matches_gate_results: passed

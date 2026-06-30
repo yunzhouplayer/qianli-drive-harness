@@ -1,0 +1,887 @@
+---
+template_id: TPL-REQ-ANALYSIS-OUTPUT-001
+version: v1
+artifact_type: requirement_analysis_output
+stage: requirement_analysis
+metadata:
+  project: 千里智行乘客端小程序
+  feature: 0330版本乘客端小程序PRD
+  owner: qa-platform
+  created_by: agent
+  source_documents:
+  - id: DOC-0330-PRD
+    type: prd
+    title: 0330版本-乘客端小程序PRD
+    version: V1.0.4
+    path_or_url: "/Users/langwen/Downloads/0330版本-乘客端小程序PRD.pdf"
+    parsed_pages: 27
+    parsed_chars: 5208
+document_entry_review:
+  status: warning
+  required_deliverables:
+    prd: present
+    interface_document: partial
+    prototype: external_ue_reviewed
+    business_flow: partial
+    data_design: partial
+  rejection_reasons: []
+  ambiguous_terms:
+  - term: 导航的信息准确时在做
+    location: 3.6 增加途经点
+    clarification_needed: 是否纳入本轮正式测试范围及地图选点精度口径
+  - term: 不⾜10个，和已配置
+    location: 3.8 站点推荐
+    clarification_needed: 热门/附近站点不足 10 个时的补齐规则
+  non_text_content:
+  - id: UI-UE-0330
+    type: prototype
+    location: UE 已评审，PRD 声明以 UE 为准
+    text_description_present: true
+    readable: true
+    issues:
+    - PRD 中未附完整 UE 源文件
+business_goals:
+- id: BG-0330-001
+  description: 提升乘客端车控、站点推荐、消息通知和反馈体验
+  success_metric: 核心 P0/P1 用例评审通过并完成回归
+requirement_units:
+- id: REQ-0330-LOGIN-001
+  module: 用户登录
+  submodule: 用户登录
+  title: 首页新增登录 icon 并拉起手机快捷登录
+  description: 首页新增登录 icon，点击后拉起登录页-手机快捷登录；手机快捷登录按钮位置向下移动。
+  requirement_type: functional
+  priority: P1
+  source_refs:
+  - PRD page 4
+  - PRD page 5
+  business_rules:
+  - 首页可见登录 icon
+  - 点击登录 icon 后进入手机快捷登录
+  - 手机快捷登录按钮按 UE 调整位置
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 首页可见登录 icon
+  - name: expected_behavior
+    expected: 点击登录 icon 后进入手机快捷登录
+  - name: expected_behavior
+    expected: 手机快捷登录按钮按 UE 调整位置
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 首页-登录icon
+  - 登录页-手机快捷登录
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-SAFETY-001
+  module: 安全保障
+  submodule: 安全保障
+  title: 接驾/送驾/订单完成页安全保障跑马灯
+  description: 接驾上车页匹配到车后展示安全 icon 与跑马灯；车辆到达后继续跑马灯；送驾页和订单完成页展示安全中心文案。
+  requirement_type: functional
+  priority: P1
+  source_refs:
+  - PRD page 7
+  - PRD page 8
+  business_rules:
+  - 匹配到车辆后跑马灯每 3 秒循环
+  - 点击跑马灯跳转安全保障页
+  - 未匹配到车时仅展示 icon
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 匹配到车辆后跑马灯每 3 秒循环
+  - name: expected_behavior
+    expected: 点击跑马灯跳转安全保障页
+  - name: expected_behavior
+    expected: 未匹配到车时仅展示 icon
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 接驾上车页-安全icon
+  - 接驾上车页-跑马灯
+  - 送驾页-跑马灯
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-VEHICLE-UNLOCK-001
+  module: 车辆控制
+  submodule: 车辆控制
+  title: 车辆到达后开锁弹窗与解锁指令
+  description: 车辆到达后系统触发解锁弹窗，也支持主动点击解锁按钮；点击立即解锁后下发解锁指令，成功后约车页展示车辆已解锁提示。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 10
+  business_rules:
+  - 车辆到达自动弹出解锁弹窗
+  - 点击立即解锁触发车门解锁
+  - 解锁成功后展示车辆已解锁提示
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 车辆到达自动弹出解锁弹窗
+  - name: expected_behavior
+    expected: 点击立即解锁触发车门解锁
+  - name: expected_behavior
+    expected: 解锁成功后展示车辆已解锁提示
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 接驾页-弹窗开门
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-CABIN-AC-001
+  module: 车辆控制
+  submodule: 车辆控制
+  title: 座舱管家空调控制
+  description: 接驾页新增座舱管家模块，空调默认关闭；点击空调 icon 进入半浮窗，支持温度左右滑调节，关闭不保存，保存设置生效；订单结束后空调关闭。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 11
+  - PRD page 12
+  business_rules:
+  - 空调默认关闭
+  - 关闭半浮窗不保存设置
+  - 保存设置后生效
+  - 订单结束后空调恢复关闭
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 空调默认关闭
+  - name: expected_behavior
+    expected: 关闭半浮窗不保存设置
+  - name: expected_behavior
+    expected: 保存设置后生效
+  - name: expected_behavior
+    expected: 订单结束后空调恢复关闭
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 接驾页-座舱管家-空调
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-CABIN-SEAT-001
+  module: 车辆控制
+  submodule: 车辆控制
+  title: 座舱管家座椅加热控制
+  description: 座椅控制支持中排/后排切换、左右座椅视图切换、无/低/中/高四档加热；默认不加热；关闭不保存，保存生效；订单结束后恢复不加热。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 12
+  - PRD page 13
+  business_rules:
+  - 座椅可切换中排/后排和左右视图
+  - 加热档位无/低/中/高可选
+  - 关闭不保存
+  - 保存后生效
+  - 订单结束恢复不加热
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 座椅可切换中排/后排和左右视图
+  - name: expected_behavior
+    expected: 加热档位无/低/中/高可选
+  - name: expected_behavior
+    expected: 关闭不保存
+  - name: expected_behavior
+    expected: 保存后生效
+  - name: expected_behavior
+    expected: 订单结束恢复不加热
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 接驾页-座舱管家-座椅
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-FEEDBACK-001
+  module: 产品反馈
+  submodule: 产品反馈
+  title: 产品反馈入口与反馈提交页
+  description: 个人中心页和订单完成反馈页新增产品反馈入口；反馈页支持问题说明、最多 500 字、最多上传 6 张图片、格式限制和失败提示。
+  requirement_type: functional
+  priority: P1
+  source_refs:
+  - PRD page 13
+  - PRD page 14
+  business_rules:
+  - 两个入口可进入产品反馈页
+  - 问题说明最多 500 字并回显比例
+  - 最多上传 6 张图片
+  - 支持 bmp/jpg/png/jpeg
+  - 网络或大于 20MB 上传失败提示
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 两个入口可进入产品反馈页
+  - name: expected_behavior
+    expected: 问题说明最多 500 字并回显比例
+  - name: expected_behavior
+    expected: 最多上传 6 张图片
+  - name: expected_behavior
+    expected: 支持 bmp/jpg/png/jpeg
+  - name: expected_behavior
+    expected: 网络或大于 20MB 上传失败提示
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 个人中心-产品反馈icon
+  - 订单完成反馈页-产品反馈icon
+  - 产品反馈页
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-WAYPOINT-001
+  module: 增加途经点
+  submodule: 增加途经点
+  title: 下车点选择页增加途经点
+  description: 下车点选择页点击途经点 icon 后增加途经点输入条并显示序号，最多 2 个；支持删除；未填任何途经点和目的地时完成按钮置灰，有任意有效站点时高亮。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 15
+  business_rules:
+  - 可新增途经点输入条和序号
+  - 最多新增 2 个途经点
+  - 删除途经点/目的地逻辑正确
+  - 完成按钮置灰/高亮符合输入状态
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 可新增途经点输入条和序号
+  - name: expected_behavior
+    expected: 最多新增 2 个途经点
+  - name: expected_behavior
+    expected: 删除途经点/目的地逻辑正确
+  - name: expected_behavior
+    expected: 完成按钮置灰/高亮符合输入状态
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 下车点选择页-途经点icon
+  - 途经点输入条
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-ROUTE-CONFIRM-001
+  module: 增加途经点
+  submodule: 增加途经点
+  title: 路径规划确认页展示和编辑起终点/途经点
+  description: 路径规划确认页支持编辑起点、终点和途经点，信息确认区展示所有途经点、起点、终点；确认后立即约车并跳转等待上车页；订单完成页路线显示灰色途径。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 15
+  - PRD page 16
+  business_rules:
+  - 起点/终点/途经点可编辑
+  - 信息确认区展示完整路径
+  - 确认后跳转等待上车页
+  - 订单结束路线有灰色途径
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 起点/终点/途经点可编辑
+  - name: expected_behavior
+    expected: 信息确认区展示完整路径
+  - name: expected_behavior
+    expected: 确认后跳转等待上车页
+  - name: expected_behavior
+    expected: 订单结束路线有灰色途径
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 路径规划确认页-地图
+  - 路径规划确认页-信息确认区
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-SHARE-001
+  module: 页面分享
+  submodule: 页面分享
+  title: 所有页面统一分享卡片
+  description: 未登录和已登录状态下，所有页面均使用指定统一上图的分享卡片，文案为千里智行。
+  requirement_type: functional
+  priority: P2
+  source_refs:
+  - PRD page 17
+  business_rules:
+  - 登录/未登录分享卡片一致
+  - 分享文案为千里智行
+  - 所有页面分享入口使用统一卡片
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 登录/未登录分享卡片一致
+  - name: expected_behavior
+    expected: 分享文案为千里智行
+  - name: expected_behavior
+    expected: 所有页面分享入口使用统一卡片
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 全局分享卡片
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-STATION-001
+  module: 站点推荐
+  submodule: 站点推荐
+  title: 历史搜索与热门/附近站点推荐
+  description: 下车点选择页展示最近 3 条历史搜索，后端存储，半年未登录清除；无历史时隐藏历史模块。热门站点区域默认 10 条，前 3 条运营配置，后 7 条当前定位附近站点；路径规划确认页上下车点选择页均展示附近 3 条和热门 3 条。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 18
+  - PRD page 19
+  - PRD page 20
+  - PRD page 21
+  business_rules:
+  - 历史搜索最多 3 条倒序
+  - 无历史时隐藏历史模块
+  - 热门推荐 10 条且不下拉加载
+  - 路径确认上下车选择页推荐区数量正确
+  - 跨区域选择站点给提示
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 历史搜索最多 3 条倒序
+  - name: expected_behavior
+    expected: 无历史时隐藏历史模块
+  - name: expected_behavior
+    expected: 热门推荐 10 条且不下拉加载
+  - name: expected_behavior
+    expected: 路径确认上下车选择页推荐区数量正确
+  - name: expected_behavior
+    expected: 跨区域选择站点给提示
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 首页-下车点选择页
+  - 路径规划确认页-下车点选择页
+  - 路径规划确认页-上车点选择页
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-SUBSCRIBE-001
+  module: 消息订阅
+  submodule: 消息订阅
+  title: 小程序消息订阅模板和触发逻辑
+  description: 消息订阅包含车辆到达上车点提醒和车辆接驾提醒两个模板；未订阅进入首页提醒，拒绝则取消弹窗；已订阅进入首页无提醒，允许后取消弹窗；点击立即出发触发。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 22
+  - PRD page 23
+  business_rules:
+  - 两个模板 ID 配置正确
+  - 未订阅进入首页弹出订阅提醒
+  - 拒绝/允许后弹窗取消
+  - 已订阅不再提醒
+  - 点击立即出发触发订阅链路
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 两个模板 ID 配置正确
+  - name: expected_behavior
+    expected: 未订阅进入首页弹出订阅提醒
+  - name: expected_behavior
+    expected: 拒绝/允许后弹窗取消
+  - name: expected_behavior
+    expected: 已订阅不再提醒
+  - name: expected_behavior
+    expected: 点击立即出发触发订阅链路
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 小程序消息订阅弹窗
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-HOME-POPUP-001
+  module: 首页弹窗
+  submodule: 首页弹窗
+  title: 首页单个/多个弹窗交互
+  description: 首页弹窗支持单个和多个。单个点击后跳转并消失，取消后消失；多个时点击任意一个后所有弹窗消失，取消后消失，支持滑动弹窗。
+  requirement_type: functional
+  priority: P1
+  source_refs:
+  - PRD page 24
+  - PRD page 25
+  business_rules:
+  - 单个弹窗点击跳转并消失
+  - 单个弹窗取消消失
+  - 多个弹窗点击任意一个后全部消失
+  - 多个弹窗支持滑动
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: 单个弹窗点击跳转并消失
+  - name: expected_behavior
+    expected: 单个弹窗取消消失
+  - name: expected_behavior
+    expected: 多个弹窗点击任意一个后全部消失
+  - name: expected_behavior
+    expected: 多个弹窗支持滑动
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs:
+  - 首页弹窗
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+- id: REQ-0330-SMS-001
+  module: 短信接入
+  submodule: 短信接入
+  title: 火山云短信发送回调结果统计
+  description: 接入火山云短信服务商回调，建立 messageId 与 sms_code 存储关系；发送短信时添加渠道自定义标识；回调时根据标识判断来源并查询 sms_code，统计服务商发送成功/失败结果。
+  requirement_type: functional
+  priority: P0
+  source_refs:
+  - PRD page 25
+  - PRD page 26
+  - PRD page 27
+  business_rules:
+  - messageId 与 sms_code 存储关系正确
+  - 短信发送携带渠道标识
+  - 回调能路由到对应服务
+  - 成功/失败结果可统计
+  preconditions:
+  - 0330版本小程序测试包可用
+  triggers:
+  - 按页面入口或业务事件触发
+  inputs: []
+  outputs:
+  - name: expected_behavior
+    expected: messageId 与 sms_code 存储关系正确
+  - name: expected_behavior
+    expected: 短信发送携带渠道标识
+  - name: expected_behavior
+    expected: 回调能路由到对应服务
+  - name: expected_behavior
+    expected: 成功/失败结果可统计
+  normal_flow: []
+  exception_flows: []
+  constraints: []
+  dependencies: []
+  ui_refs: []
+  testability:
+    status: testable
+    notes: 部分接口/UE 细节需联调或补充口径
+clarification_items:
+- id: CLAR-0330-001
+  requirement_id: REQ-0330-WAYPOINT-001
+  question: 增加途经点是否纳入本轮正式上线范围，还是待导航准确性满足后再测？
+  reason: PRD 标注“导航的信息准确时在做”
+  risk_if_unresolved: 可能导致用例执行范围和发布准入口径不一致
+  owner: product
+  status: open
+- id: CLAR-0330-002
+  requirement_id: REQ-0330-STATION-001
+  question: 站点推荐不足 10 条时是否展示不足数量、补齐附近站点或隐藏区域？
+  reason: PRD 仅写“不足10个，和已配置”
+  risk_if_unresolved: 推荐列表边界场景无法确定预期
+  owner: product
+  status: open
+acceptance_criteria:
+- id: AC-0330-LOGIN-001-1
+  requirement_id: REQ-0330-LOGIN-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 首页可见登录 icon
+  measurable_threshold: ''
+- id: AC-0330-LOGIN-001-2
+  requirement_id: REQ-0330-LOGIN-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 点击登录 icon 后进入手机快捷登录
+  measurable_threshold: ''
+- id: AC-0330-LOGIN-001-3
+  requirement_id: REQ-0330-LOGIN-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 手机快捷登录按钮按 UE 调整位置
+  measurable_threshold: ''
+- id: AC-0330-SAFETY-001-1
+  requirement_id: REQ-0330-SAFETY-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 匹配到车辆后跑马灯每 3 秒循环
+  measurable_threshold: ''
+- id: AC-0330-SAFETY-001-2
+  requirement_id: REQ-0330-SAFETY-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 点击跑马灯跳转安全保障页
+  measurable_threshold: ''
+- id: AC-0330-SAFETY-001-3
+  requirement_id: REQ-0330-SAFETY-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 未匹配到车时仅展示 icon
+  measurable_threshold: ''
+- id: AC-0330-VEHICLE-UNLOCK-001-1
+  requirement_id: REQ-0330-VEHICLE-UNLOCK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 车辆到达自动弹出解锁弹窗
+  measurable_threshold: ''
+- id: AC-0330-VEHICLE-UNLOCK-001-2
+  requirement_id: REQ-0330-VEHICLE-UNLOCK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 点击立即解锁触发车门解锁
+  measurable_threshold: ''
+- id: AC-0330-VEHICLE-UNLOCK-001-3
+  requirement_id: REQ-0330-VEHICLE-UNLOCK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 解锁成功后展示车辆已解锁提示
+  measurable_threshold: ''
+- id: AC-0330-CABIN-AC-001-1
+  requirement_id: REQ-0330-CABIN-AC-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 空调默认关闭
+  measurable_threshold: ''
+- id: AC-0330-CABIN-AC-001-2
+  requirement_id: REQ-0330-CABIN-AC-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 关闭半浮窗不保存设置
+  measurable_threshold: ''
+- id: AC-0330-CABIN-AC-001-3
+  requirement_id: REQ-0330-CABIN-AC-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 保存设置后生效
+  measurable_threshold: ''
+- id: AC-0330-CABIN-AC-001-4
+  requirement_id: REQ-0330-CABIN-AC-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 订单结束后空调恢复关闭
+  measurable_threshold: ''
+- id: AC-0330-CABIN-SEAT-001-1
+  requirement_id: REQ-0330-CABIN-SEAT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 座椅可切换中排/后排和左右视图
+  measurable_threshold: ''
+- id: AC-0330-CABIN-SEAT-001-2
+  requirement_id: REQ-0330-CABIN-SEAT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 加热档位无/低/中/高可选
+  measurable_threshold: ''
+- id: AC-0330-CABIN-SEAT-001-3
+  requirement_id: REQ-0330-CABIN-SEAT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 关闭不保存
+  measurable_threshold: ''
+- id: AC-0330-CABIN-SEAT-001-4
+  requirement_id: REQ-0330-CABIN-SEAT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 保存后生效
+  measurable_threshold: ''
+- id: AC-0330-CABIN-SEAT-001-5
+  requirement_id: REQ-0330-CABIN-SEAT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 订单结束恢复不加热
+  measurable_threshold: ''
+- id: AC-0330-FEEDBACK-001-1
+  requirement_id: REQ-0330-FEEDBACK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 两个入口可进入产品反馈页
+  measurable_threshold: ''
+- id: AC-0330-FEEDBACK-001-2
+  requirement_id: REQ-0330-FEEDBACK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 问题说明最多 500 字并回显比例
+  measurable_threshold: ''
+- id: AC-0330-FEEDBACK-001-3
+  requirement_id: REQ-0330-FEEDBACK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 最多上传 6 张图片
+  measurable_threshold: ''
+- id: AC-0330-FEEDBACK-001-4
+  requirement_id: REQ-0330-FEEDBACK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 支持 bmp/jpg/png/jpeg
+  measurable_threshold: ''
+- id: AC-0330-FEEDBACK-001-5
+  requirement_id: REQ-0330-FEEDBACK-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 网络或大于 20MB 上传失败提示
+  measurable_threshold: ''
+- id: AC-0330-WAYPOINT-001-1
+  requirement_id: REQ-0330-WAYPOINT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 可新增途经点输入条和序号
+  measurable_threshold: ''
+- id: AC-0330-WAYPOINT-001-2
+  requirement_id: REQ-0330-WAYPOINT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 最多新增 2 个途经点
+  measurable_threshold: ''
+- id: AC-0330-WAYPOINT-001-3
+  requirement_id: REQ-0330-WAYPOINT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 删除途经点/目的地逻辑正确
+  measurable_threshold: ''
+- id: AC-0330-WAYPOINT-001-4
+  requirement_id: REQ-0330-WAYPOINT-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 完成按钮置灰/高亮符合输入状态
+  measurable_threshold: ''
+- id: AC-0330-ROUTE-CONFIRM-001-1
+  requirement_id: REQ-0330-ROUTE-CONFIRM-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 起点/终点/途经点可编辑
+  measurable_threshold: ''
+- id: AC-0330-ROUTE-CONFIRM-001-2
+  requirement_id: REQ-0330-ROUTE-CONFIRM-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 信息确认区展示完整路径
+  measurable_threshold: ''
+- id: AC-0330-ROUTE-CONFIRM-001-3
+  requirement_id: REQ-0330-ROUTE-CONFIRM-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 确认后跳转等待上车页
+  measurable_threshold: ''
+- id: AC-0330-ROUTE-CONFIRM-001-4
+  requirement_id: REQ-0330-ROUTE-CONFIRM-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 订单结束路线有灰色途径
+  measurable_threshold: ''
+- id: AC-0330-SHARE-001-1
+  requirement_id: REQ-0330-SHARE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 登录/未登录分享卡片一致
+  measurable_threshold: ''
+- id: AC-0330-SHARE-001-2
+  requirement_id: REQ-0330-SHARE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 分享文案为千里智行
+  measurable_threshold: ''
+- id: AC-0330-SHARE-001-3
+  requirement_id: REQ-0330-SHARE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 所有页面分享入口使用统一卡片
+  measurable_threshold: ''
+- id: AC-0330-STATION-001-1
+  requirement_id: REQ-0330-STATION-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 历史搜索最多 3 条倒序
+  measurable_threshold: ''
+- id: AC-0330-STATION-001-2
+  requirement_id: REQ-0330-STATION-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 无历史时隐藏历史模块
+  measurable_threshold: ''
+- id: AC-0330-STATION-001-3
+  requirement_id: REQ-0330-STATION-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 热门推荐 10 条且不下拉加载
+  measurable_threshold: ''
+- id: AC-0330-STATION-001-4
+  requirement_id: REQ-0330-STATION-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 路径确认上下车选择页推荐区数量正确
+  measurable_threshold: ''
+- id: AC-0330-STATION-001-5
+  requirement_id: REQ-0330-STATION-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 跨区域选择站点给提示
+  measurable_threshold: ''
+- id: AC-0330-SUBSCRIBE-001-1
+  requirement_id: REQ-0330-SUBSCRIBE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 两个模板 ID 配置正确
+  measurable_threshold: ''
+- id: AC-0330-SUBSCRIBE-001-2
+  requirement_id: REQ-0330-SUBSCRIBE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 未订阅进入首页弹出订阅提醒
+  measurable_threshold: ''
+- id: AC-0330-SUBSCRIBE-001-3
+  requirement_id: REQ-0330-SUBSCRIBE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 拒绝/允许后弹窗取消
+  measurable_threshold: ''
+- id: AC-0330-SUBSCRIBE-001-4
+  requirement_id: REQ-0330-SUBSCRIBE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 已订阅不再提醒
+  measurable_threshold: ''
+- id: AC-0330-SUBSCRIBE-001-5
+  requirement_id: REQ-0330-SUBSCRIBE-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 点击立即出发触发订阅链路
+  measurable_threshold: ''
+- id: AC-0330-HOME-POPUP-001-1
+  requirement_id: REQ-0330-HOME-POPUP-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 单个弹窗点击跳转并消失
+  measurable_threshold: ''
+- id: AC-0330-HOME-POPUP-001-2
+  requirement_id: REQ-0330-HOME-POPUP-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 单个弹窗取消消失
+  measurable_threshold: ''
+- id: AC-0330-HOME-POPUP-001-3
+  requirement_id: REQ-0330-HOME-POPUP-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 多个弹窗点击任意一个后全部消失
+  measurable_threshold: ''
+- id: AC-0330-HOME-POPUP-001-4
+  requirement_id: REQ-0330-HOME-POPUP-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 多个弹窗支持滑动
+  measurable_threshold: ''
+- id: AC-0330-SMS-001-1
+  requirement_id: REQ-0330-SMS-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: messageId 与 sms_code 存储关系正确
+  measurable_threshold: ''
+- id: AC-0330-SMS-001-2
+  requirement_id: REQ-0330-SMS-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 短信发送携带渠道标识
+  measurable_threshold: ''
+- id: AC-0330-SMS-001-3
+  requirement_id: REQ-0330-SMS-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 回调能路由到对应服务
+  measurable_threshold: ''
+- id: AC-0330-SMS-001-4
+  requirement_id: REQ-0330-SMS-001
+  given: 测试环境满足前置条件
+  when: 执行对应功能操作
+  then: 成功/失败结果可统计
+  measurable_threshold: ''
+quality_checks:
+  required_deliverables_present: warning
+  requirement_units_have_source_refs: passed
+  ambiguous_terms_resolved_or_tracked: warning
+  non_text_content_described: passed
+  requirements_are_testable: passed
+review:
+  status: draft
+  reviewers: []
+  findings: []

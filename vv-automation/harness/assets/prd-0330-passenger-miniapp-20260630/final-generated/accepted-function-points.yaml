@@ -1,0 +1,807 @@
+artifact_type: accepted_function_points
+points:
+  - id: "TP-003"
+    sourceRef: "AC-002"
+    type: positive
+    priority: P0
+    description: 验证：车控：对于空调、座椅移动端控制的能⼒ 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-007"
+    sourceRef: "AC-004"
+    type: positive
+    priority: P0
+    description: 验证：push：能⼒，新增“短信”和小程序消息订阅能⼒的搭建 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-009"
+    sourceRef: "AC-005"
+    type: positive
+    priority: P0
+    description: 验证：用户登录：登录页优化，登录 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-011"
+    sourceRef: "AC-006"
+    type: positive
+    priority: P0
+    description: 验证：车辆控制：座椅控制、空调 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-013"
+    sourceRef: "AC-007"
+    type: positive
+    priority: P1
+    description: 验证：功能反馈：产品功能反馈 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-015"
+    sourceRef: "AC-008"
+    type: positive
+    priority: P1
+    description: 验证：增加途经点：智驾云接⼝ 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-017"
+    sourceRef: "AC-009"
+    type: positive
+    priority: P1
+    description: 验证：小程序所有页面的分享 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-019"
+    sourceRef: "AC-010"
+    type: positive
+    priority: P1
+    description: 验证：站点推荐：下车站点推荐页面，列表的推荐（历 对 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-021"
+    sourceRef: "AC-011"
+    type: positive
+    priority: P1
+    description: 验证：行程管理：基于目的地的增加途经点 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-023"
+    sourceRef: "AC-012"
+    type: positive
+    priority: P0
+    description: 验证：小程序Push：消息模板（至少⼀个模板，先实 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-029"
+    sourceRef: "AC-015"
+    type: positive
+    priority: P0
+    description: 验证：登录icon 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-031"
+    sourceRef: "AC-016"
+    type: positive
+    priority: P1
+    description: 验证：产品功能反馈页面 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-033"
+    sourceRef: "AC-017"
+    type: positive
+    priority: P1
+    description: "验证：增加途经点-icon 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-039"
+    sourceRef: "AC-020"
+    type: positive
+    priority: P1
+    description: 验证：全局默认分享卡⽚信息 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-041"
+    sourceRef: "AC-021"
+    type: positive
+    priority: P1
+    description: 验证：站点推荐：历史搜索记录 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-051"
+    sourceRef: "AC-026"
+    type: positive
+    priority: P0
+    description: 验证：行程分享的，安全员信息 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-053"
+    sourceRef: "AC-027"
+    type: positive
+    priority: P0
+    description: 验证：登录页优化： 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-055"
+    sourceRef: "AC-028"
+    type: positive
+    priority: P0
+    description: 验证：新增：登录icon 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-057"
+    sourceRef: "AC-029"
+    type: positive
+    priority: P0
+    description: 验证：点击：登录icon 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-059"
+    sourceRef: "AC-030"
+    type: positive
+    priority: P0
+    description: "验证：\"登录页-⼿机快捷登录\" 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-061"
+    sourceRef: "AC-031"
+    type: positive
+    priority: P0
+    description: "验证：登录页-⼿ 【⾸页】 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-063"
+    sourceRef: "AC-032"
+    type: positive
+    priority: P0
+    description: 验证：⼿机快捷登录按钮，向下移动 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-073"
+    sourceRef: "AC-037"
+    type: positive
+    priority: P0
+    description: 验证：订单完成 【送驾页面】 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-075"
+    sourceRef: "AC-038"
+    type: positive
+    priority: P1
+    description: 验证：系统触发：车到了就触发解锁弹窗 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-077"
+    sourceRef: "AC-039"
+    type: positive
+    priority: P1
+    description: "验证：主动点击解锁bat:触发解锁弹窗 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-085"
+    sourceRef: "AC-043"
+    type: positive
+    priority: P0
+    description: 验证：（订单结束后、空调为，关闭状态） 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-087"
+    sourceRef: "AC-044"
+    type: positive
+    priority: P1
+    description: 验证：关闭：关闭后弹窗消失，不保存 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-089"
+    sourceRef: "AC-045"
+    type: positive
+    priority: P0
+    description: 验证：点击：空调icon，进⼊座椅弹窗 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-091"
+    sourceRef: "AC-046"
+    type: positive
+    priority: P0
+    description: 验证：（订单结束后、座椅为，不加热状态） 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-093"
+    sourceRef: "AC-047"
+    type: positive
+    priority: P1
+    description: 验证：5 产品功能反馈： 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-099"
+    sourceRef: "AC-050"
+    type: positive
+    priority: P0
+    description: "验证：订单完成反馈页-新增-产品反馈icon 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-103"
+    sourceRef: "AC-052"
+    type: positive
+    priority: P1
+    description: 验证：增加途经点：(导航的信息准确时在做) 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-105"
+    sourceRef: "AC-053"
+    type: positive
+    priority: P1
+    description: 验证：点击：途经点icon，则在下车点上方增加⼀条 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-107"
+    sourceRef: "AC-054"
+    type: positive
+    priority: P1
+    description: 验证：最⼤增加的2个途经点，增加途经点显⽰可增加 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-111"
+    sourceRef: "AC-056"
+    type: positive
+    priority: P1
+    description: 验证：路径规划 新增：途经点选择页 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-119"
+    sourceRef: "AC-060"
+    type: positive
+    priority: P0
+    description: 验证：订单完成页： 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-121"
+    sourceRef: "AC-061"
+    type: positive
+    priority: P0
+    description: 验证：增加途经点，也是⼀个订单 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-123"
+    sourceRef: "AC-062"
+    type: positive
+    priority: P0
+    description: 验证：订单结束：路线要有对应的灰⾊途径 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-125"
+    sourceRef: "AC-063"
+    type: positive
+    priority: P1
+    description: 验证：7 页面分享： 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-129"
+    sourceRef: "AC-065"
+    type: positive
+    priority: P0
+    description: 验证：d.半年后未登录，则清楚历史搜索 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-141"
+    sourceRef: "AC-071"
+    type: positive
+    priority: P1
+    description: "验证：2个区域站点推荐区：「{确认页的下车站点}」 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-153"
+    sourceRef: "AC-077"
+    type: positive
+    priority: P1
+    description: "验证：2个区域站点推荐区：「{确认页的上车站点}」 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-161"
+    sourceRef: "AC-081"
+    type: positive
+    priority: P0
+    description: "验证：登录-进⼊ 【小程序消息订阅】 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-169"
+    sourceRef: "AC-085"
+    type: positive
+    priority: P1
+    description: 验证：许，则取消弹窗 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-171"
+    sourceRef: "AC-086"
+    type: positive
+    priority: P1
+    description: 验证：10 ⾸页弹窗： 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-173"
+    sourceRef: "AC-087"
+    type: positive
+    priority: P1
+    description: 验证：弹窗：【⾸页弹窗】 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-175"
+    sourceRef: "AC-088"
+    type: positive
+    priority: P1
+    description: 验证：b.点击取消：弹窗消失 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-177"
+    sourceRef: "AC-089"
+    type: positive
+    priority: P1
+    description: 验证：所有弹窗消失 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-179"
+    sourceRef: "AC-090"
+    type: positive
+    priority: P1
+    description: 验证：c.滑动可以：滑动弹窗 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-181"
+    sourceRef: "AC-091"
+    type: positive
+    priority: P0
+    description: 验证：⽕⼭引擎云通信短信服务介绍.pdf 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-183"
+    sourceRef: "AC-092"
+    type: positive
+    priority: P0
+    description: "验证：⽕⼭引擎短信服务-HTTP接⼊操作指引.pdf 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-189"
+    sourceRef: "AC-095"
+    type: positive
+    priority: P0
+    description: 验证：路径：配置渠道标识：发送短信时渠道需要添加⾃定义标识发送到三方渠道（回调时回传回来） 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-191"
+    sourceRef: "AC-096"
+    type: positive
+    priority: P0
+    description: 验证：路径：通过⾃定义标识判断短信来源，然后messageId传到对应的服务然后查到短信code然后进行回 应具备明确输入、处理结果和用户可见反馈。
+  - id: "TP-193"
+    sourceRef: "AC-097"
+    type: positive
+    priority: P0
+    description: "验证：- CLARIFY-DEPENDENCY-002：车辆控制、站点推荐、弹窗、短信等外部依赖未明确 ready 状态时，本轮只生成可从 PRD 明确推导的功能、接口、异常和数据一致性用例 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-195"
+    sourceRef: "AC-098"
+    type: positive
+    priority: P0
+    description: "验证：- CLARIFY-PUSH-001：Push/短信模板 ID、完整文案、跳转页面、失败重试规则未明确，本轮不生成模板级精确断言用例，仅覆盖订阅/触达机制的通用流程和异常风险 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-197"
+    sourceRef: "AC-099"
+    type: positive
+    priority: P0
+    description: "验证：- CLARIFY-SMS-001：短信回调字段映射、状态枚举、幂等键和失败处理未明确，本轮不生成字段级回调验收用例，仅保留短信链路可观测性和异常处理风险 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-199"
+    sourceRef: "AC-100"
+    type: positive
+    priority: P1
+    description: "验证：- CLARIFY-STATION-001：站点推荐排序、去重、跨区域提示、历史记录清理和运营配置优先级未明确，本轮只覆盖 PRD 中明确的站点推荐入口、展示、选择和基础兜底行为 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-201"
+    sourceRef: "AC-101"
+    type: positive
+    priority: P1
+    description: "验证：- CLARIFY-FEEDBACK-001：图片上传大小口径、数量边界和失败重试未明确，本轮只覆盖反馈提交主流程、必填校验和基础上传成功/失败提示 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-203"
+    sourceRef: "AC-102"
+    type: positive
+    priority: P0
+    description: "验证：- CLARIFY-TODO-001：“行程分享的，安全员信息”待办项本轮不纳入 0330 必测范围 应具备明确输入、处理结果和用户可见反馈。"
+  - id: "TP-205"
+    sourceRef: "TECH-001"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 背景：基于目前缺少车控能⼒，和站点推荐体验 的系统边界、状态流转和数据一致性。
+  - id: "TP-206"
+    sourceRef: "TECH-002"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 车控：对于空调、座椅移动端控制的能⼒ 的系统边界、状态流转和数据一致性。
+  - id: "TP-207"
+    sourceRef: "TECH-003"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 站点：对于站点的推荐，提升站点选择的体验度 的系统边界、状态流转和数据一致性。
+  - id: "TP-208"
+    sourceRef: "TECH-004"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 push：能⼒，新增“短信”和小程序消息订阅能⼒的搭建 的系统边界、状态流转和数据一致性。
+  - id: "TP-209"
+    sourceRef: "TECH-005"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 用户登录：登录页优化，登录 的系统边界、状态流转和数据一致性。
+  - id: "TP-210"
+    sourceRef: "TECH-006"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 车辆控制：座椅控制、空调 的系统边界、状态流转和数据一致性。
+  - id: "TP-211"
+    sourceRef: "TECH-007"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 功能反馈：产品功能反馈 的系统边界、状态流转和数据一致性。
+  - id: "TP-212"
+    sourceRef: "TECH-008"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 增加途经点：智驾云接⼝ 的系统边界、状态流转和数据一致性。
+  - id: "TP-213"
+    sourceRef: "TECH-009"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 小程序所有页面的分享 的系统边界、状态流转和数据一致性。
+  - id: "TP-214"
+    sourceRef: "TECH-010"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 站点推荐：下车站点推荐页面，列表的推荐（历 对 的系统边界、状态流转和数据一致性。
+  - id: "TP-215"
+    sourceRef: "TECH-011"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 行程管理：基于目的地的增加途经点 的系统边界、状态流转和数据一致性。
+  - id: "TP-216"
+    sourceRef: "TECH-012"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 小程序Push：消息模板（至少⼀个模板，先实 的系统边界、状态流转和数据一致性。
+  - id: "TP-217"
+    sourceRef: "TECH-013"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 小程序的模板ID 的系统边界、状态流转和数据一致性。
+  - id: "TP-218"
+    sourceRef: "TECH-014"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 现，后续再增加） 的系统边界、状态流转和数据一致性。
+  - id: "TP-219"
+    sourceRef: "TECH-015"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 登录icon 的系统边界、状态流转和数据一致性。
+  - id: "TP-220"
+    sourceRef: "TECH-016"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 产品功能反馈页面 的系统边界、状态流转和数据一致性。
+  - id: "TP-221"
+    sourceRef: "TECH-017"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 增加途经点-icon 的系统边界、状态流转和数据一致性。"
+  - id: "TP-222"
+    sourceRef: "TECH-018"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 更改目的地站点-icon 的系统边界、状态流转和数据一致性。"
+  - id: "TP-223"
+    sourceRef: "TECH-019"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 更改途径站点-icon 的系统边界、状态流转和数据一致性。"
+  - id: "TP-224"
+    sourceRef: "TECH-020"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 全局默认分享卡⽚信息 的系统边界、状态流转和数据一致性。
+  - id: "TP-225"
+    sourceRef: "TECH-021"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 站点推荐：历史搜索记录 的系统边界、状态流转和数据一致性。
+  - id: "TP-226"
+    sourceRef: "TECH-022"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 根据已有地址附近站点 的系统边界、状态流转和数据一致性。
+  - id: "TP-227"
+    sourceRef: "TECH-023"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 小程序消息订阅 的系统边界、状态流转和数据一致性。
+  - id: "TP-228"
+    sourceRef: "TECH-024"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 根据模板配置 的系统边界、状态流转和数据一致性。
+  - id: "TP-229"
+    sourceRef: "TECH-025"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 5个固定模板 的系统边界、状态流转和数据一致性。
+  - id: "TP-230"
+    sourceRef: "TECH-026"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 行程分享的，安全员信息 的系统边界、状态流转和数据一致性。
+  - id: "TP-231"
+    sourceRef: "TECH-027"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 登录页优化： 的系统边界、状态流转和数据一致性。
+  - id: "TP-232"
+    sourceRef: "TECH-028"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 新增：登录icon 的系统边界、状态流转和数据一致性。
+  - id: "TP-233"
+    sourceRef: "TECH-029"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 点击：登录icon 的系统边界、状态流转和数据一致性。
+  - id: "TP-234"
+    sourceRef: "TECH-030"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 \"登录页-⼿机快捷登录\" 的系统边界、状态流转和数据一致性。"
+  - id: "TP-235"
+    sourceRef: "TECH-031"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 登录页-⼿ 【⾸页】 的系统边界、状态流转和数据一致性。"
+  - id: "TP-236"
+    sourceRef: "TECH-032"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 ⼿机快捷登录按钮，向下移动 的系统边界、状态流转和数据一致性。
+  - id: "TP-237"
+    sourceRef: "TECH-033"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 c.安全员护航本次行程 的系统边界、状态流转和数据一致性。
+  - id: "TP-238"
+    sourceRef: "TECH-034"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 d.为保护您的出行安全，行程中请系好安全带 的系统边界、状态流转和数据一致性。
+  - id: "TP-239"
+    sourceRef: "TECH-035"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 接驾上车 【接驾上车页-车辆到达】 的系统边界、状态流转和数据一致性。"
+  - id: "TP-240"
+    sourceRef: "TECH-036"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 场景：接驾上车页（车辆到达时，继续跑⻢下 的系统边界、状态流转和数据一致性。
+  - id: "TP-241"
+    sourceRef: "TECH-037"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 订单完成 【送驾页面】 的系统边界、状态流转和数据一致性。
+  - id: "TP-242"
+    sourceRef: "TECH-038"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 系统触发：车到了就触发解锁弹窗 的系统边界、状态流转和数据一致性。
+  - id: "TP-243"
+    sourceRef: "TECH-039"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 主动点击解锁bat:触发解锁弹窗 的系统边界、状态流转和数据一致性。"
+  - id: "TP-244"
+    sourceRef: "TECH-040"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 解锁成功则：约车页面显⽰“车辆已解锁，请 的系统边界、状态流转和数据一致性。
+  - id: "TP-245"
+    sourceRef: "TECH-041"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 上车开启行程” 的系统边界、状态流转和数据一致性。
+  - id: "TP-246"
+    sourceRef: "TECH-042"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 新增加：座舱管家模块 的系统边界、状态流转和数据一致性。
+  - id: "TP-247"
+    sourceRef: "TECH-043"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 （订单结束后、空调为，关闭状态） 的系统边界、状态流转和数据一致性。
+  - id: "TP-248"
+    sourceRef: "TECH-044"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 关闭：关闭后弹窗消失，不保存 的系统边界、状态流转和数据一致性。
+  - id: "TP-249"
+    sourceRef: "TECH-045"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 点击：空调icon，进⼊座椅弹窗 的系统边界、状态流转和数据一致性。
+  - id: "TP-250"
+    sourceRef: "TECH-046"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 （订单结束后、座椅为，不加热状态） 的系统边界、状态流转和数据一致性。
+  - id: "TP-251"
+    sourceRef: "TECH-047"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 5 产品功能反馈： 的系统边界、状态流转和数据一致性。
+  - id: "TP-252"
+    sourceRef: "TECH-048"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 个⼈中 新增icon:产品反馈 的系统边界、状态流转和数据一致性。"
+  - id: "TP-253"
+    sourceRef: "TECH-049"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 个⼈中⼼页-新增-产品反馈icon 的系统边界、状态流转和数据一致性。"
+  - id: "TP-254"
+    sourceRef: "TECH-050"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 订单完成反馈页-新增-产品反馈icon 的系统边界、状态流转和数据一致性。"
+  - id: "TP-255"
+    sourceRef: "TECH-051"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 产品反馈 页面名称：产品反馈 的系统边界、状态流转和数据一致性。
+  - id: "TP-256"
+    sourceRef: "TECH-052"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 增加途经点：(导航的信息准确时在做) 的系统边界、状态流转和数据一致性。
+  - id: "TP-257"
+    sourceRef: "TECH-053"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 点击：途经点icon，则在下车点上方增加⼀条 的系统边界、状态流转和数据一致性。
+  - id: "TP-258"
+    sourceRef: "TECH-054"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 最⼤增加的2个途经点，增加途经点显⽰可增加 的系统边界、状态流转和数据一致性。
+  - id: "TP-259"
+    sourceRef: "TECH-055"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 钮”是置灰，如果是有任意⼀个地址有站点，则 的系统边界、状态流转和数据一致性。
+  - id: "TP-260"
+    sourceRef: "TECH-056"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 路径规划 新增：途经点选择页 的系统边界、状态流转和数据一致性。
+  - id: "TP-261"
+    sourceRef: "TECH-057"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 起点：右侧新增箭头按钮，点击可编辑起点 的系统边界、状态流转和数据一致性。
+  - id: "TP-262"
+    sourceRef: "TECH-058"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 终点：右侧新增箭头按钮，点击可编辑终点 的系统边界、状态流转和数据一致性。
+  - id: "TP-263"
+    sourceRef: "TECH-059"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 起点和终点：右侧新增箭头按钮，点击可编 的系统边界、状态流转和数据一致性。
+  - id: "TP-264"
+    sourceRef: "TECH-060"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 订单完成页： 的系统边界、状态流转和数据一致性。
+  - id: "TP-265"
+    sourceRef: "TECH-061"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 增加途经点，也是⼀个订单 的系统边界、状态流转和数据一致性。
+  - id: "TP-266"
+    sourceRef: "TECH-062"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 订单结束：路线要有对应的灰⾊途径 的系统边界、状态流转和数据一致性。
+  - id: "TP-267"
+    sourceRef: "TECH-063"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 7 页面分享： 的系统边界、状态流转和数据一致性。
+  - id: "TP-268"
+    sourceRef: "TECH-064"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 如果是跨区域选择站点，给提⽰ 的系统边界、状态流转和数据一致性。
+  - id: "TP-269"
+    sourceRef: "TECH-065"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 d.半年后未登录，则清楚历史搜索 的系统边界、状态流转和数据一致性。
+  - id: "TP-270"
+    sourceRef: "TECH-066"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 ⾸页-下车 【为您推荐的热⻔站点】 的系统边界、状态流转和数据一致性。"
+  - id: "TP-271"
+    sourceRef: "TECH-067"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 此区域默认为：10条推荐站点，下拉后不再加 的系统边界、状态流转和数据一致性。
+  - id: "TP-272"
+    sourceRef: "TECH-068"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 为您推荐 载 的系统边界、状态流转和数据一致性。
+  - id: "TP-273"
+    sourceRef: "TECH-069"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 前3条站点：为运营配置的热区站点 的系统边界、状态流转和数据一致性。
+  - id: "TP-274"
+    sourceRef: "TECH-070"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 后7条站点：为当前定位的附近站点，由近到远 的系统边界、状态流转和数据一致性。
+  - id: "TP-275"
+    sourceRef: "TECH-071"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 2个区域站点推荐区：「{确认页的下车站点}」 的系统边界、状态流转和数据一致性。"
+  - id: "TP-276"
+    sourceRef: "TECH-072"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 附近的其他站点区、为您推荐的热⻔站点区 的系统边界、状态流转和数据一致性。
+  - id: "TP-277"
+    sourceRef: "TECH-073"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 「{确认页的下车站点}」附近的其他站点区 的系统边界、状态流转和数据一致性。"
+  - id: "TP-278"
+    sourceRef: "TECH-074"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 a.为：确认页的下车站点，最近的3个站点 的系统边界、状态流转和数据一致性。
+  - id: "TP-279"
+    sourceRef: "TECH-075"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 为您推荐的热⻔站点区 的系统边界、状态流转和数据一致性。
+  - id: "TP-280"
+    sourceRef: "TECH-076"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 a.为运营配置的热区站点，仅显⽰3条站点 的系统边界、状态流转和数据一致性。
+  - id: "TP-281"
+    sourceRef: "TECH-077"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 2个区域站点推荐区：「{确认页的上车站点}」 的系统边界、状态流转和数据一致性。"
+  - id: "TP-282"
+    sourceRef: "TECH-078"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 「{确认页的上车站点}」附近的其他站点区 的系统边界、状态流转和数据一致性。"
+  - id: "TP-283"
+    sourceRef: "TECH-079"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 a.为：确认页的上车站点，最近的3个站点 的系统边界、状态流转和数据一致性。
+  - id: "TP-284"
+    sourceRef: "TECH-080"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 9 消息订阅： 的系统边界、状态流转和数据一致性。
+  - id: "TP-285"
+    sourceRef: "TECH-081"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 登录-进⼊ 【小程序消息订阅】 的系统边界、状态流转和数据一致性。"
+  - id: "TP-286"
+    sourceRef: "TECH-082"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 2个消息：车辆到达上车点提醒、车辆接驾提醒 的系统边界、状态流转和数据一致性。
+  - id: "TP-287"
+    sourceRef: "TECH-083"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 车辆到达上车点提醒 的系统边界、状态流转和数据一致性。
+  - id: "TP-288"
+    sourceRef: "TECH-084"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 车辆接驾提醒 的系统边界、状态流转和数据一致性。
+  - id: "TP-289"
+    sourceRef: "TECH-085"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 许，则取消弹窗 的系统边界、状态流转和数据一致性。
+  - id: "TP-290"
+    sourceRef: "TECH-086"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 10 ⾸页弹窗： 的系统边界、状态流转和数据一致性。
+  - id: "TP-291"
+    sourceRef: "TECH-087"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 弹窗：【⾸页弹窗】 的系统边界、状态流转和数据一致性。
+  - id: "TP-292"
+    sourceRef: "TECH-088"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 b.点击取消：弹窗消失 的系统边界、状态流转和数据一致性。
+  - id: "TP-293"
+    sourceRef: "TECH-089"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 所有弹窗消失 的系统边界、状态流转和数据一致性。
+  - id: "TP-294"
+    sourceRef: "TECH-090"
+    type: state_consistency
+    priority: P1
+    description: 需要验证 c.滑动可以：滑动弹窗 的系统边界、状态流转和数据一致性。
+  - id: "TP-295"
+    sourceRef: "TECH-091"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 ⽕⼭引擎云通信短信服务介绍.pdf 的系统边界、状态流转和数据一致性。
+  - id: "TP-296"
+    sourceRef: "TECH-092"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 ⽕⼭引擎短信服务-HTTP接⼊操作指引.pdf 的系统边界、状态流转和数据一致性。"
+  - id: "TP-297"
+    sourceRef: "TECH-093"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 背景：接⼊短信服务商的短信发送回调结果接⼝ 的系统边界、状态流转和数据一致性。
+  - id: "TP-298"
+    sourceRef: "TECH-094"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 目标：可以⽀持统计发出的短信，统计到服务商发送给用户的成功失败结果的统计 的系统边界、状态流转和数据一致性。
+  - id: "TP-299"
+    sourceRef: "TECH-095"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 路径：配置渠道标识：发送短信时渠道需要添加⾃定义标识发送到三方渠道（回调时回传回来） 的系统边界、状态流转和数据一致性。
+  - id: "TP-300"
+    sourceRef: "TECH-096"
+    type: state_consistency
+    priority: P0
+    description: 需要验证 路径：通过⾃定义标识判断短信来源，然后messageId传到对应的服务然后查到短信code然后进行回 的系统边界、状态流转和数据一致性。
+  - id: "TP-301"
+    sourceRef: "TECH-097"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 - CLARIFY-DEPENDENCY-002：车辆控制、站点推荐、弹窗、短信等外部依赖未明确 ready 状态时，本轮只生成可从 PRD 明确推导的功能、接口、异常和数据一致性用例 的系统边界、状态流转和数据一致性。"
+  - id: "TP-302"
+    sourceRef: "TECH-098"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 - CLARIFY-PUSH-001：Push/短信模板 ID、完整文案、跳转页面、失败重试规则未明确，本轮不生成模板级精确断言用例，仅覆盖订阅/触达机制的通用流程和异常风险 的系统边界、状态流转和数据一致性。"
+  - id: "TP-303"
+    sourceRef: "TECH-099"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 - CLARIFY-SMS-001：短信回调字段映射、状态枚举、幂等键和失败处理未明确，本轮不生成字段级回调验收用例，仅保留短信链路可观测性和异常处理风险 的系统边界、状态流转和数据一致性。"
+  - id: "TP-304"
+    sourceRef: "TECH-100"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 - CLARIFY-STATION-001：站点推荐排序、去重、跨区域提示、历史记录清理和运营配置优先级未明确，本轮只覆盖 PRD 中明确的站点推荐入口、展示、选择和基础兜底行为 的系统边界、状态流转和数据一致性。"
+  - id: "TP-305"
+    sourceRef: "TECH-101"
+    type: state_consistency
+    priority: P1
+    description: "需要验证 - CLARIFY-FEEDBACK-001：图片上传大小口径、数量边界和失败重试未明确，本轮只覆盖反馈提交主流程、必填校验和基础上传成功/失败提示 的系统边界、状态流转和数据一致性。"
+  - id: "TP-306"
+    sourceRef: "TECH-102"
+    type: state_consistency
+    priority: P0
+    description: "需要验证 - CLARIFY-TODO-001：“行程分享的，安全员信息”待办项本轮不纳入 0330 必测范围 的系统边界、状态流转和数据一致性。"

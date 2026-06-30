@@ -1,0 +1,54 @@
+id: "CASE-HARNESS-001"
+original_candidate_id: "CASE-FUNC-003"
+version: v1
+title: 车控：对于空调、座椅移动端控制的能⼒
+description: "由生成工具候选用例 CASE-FUNC-003 经 Harness Candidate Quality Gate 收敛。"
+scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/scenario.asset.yaml"
+source:
+  type: requirement
+  ref: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/accepted-requirements.yaml"
+traceability:
+  requirement_ids:
+    - "REQ-SENT-002"
+  function_point_ids:
+    - "TP-003"
+execution:
+  type: manual
+  environment: test
+  timeout_seconds: 600
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-fixture.asset.yaml"
+preconditions:
+  - 测试用户、订单、车辆或相关业务数据已准备。
+steps:
+  - name: 步骤 1
+    action: 进入行程中的车辆控制入口。
+    expected_observation: ""
+  - name: 步骤 2
+    action: 分别触发座椅控制和空调控制操作。
+    expected_observation: ""
+  - name: 步骤 3
+    action: 采集小程序操作反馈、云端控制接口返回和车端状态回传。
+    expected_observation: 控制指令下发成功，用户可见反馈、云端接口返回和车端状态保持一致。
+validators:
+  - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml"
+expected_result:
+  summary: 控制指令下发成功，用户可见反馈、云端接口返回和车端状态保持一致。
+  evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+risk:
+  level: P0
+  impact_tags:
+    - passenger_experience
+    - vehicle_cloud_consistency
+tags:
+  - "candidate-to-harness"
+  - functional
+created_by: agent
+review:
+  status: pending_review
+  source_status: pending_human_review

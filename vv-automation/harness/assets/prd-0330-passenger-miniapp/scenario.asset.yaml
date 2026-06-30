@@ -1,0 +1,40 @@
+---
+id: SCN-0330-PASSENGER-MINIAPP-001
+version: v1
+title: 0330 版本乘客端小程序核心功能回归
+description: 覆盖登录、安全保障、车辆控制、产品反馈、途经点、分享、站点推荐、消息订阅、首页弹窗和短信接入。
+domain: mobile_passenger
+source:
+  type: requirement
+  ref: "/Users/langwen/Downloads/0330版本-乘客端小程序PRD.pdf"
+risk:
+  level: P0
+  impact_tags:
+  - passenger_experience
+  - order_lifecycle
+  - vehicle_cloud_consistency
+  - data_quality
+coverage:
+  target: 0330 版本乘客端小程序 PRD 核心功能
+  dimensions:
+  - login
+  - safety_marquee
+  - vehicle_control
+  - feedback
+  - waypoint
+  - station_recommendation
+  - subscription
+  - popup
+  - sms_callback
+cases:
+- vv-automation/harness/assets/prd-0330-passenger-miniapp/case-samples/CASE-0330-STATION-003.case.yaml
+owner: qa-platform
+tags:
+- prd_0330
+- passenger_miniapp
+- regression
+created_by: agent
+review:
+  status: draft
+  reviewers:
+  - qa-owner

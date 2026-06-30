@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harness PRD Test Cases"
+  short_description: "Run Harness PRD-to-test-case workflow"
+  default_prompt: "Use $harness-prd-test-cases to generate test cases from this PRD PDF."

@@ -1,0 +1,53 @@
+id: "CASE-HARNESS-003"
+original_candidate_id: "CASE-FUNC-009"
+version: v1
+title: 用户登录：登录页优化，登录
+description: "由生成工具候选用例 CASE-FUNC-009 经 Harness Candidate Quality Gate 收敛。"
+scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/scenario.asset.yaml"
+source:
+  type: requirement
+  ref: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/accepted-requirements.yaml"
+traceability:
+  requirement_ids:
+    - "REQ-SENT-005"
+  function_point_ids:
+    - "TP-009"
+execution:
+  type: manual
+  environment: test
+  timeout_seconds: 600
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-fixture.asset.yaml"
+preconditions:
+  - 测试用户、订单、车辆或相关业务数据已准备。
+steps:
+  - name: 步骤 1
+    action: 打开乘客端小程序并进入登录页。
+    expected_observation: ""
+  - name: 步骤 2
+    action: 使用合法手机号或授权方式完成登录。
+    expected_observation: ""
+  - name: 步骤 3
+    action: 检查登录成功后的首页跳转、用户态缓存和再次进入小程序的登录态保持。
+    expected_observation: 用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。
+validators:
+  - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml"
+expected_result:
+  summary: 用户登录成功后进入正确页面，登录态稳定保存，失败场景有明确提示。
+  evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+risk:
+  level: P0
+  impact_tags:
+    - passenger_experience
+tags:
+  - "candidate-to-harness"
+  - functional
+created_by: agent
+review:
+  status: pending_review
+  source_status: pending_human_review
