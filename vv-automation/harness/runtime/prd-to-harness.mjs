@@ -123,6 +123,10 @@ async function main() {
     label: "candidate-to-harness",
   });
   const candidateSummary = parseJsonObject(candidate.stdout, "candidate-to-harness summary");
+  const clarificationAnswersAsset = copyClarificationAnswersToHarness({
+    clarificationAnswers: args.clarificationAnswers,
+    harnessOutDir,
+  });
 
   const gateResults = runSampleGates({
     harnessOutDir,
@@ -137,7 +141,9 @@ async function main() {
     gateResults,
     reviewLimit,
     clarificationsConfirmed: isEnabled(args.clarificationsConfirmed),
+    clarificationAnswers: args.clarificationAnswers,
   });
+  syncReviewQueueWithReviewBrief(harnessOutDir, reviewBrief);
 
   const summary = {
     input: {
@@ -146,6 +152,7 @@ async function main() {
       original_text_file: textFile,
       extracted_chars: extractedText.length,
       clarification_answers: args.clarificationAnswers ? normalizeRepoPath(args.clarificationAnswers) : "",
+      clarification_answers_asset: clarificationAnswersAsset,
     },
     outputs: {
       work_dir: workDir,
@@ -162,6 +169,7 @@ async function main() {
       reason: preGenerationClarifications.length > 0 ? "需求澄清项已确认，继续生成测试用例。" : "未识别到阻断级需求澄清项。",
       clarification_items_total: preGenerationClarifications.length,
       clarification_answers: args.clarificationAnswers ? normalizeRepoPath(args.clarificationAnswers) : "",
+      clarification_answers_asset: clarificationAnswersAsset,
     },
     generator: generatorSummary,
     harness_candidate_quality: candidateSummary,
@@ -440,6 +448,16 @@ function prepareGenerationTextFile({ textFile, workDir, clarificationAnswers }) 
   return combinedPath;
 }
 
+function copyClarificationAnswersToHarness({ clarificationAnswers, harnessOutDir }) {
+  if (!clarificationAnswers) return "";
+  const answersPath = path.resolve(REPO_ROOT, clarificationAnswers);
+  if (!fs.existsSync(answersPath)) return "";
+  const targetPath = path.resolve(REPO_ROOT, harnessOutDir, path.basename(answersPath));
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.copyFileSync(answersPath, targetPath);
+  return normalizeRepoPath(targetPath);
+}
+
 function runSampleGates({ harnessOutDir, workDir, sampleLimit }) {
   const caseDir = path.resolve(REPO_ROOT, harnessOutDir, "case-samples");
   if (!fs.existsSync(caseDir)) return [];
@@ -474,25 +492,32 @@ function parseGateDecision(gateResultPath) {
   return match?.[1]?.trim() || "";
 }
 
-function buildReviewBrief({ generatorArtifacts, extractedText, harnessOutDir, candidateSummary, gateResults, reviewLimit, clarificationsConfirmed = false }) {
+function buildReviewBrief({ generatorArtifacts, extractedText, harnessOutDir, candidateSummary, gateResults, reviewLimit, clarificationsConfirmed = false, clarificationAnswers = "" }) {
   const reviewQueue = loadReviewQueue(harnessOutDir);
+  const answerMap = loadClarificationAnswerMap(clarificationAnswers);
   const sourceClarifications = [
     ...(reviewQueue.clarification_items || []),
     ...normalizeClarificationItems(generatorArtifacts.review?.clarificationItems || [], reviewLimit),
     ...inferClarificationItems(extractedText || ""),
   ];
-  const clarificationItems = dedupeClarificationItems(sourceClarifications).slice(0, reviewLimit);
+  const clarificationItems = dedupeClarificationItems(sourceClarifications)
+    .slice(0, reviewLimit)
+    .map((item) => mergeClarificationAnswer(item, answerMap));
   const allManualReviewCases = reviewQueue.manual_review_cases?.length
     ? reviewQueue.manual_review_cases
     : parseAcceptedCasesForReview(path.resolve(REPO_ROOT, harnessOutDir, "accepted-test-cases.yaml"))
       .filter((item) => ["P0", "P1"].includes(item.risk_level) && !["approved", "accepted", "reviewed", "passed"].includes(item.review_status));
   const manualReviewCases = allManualReviewCases.slice(0, reviewLimit);
   const manualReviewTotal = allManualReviewCases.length;
+  const clarificationConfirmedTotal = clarificationItems.filter((item) => item.status === "confirmed").length;
+  const clarificationPendingTotal = clarificationItems.filter((item) => item.status !== "confirmed").length;
 
   return {
     summary: {
       clarification_items_total: clarificationItems.length,
       clarification_items_shown: clarificationItems.length,
+      clarification_items_confirmed: clarificationConfirmedTotal,
+      clarification_items_pending: clarificationPendingTotal,
       manual_review_cases_total: manualReviewTotal,
       manual_review_cases_shown: manualReviewCases.length,
       p0_pending_review: reviewQueue.summary?.p0_pending_review ?? allManualReviewCases.filter((item) => item.risk_level === "P0").length,
@@ -502,7 +527,7 @@ function buildReviewBrief({ generatorArtifacts, extractedText, harnessOutDir, ca
     },
     clarification_items: clarificationItems,
     manual_review_cases: manualReviewCases,
-    confirmation_prompt: buildConfirmationPrompt(clarificationItems.length, manualReviewTotal, clarificationsConfirmed),
+    confirmation_prompt: buildConfirmationPrompt(clarificationItems, manualReviewTotal, clarificationsConfirmed),
   };
 }
 
@@ -510,6 +535,74 @@ function loadReviewQueue(harnessOutDir) {
   const filePath = path.resolve(REPO_ROOT, harnessOutDir, "review-queue.json");
   if (!fs.existsSync(filePath)) return {};
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function syncReviewQueueWithReviewBrief(harnessOutDir, reviewBrief) {
+  const queuePath = path.resolve(REPO_ROOT, harnessOutDir, "review-queue.json");
+  if (!fs.existsSync(queuePath)) return;
+  const queue = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+  queue.clarification_items = reviewBrief.clarification_items || [];
+  queue.summary = {
+    ...(queue.summary || {}),
+    clarification_items_total: reviewBrief.summary?.clarification_items_total || 0,
+    clarification_items_shown: reviewBrief.summary?.clarification_items_shown || 0,
+    clarification_items_confirmed: reviewBrief.summary?.clarification_items_confirmed || 0,
+    clarification_items_pending: reviewBrief.summary?.clarification_items_pending || 0,
+    manual_review_cases_total: reviewBrief.summary?.manual_review_cases_total || (queue.manual_review_cases || []).length,
+    manual_review_cases_shown: reviewBrief.summary?.manual_review_cases_shown || Math.min((queue.manual_review_cases || []).length, 30),
+    p0_pending_review: reviewBrief.summary?.p0_pending_review ?? queue.summary?.p0_pending_review ?? 0,
+    p1_pending_review: reviewBrief.summary?.p1_pending_review ?? queue.summary?.p1_pending_review ?? 0,
+  };
+  writeJson(queuePath, queue);
+  writeYaml(queuePath.replace(/\.json$/, ".yaml"), queue);
+}
+
+function loadClarificationAnswerMap(clarificationAnswers) {
+  if (!clarificationAnswers) return new Map();
+  const answerPath = path.resolve(REPO_ROOT, clarificationAnswers);
+  const candidatePaths = [
+    answerPath,
+    answerPath.replace(/\.[^.]+$/, ".json"),
+  ];
+  for (const filePath of candidatePaths) {
+    if (!fs.existsSync(filePath) || !filePath.endsWith(".json")) continue;
+    const artifact = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    return new Map((artifact.answers || []).map((item) => [item.id, item]));
+  }
+  if (!fs.existsSync(answerPath)) return new Map();
+  return parseMarkdownClarificationAnswers(fs.readFileSync(answerPath, "utf8"));
+}
+
+function parseMarkdownClarificationAnswers(text) {
+  const answerMap = new Map();
+  const sections = text.split(/^### /m).slice(1);
+  for (const section of sections) {
+    const [idLine, ...rest] = section.split("\n");
+    const id = idLine.trim();
+    const body = rest.join("\n");
+    const answer = (body.match(/^- Answer:\s*(.*)$/m) || [])[1] || "";
+    const status = (body.match(/^- Status:\s*(.*)$/m) || [])[1] || (answer && answer !== "N/A" ? "confirmed" : "pending");
+    answerMap.set(id, { id, answer, status });
+  }
+  for (const match of text.matchAll(/^- (CLARIFY-[A-Z0-9-]+)[：:]\s*(.*)$/gm)) {
+    const id = match[1].trim();
+    if (answerMap.has(id)) continue;
+    const answer = match[2].trim();
+    answerMap.set(id, { id, answer, status: answer ? "confirmed" : "pending" });
+  }
+  return answerMap;
+}
+
+function mergeClarificationAnswer(item, answerMap) {
+  const answer = answerMap.get(item.id);
+  if (!answer) return item;
+  return {
+    ...item,
+    answer: answer.answer || "",
+    status: answer.status || (answer.answer ? "confirmed" : "pending"),
+    answered_by: answer.answered_by || "",
+    answered_at: answer.answered_at || "",
+  };
 }
 
 function normalizeClarificationItems(items, limit) {
@@ -654,10 +747,16 @@ function normalizeTextForKey(text) {
   return String(text).replace(/\s+/g, "").replace(/[，。；、：:]/g, "").toLowerCase();
 }
 
-function buildConfirmationPrompt(clarificationCount, manualReviewTotal, clarificationsConfirmed = false) {
+function buildConfirmationPrompt(clarificationItems, manualReviewTotal, clarificationsConfirmed = false) {
+  const clarificationCount = clarificationItems.length;
+  const confirmedTotal = clarificationItems.filter((item) => item.status === "confirmed").length;
+  const pendingTotal = clarificationCount - confirmedTotal;
   if (clarificationCount > 0) {
-    if (clarificationsConfirmed) {
+    if (clarificationsConfirmed && pendingTotal === 0) {
       return `${clarificationCount} 个需求澄清项已确认；请继续评审 ${manualReviewTotal} 条 P0/P1 候选用例。`;
+    }
+    if (clarificationsConfirmed && pendingTotal > 0) {
+      return `${confirmedTotal} 个需求澄清项已确认，仍有 ${pendingTotal} 个新增/未回答澄清项待确认；请先补充确认，再评审 ${manualReviewTotal} 条 P0/P1 候选用例。`;
     }
     return `请先确认 ${clarificationCount} 个需求澄清项，再评审 ${manualReviewTotal} 条 P0/P1 候选用例。`;
   }
@@ -864,10 +963,10 @@ function buildReviewBriefMarkdown(reviewBrief) {
   if (reviewBrief.clarification_items.length === 0) {
     lines.push("- 当前生成工具未识别明确需求澄清项。");
   } else {
-    lines.push("| ID | Source | Question | Impact | Recommended Action |");
-    lines.push("|---|---|---|---|---|");
+    lines.push("| ID | Status | Source | Question | Answer | Impact | Recommended Action |");
+    lines.push("|---|---|---|---|---|---|---|");
     for (const item of reviewBrief.clarification_items) {
-      lines.push(`| ${item.id} | ${item.source_ref || "N/A"} | ${item.question} | ${item.impact} | ${item.recommended_action} |`);
+      lines.push(`| ${item.id} | ${item.status || "pending"} | ${item.source_ref || "N/A"} | ${item.question} | ${item.answer || "N/A"} | ${item.impact} | ${item.recommended_action} |`);
     }
   }
 
@@ -920,6 +1019,54 @@ function compactSummary(summary) {
 function writeJson(outPath, data) {
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+}
+
+function writeYaml(outPath, data) {
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, `${toYaml(data)}\n`, "utf8");
+}
+
+function toYaml(value, indent = 0) {
+  const spaces = " ".repeat(indent);
+  if (Array.isArray(value)) {
+    if (!value.length) return "[]";
+    return value.map((item) => {
+      if (isPlainObject(item)) {
+        const entries = Object.entries(item);
+        if (!entries.length) return `${spaces}- {}`;
+        const [firstKey, firstValue] = entries[0];
+        const rest = Object.fromEntries(entries.slice(1));
+        const firstLine = isPlainObject(firstValue) || Array.isArray(firstValue)
+          ? `${spaces}- ${firstKey}:\n${toYaml(firstValue, indent + 4)}`
+          : `${spaces}- ${firstKey}: ${formatScalar(firstValue)}`;
+        const restText = Object.keys(rest).length ? `\n${toYaml(rest, indent + 2)}` : "";
+        return `${firstLine}${restText}`;
+      }
+      if (Array.isArray(item)) return `${spaces}-\n${toYaml(item, indent + 2)}`;
+      return `${spaces}- ${formatScalar(item)}`;
+    }).join("\n");
+  }
+  if (isPlainObject(value)) {
+    return Object.entries(value).map(([key, item]) => {
+      if (Array.isArray(item)) return item.length ? `${spaces}${key}:\n${toYaml(item, indent + 2)}` : `${spaces}${key}: []`;
+      if (isPlainObject(item)) return Object.keys(item).length ? `${spaces}${key}:\n${toYaml(item, indent + 2)}` : `${spaces}${key}: {}`;
+      return `${spaces}${key}: ${formatScalar(item)}`;
+    }).join("\n");
+  }
+  return `${spaces}${formatScalar(value)}`;
+}
+
+function formatScalar(value) {
+  if (value === null || value === undefined) return "";
+  if (typeof value === "boolean" || typeof value === "number") return String(value);
+  const text = String(value);
+  if (!text) return '""';
+  if (/[:#{}\[\],&*?|\-<>=!%@`]/.test(text) || /^\s|\s$/.test(text)) return JSON.stringify(text);
+  return text;
+}
+
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
 function inferWorkDir(args) {

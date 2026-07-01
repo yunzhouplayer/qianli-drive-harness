@@ -1,0 +1,41 @@
+id: VALIDATOR-BUSINESS-STATION-RECOMMENDATION-001
+version: v1
+title: 站点推荐结果质量校验器
+description: 校验站点推荐结果的数量、去重和来源覆盖，支撑历史站点、热门站点、附近站点等推荐规则验证。
+inputs:
+  - execution_result
+  - state_snapshot
+  - station_recommendation_response
+rules:
+  - id: station_recommendations_have_required_sources
+    type: data_quality
+    assertion:
+      entity: station_recommendations
+      min_count: 3
+      max_count: 10
+      unique_by: id
+      required_sources:
+        - history
+        - hot
+        - nearby
+supported_rule_types:
+  - data_quality
+  - existence
+result:
+  pass_condition: all_rules_passed
+  failure_output:
+    - failed_rule_id
+    - case_id
+    - station_recommendations
+    - missing_source
+    - evidence_ref
+evidence:
+  required: true
+  fields:
+    - run_id
+    - case_id
+    - station_recommendations
+    - request_log
+created_by: human
+review:
+  status: approved

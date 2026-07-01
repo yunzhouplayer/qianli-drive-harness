@@ -1,8 +1,20 @@
-# 测试开发 Harness
+# V&V 自动化 Harness 执行内核
 
-Harness 是 V&V 自动化域内的测试开发与执行工程底座。
+本目录是 V&V 自动化域内的软件测试执行内核。
 
-它负责规范软件测试工具、测试资产、Agent 产物、执行反馈和质量门禁，并通过适配器调用世界仿真模型。
+它负责规范软件测试工具、测试资产、Agent 产物、执行反馈和质量门禁，并通过适配器调用 mock、真实业务系统和世界仿真模型。
+
+外层 `contracts/`、`governance/`、`knowledge/` 等目录是平台控制面，不归入本目录，避免 Harness 执行内核承担跨域治理职责。
+
+## 与外层平台目录的边界
+
+| 外层目录 | 与 Harness 的关系 |
+|---|---|
+| `contracts/` | 定义唯一 Schema 和跨域接口；Harness 只消费和校验，不重复定义事实源 |
+| `governance/` | 定义发布、安全、AI 产物和数据治理规则；Harness 在 gate/runtime 中执行这些规则 |
+| `knowledge/` | 沉淀业务规则、状态机、风险模型；Harness validator 和测试策略可引用 |
+| `agents/` / `skills/` | 生成和评审测试资产；Harness 负责准入、执行和证据 |
+| `world-sim/` | 提供仿真中台能力；Harness 通过 adapter/API 调用 |
 
 ## 与 Agent 的关系
 

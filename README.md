@@ -1,8 +1,10 @@
 # qianli-drive-harness
 
-千里智行 V&V 驱动迭代平台（VIT）的测试开发工程仓库。
+千里智行 V&V 驱动迭代平台（VIT）的平台工作区。
 
-本项目用于沉淀软件测试侧的测试开发 Harness、多 Agent 协同配置、测试资产规范，以及与整车验收业务、世界仿真模型之间的标准接口。
+本仓库不是单一 Harness 代码库，而是围绕整车验收、软件测试 V&V 自动化、世界仿真模型和多 Agent 协同组织的工程工作区。
+
+其中 `vv-automation/harness/` 才是软件测试侧的 Harness 执行内核；外层 `contracts/`、`governance/`、`knowledge/`、`agents/`、`skills/` 提供跨域约束、治理、知识和协作能力。
 
 如果需要快速理解整个平台全貌，优先阅读：
 
@@ -12,7 +14,8 @@
 ## 核心边界
 
 - `vehicle-acceptance/`：整车测试验收域，负责任务排布、状态查询、结果反馈和真实问题沉淀。
-- `vv-automation/`：软件测试 V&V 自动化域，是测试开发 Harness 的核心承载区。
+- `vv-automation/`：软件测试 V&V 自动化域，承载测试准备、执行、反馈、CI/CT，以及 Harness 执行内核。
+- `vv-automation/harness/`：软件测试执行内核，负责 runtime、adapter、fixture、validator、evidence、report 和 quality gates。
 - `world-sim/`：软件测试中台服务，提供虚拟世界环境、实体、规则、事件、故障和故事仿真能力。
 - `agents/`：多 Agent 协同配置，服务于软件测试资产生成、评审、执行反馈和持续迭代。
 - `skills/`：可复用能力包，沉淀测试设计、测试开发、缺陷分析、仿真故事、数据质量等技能。
@@ -22,10 +25,22 @@
 - `governance/`：AI 产物、测试数据、仿真数据、安全合规和发布门禁治理。
 - `docs/`：平台架构、目录规范、接口协议和演进规划。
 
+## 平台控制面与执行内核
+
+| 层级 | 目录 | 职责 |
+|---|---|---|
+| 平台控制面 | `contracts/` | 跨域对象模型、Schema、接口契约，作为测试资产和跨域交互的唯一事实源 |
+| 平台控制面 | `governance/` | AI 产物治理、数据安全、仿真数据治理、发布准入规则 |
+| 平台控制面 | `knowledge/` | 业务规则、状态机、历史缺陷、风险模型和测试策略 |
+| 平台控制面 | `agents/` / `skills/` / `memory/` | Agent 协作、能力包和长期经验 |
+| 执行内核 | `vv-automation/harness/` | 测试资产准入、mock/真实 adapter 执行、证据沉淀、报告和质量门禁 |
+
+目录命名上保留 `qianli-drive-harness` 是历史命名；架构语义上，外层仓库表示 VIT 平台工作区，内层 `vv-automation/harness/` 表示软件测试执行 Harness。
+
 ## 设计原则
 
 - 验收业务服务整车测试，不替代软件自动化测试执行。
-- V&V 自动化服务软件测试，Harness 主阵地在这里。
+- V&V 自动化服务软件测试，Harness 执行内核位于 `vv-automation/harness/`。
 - 世界仿真模型是软件测试中台，通过标准 API 被 Harness 调用。
 - Agent 产物必须经过 Harness 的 Schema、模板、规则和质量门禁约束。
 - 当前 V&V 测试开发 Agent 体系采用 Product、Development、Testing、Review、Critic 五类通用角色。

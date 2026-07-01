@@ -1,0 +1,43 @@
+id: VALIDATOR-BUSINESS-ORDER-STATUS-001
+version: v1
+title: 订单状态流转确定性校验器
+description: 校验订单在 mock 或真实执行结果中按预期状态流转，避免到站、完成等核心状态回退或缺失。
+inputs:
+  - execution_result
+  - state_snapshot
+  - order_status_timeline
+rules:
+  - id: order_reaches_arrived_when_arrival_event_exists
+    type: latency
+    assertion:
+      trigger_event: vehicle_arrived_pickup_point
+      target_observation: order_status.ARRIVED
+      max_latency_seconds: 30
+  - id: no_order_status_regression_after_arrived
+    type: state_machine
+    assertion:
+      forbidden_transition:
+        from: ARRIVED
+        to: PICKING_UP
+supported_rule_types:
+  - latency
+  - state_machine
+  - existence
+result:
+  pass_condition: all_rules_passed
+  failure_output:
+    - failed_rule_id
+    - case_id
+    - observed_status_timeline
+    - expected_status
+    - evidence_ref
+evidence:
+  required: true
+  fields:
+    - run_id
+    - case_id
+    - order_status_timeline
+    - state_snapshot
+created_by: human
+review:
+  status: approved

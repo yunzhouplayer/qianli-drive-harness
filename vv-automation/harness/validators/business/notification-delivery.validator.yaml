@@ -1,0 +1,38 @@
+id: VALIDATOR-BUSINESS-NOTIFICATION-DELIVERY-001
+version: v1
+title: 短信和小程序 Push 触达校验器
+description: 校验短信和小程序消息订阅触达事件是否成功、是否包含模板 ID 和 provider message id。
+inputs:
+  - execution_result
+  - notification_events
+  - request_log
+rules:
+  - id: sms_and_push_delivered
+    type: consistency
+    assertion:
+      channels:
+        - sms
+        - miniapp_push
+      expected_status: delivered
+      required_template_id: true
+supported_rule_types:
+  - consistency
+  - existence
+result:
+  pass_condition: all_rules_passed
+  failure_output:
+    - failed_rule_id
+    - case_id
+    - notification_events
+    - provider_message_id
+    - evidence_ref
+evidence:
+  required: true
+  fields:
+    - run_id
+    - case_id
+    - notification_events
+    - request_log
+created_by: human
+review:
+  status: approved

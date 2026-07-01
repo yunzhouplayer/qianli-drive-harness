@@ -54,6 +54,16 @@ After the user answers the clarification items, write the answers to:
 output/harness/<short-run-name>/clarification-answers.md
 ```
 
+Prefer using the helper because it also updates `review-brief.json`:
+
+```bash
+node vv-automation/harness/runtime/clarification-answer.mjs \
+  --review-brief output/harness/<short-run-name>/review-brief.json \
+  --out output/harness/<short-run-name>/clarification-answers.md \
+  --default-answer "<user-confirmed clarification policy>" \
+  --actor "qa-owner"
+```
+
 Then rerun:
 
 ```bash
@@ -101,6 +111,36 @@ The script writes:
 - `test-cases.xlsx` when `openpyxl` is available
 - `test-cases-export-summary.json`
 
+## Review Queue Updates
+
+After Phase 2, P0/P1 cases remain `pending_review`. Use the review updater to record human decisions before treating cases as executable assets.
+
+Approve one case:
+
+```bash
+node vv-automation/harness/runtime/review-queue-update.mjs \
+  --queue vv-automation/harness/assets/<short-run-name>/final-generated/review-queue.json \
+  --cases vv-automation/harness/assets/<short-run-name>/final-generated/accepted-test-cases.yaml \
+  --case-dir vv-automation/harness/assets/<short-run-name>/final-generated/case-samples \
+  --action approve \
+  --case CASE-HARNESS-001 \
+  --actor qa-owner \
+  --reason "QA reviewed"
+```
+
+Reject one case:
+
+```bash
+node vv-automation/harness/runtime/review-queue-update.mjs \
+  --queue vv-automation/harness/assets/<short-run-name>/final-generated/review-queue.json \
+  --cases vv-automation/harness/assets/<short-run-name>/final-generated/accepted-test-cases.yaml \
+  --action reject \
+  --case CASE-HARNESS-001 \
+  --reason "需求范围已排除"
+```
+
+Use `--approve-related-assets true` plus `--scenario`, `--fixture`, and `--validator` paths only when the reviewer also accepts generated Scenario/Fixture/Validator assets. This prevents Gate Runner from blocking approved P0/P1 cases because related generated assets are still `draft`.
+
 ## Mandatory Review Behavior
 
 Always inspect and report:
@@ -110,6 +150,7 @@ Always inspect and report:
 - `review-brief.json`
 - `accepted-test-cases.yaml`
 - `review-queue.json`
+- `rejected-by-review.json` if any cases were rejected
 
 In Phase 1, inspect and report:
 

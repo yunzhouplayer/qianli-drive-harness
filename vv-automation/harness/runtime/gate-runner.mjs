@@ -514,7 +514,8 @@ function parseBlock(lines, startIndex, indent) {
   const first = nextLineAtOrAfter(lines, startIndex, indent);
   if (!first) return [{}, startIndex];
 
-  if (first.line.indent === indent && first.line.text.trimStart().startsWith("- ")) {
+  const trimmed = first.line.text.trimStart();
+  if (first.line.indent === indent && (trimmed === "-" || trimmed.startsWith("- "))) {
     return parseArray(lines, first.index, indent);
   }
   return parseObject(lines, first.index, indent);

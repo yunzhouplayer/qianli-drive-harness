@@ -2,14 +2,16 @@
 
 ## 结论
 
-本项目采用“域边界清晰、Harness 内聚、Agent 外挂协同”的目录结构。
+本项目采用“平台控制面清晰、Harness 执行内核内聚、Agent 外挂协同”的目录结构。
+
+外层仓库是 VIT 平台工作区，不是单一 Harness 目录。`vv-automation/harness/` 是软件测试侧的 Harness 执行内核；外层 `contracts/`、`governance/`、`knowledge/`、`agents/`、`skills/` 是平台控制面和协作层。
 
 推荐将目录分为 10 个一级域：
 
 | 一级目录 | 定位 |
 |---|---|
 | `vehicle-acceptance/` | 整车测试验收业务域 |
-| `vv-automation/` | 软件测试 V&V 自动化域，也是 Harness 主体 |
+| `vv-automation/` | 软件测试 V&V 自动化域，包含测试准备、执行、反馈、CI/CT 和 Harness 执行内核 |
 | `world-sim/` | 世界仿真模型，中台服务域 |
 | `agents/` | 多 Agent 协同配置域 |
 | `skills/` | 可复用 Agent 能力包 |
@@ -138,7 +140,14 @@ qianli-drive-harness/
 
 面向软件测试，是本项目最核心的工程域。
 
-其中 `vv-automation/harness/` 是测试开发 Harness 主体，用于规范测试开发、执行、反馈和质量门禁。
+其中 `vv-automation/harness/` 是测试开发 Harness 执行内核，用于规范测试开发、执行、反馈和质量门禁。
+
+`vv-automation/` 不替代外层平台控制面：
+
+- 测试资产 Schema 的唯一事实源在 `contracts/test-assets/`。
+- AI 产物治理、数据安全和发布准入规则的唯一事实源在 `governance/`。
+- 业务规则、状态机和风险模型的长期知识源在 `knowledge/`。
+- Harness 通过 runtime、validator 和 quality gates 消费这些外层约束，而不是在内层重复维护一套规则源。
 
 建议职责：
 
@@ -156,6 +165,17 @@ qianli-drive-harness/
 - `test-execution/`：接口/UI/场景自动化执行组织。
 - `test-feedback/`：缺陷分析、测试建议、结果归因。
 - `ci-ct/`：自动冒烟、线上巡检、自动问题回归、持续测试。
+
+## 控制面与执行面的事实源
+
+| 类型 | 唯一事实源 | Harness 中的使用方式 |
+|---|---|---|
+| 测试资产结构 | `contracts/test-assets/` | `quality-gates/` 和 `runtime/` 校验、执行、报告 |
+| 跨域接口 | `contracts/acceptance-to-vv/`、`contracts/vv-to-world-sim/` | `adapters/` 对接整车验收反馈和世界仿真 |
+| 发布/安全治理 | `governance/` | `quality-gates/` 执行准入、阻断和 warning |
+| 业务规则/状态机 | `knowledge/` | `validators/` 引用或沉淀为确定性校验器 |
+| Agent 协作 | `agents/`、`skills/` | 生成候选资产，进入 Harness 评审和执行 |
+| 执行证据/报告 | `vv-automation/harness/evidence/`、`vv-automation/harness/reports/` | Harness 运行时产物 |
 
 ### `world-sim/`
 

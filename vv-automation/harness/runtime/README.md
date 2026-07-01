@@ -54,6 +54,46 @@ node vv-automation/harness/runtime/prd-to-harness.mjs \
 
 `--clarification-answers` 可选；建议把产品/研发确认结论写入该文件，让澄清结论进入后续候选生成上下文。
 
+也可以用 `clarification-answer.mjs` 从 `review-brief.json` 生成结构化澄清答案，并回写确认状态：
+
+```bash
+node vv-automation/harness/runtime/clarification-answer.mjs \
+  --review-brief output/harness/prd-0330-auto/review-brief.json \
+  --out output/harness/prd-0330-auto/clarification-answers.md \
+  --default-answer "本轮按已明确范围生成；未明确规则不生成伪精确用例。" \
+  --actor qa-owner
+```
+
+### 2. 人工评审用例状态流转
+
+候选用例生成后，P0/P1 默认处于 `pending_review`。使用 `review-queue-update.mjs` 更新评审状态，并同步 `review-queue.json`、`accepted-test-cases.yaml` 和样例 case。
+
+批准单条用例：
+
+```bash
+node vv-automation/harness/runtime/review-queue-update.mjs \
+  --queue vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated/review-queue.json \
+  --cases vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated/accepted-test-cases.yaml \
+  --case-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated/case-samples \
+  --action approve \
+  --case CASE-HARNESS-001 \
+  --actor qa-owner \
+  --reason "QA reviewed"
+```
+
+驳回单条用例：
+
+```bash
+node vv-automation/harness/runtime/review-queue-update.mjs \
+  --queue vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated/review-queue.json \
+  --cases vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated/accepted-test-cases.yaml \
+  --action reject \
+  --case CASE-HARNESS-001 \
+  --reason "需求范围已排除"
+```
+
+如果人工评审同时认可生成的 Scenario、Fixture、Validator，可增加 `--approve-related-assets true` 并传入相关资产路径。这样 Gate Runner 不会继续因为关联生成资产为 `draft` 而阻断高风险用例。
+
 如果输入已经是文本，可使用：
 
 ```bash
@@ -66,7 +106,7 @@ node vv-automation/harness/runtime/prd-to-harness.mjs \
 
 PDF 抽取默认优先使用 Codex bundled Python；也可以通过 `--python /path/to/python3` 或 `PRD_TO_HARNESS_PYTHON` 指定包含 `pdfplumber` 的 Python。
 
-### 2. 单独调用生成工具前端规则链路
+### 3. 单独调用生成工具前端规则链路
 
 ```bash
 node vv-automation/harness/runtime/generator-runpipeline.mjs \
@@ -76,7 +116,7 @@ node vv-automation/harness/runtime/generator-runpipeline.mjs \
 
 说明：如果输入是 PDF，当前由 Codex 或外部 PDF 工具先抽取文本，再传给该命令。生成工具页面上传 PDF 时仍走原有 PDFJS 解析链路。
 
-### 3. 将生成工具候选收敛为 Harness 资产
+### 4. 将生成工具候选收敛为 Harness 资产
 
 ```bash
 node vv-automation/harness/runtime/candidate-to-harness.mjs \
@@ -152,3 +192,56 @@ node vv-automation/harness/runtime/gate-runner.mjs \
 - `0`：全部通过或只有可接受的非阻断结果。
 - `1`：存在 `failed` 或 `blocked`。
 - `2`：命令参数或文件读取异常。
+
+## Execution Runner
+
+`execution-runner.mjs` 是第一版 Harness 执行入口，用于把已经准入的 Case 推进到 mock 执行、确定性校验、Evidence 留存和 Report 聚合。
+
+当前支持 `--adapter mock`，不访问真实 OMS、RAS、乘客端或生产数据。
+
+```bash
+node vv-automation/harness/runtime/execution-runner.mjs \
+  --case output/harness/harness-smoke/assets/mock-runtime-smoke.case.yaml \
+  --adapter mock \
+  --out-dir output/harness/harness-smoke \
+  --gate true
+```
+
+输出：
+
+- `evidence/execution-evidence.json`
+- `evidence/execution-evidence.yaml`
+- `evidence/validator-results.json`
+- `reports/execution-report.json`
+- `reports/execution-report.yaml`
+- `gates/<case-id>.gate-result.yaml`，当 `--gate true` 时生成
+- `execution-summary.json`
+
+执行链路：
+
+```text
+Case
+  -> Fixture
+  -> mock adapter
+  -> business validators
+  -> Evidence
+  -> Report
+  -> optional Gate Runner
+```
+
+## Harness Smoke
+
+`harness-smoke.mjs` 是项目级冒烟入口。它会在 `output/harness/harness-smoke/` 下生成一套临时 mock 资产，覆盖订单状态、站点推荐、短信/Push 三类 validator，并调用 `execution-runner.mjs` 跑完整执行闭环。
+
+```bash
+node vv-automation/harness/runtime/harness-smoke.mjs
+```
+
+通过标准：
+
+- mock adapter 执行成功。
+- 3 个业务 validator 全部 `passed`。
+- Evidence 和 Report 均生成。
+- Gate Runner 决策为 `passed`。
+
+该 smoke 不依赖 PRD 生成链路，也不接真实系统，适合作为 Harness runtime/devkit 的基础回归入口。
