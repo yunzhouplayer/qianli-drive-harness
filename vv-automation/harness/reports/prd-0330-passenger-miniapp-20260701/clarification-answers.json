@@ -1,6 +1,6 @@
 {
   "artifact_type": "clarification_answers",
-  "source_review_brief": "output/harness/prd-0330-passenger-miniapp-20260701/review-brief.json",
+  "source_review_brief": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/review-brief.json",
   "answered_by": "qa-owner",
   "answered_at": "2026-07-01T07:47:24.660Z",
   "summary": {

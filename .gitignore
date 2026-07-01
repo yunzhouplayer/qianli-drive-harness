@@ -29,6 +29,9 @@ coverage/
 reports/
 artifacts/
 tmp/
+output/
+!vv-automation/harness/reports/
+!vv-automation/harness/reports/**
 
 # Local tool scratch data
 .hatch-pet-runs/

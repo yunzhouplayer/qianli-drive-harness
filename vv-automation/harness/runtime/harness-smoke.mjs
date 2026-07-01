@@ -28,7 +28,7 @@ async function main() {
   }
 
   const runId = args.runId || "RUN-HARNESS-SMOKE-001";
-  const workDir = normalizeRepoPath(args.workDir || "output/harness/harness-smoke");
+  const workDir = normalizeRepoPath(args.workDir || "vv-automation/harness/reports/harness-smoke");
   if (isEnabled(args.clean) || args.clean === undefined) {
     fs.rmSync(resolveRepoPath(workDir), { recursive: true, force: true });
   }
@@ -203,7 +203,7 @@ function printUsage() {
   node vv-automation/harness/runtime/harness-smoke.mjs
 
 Options:
-  --work-dir output/harness/harness-smoke
+  --work-dir vv-automation/harness/reports/harness-smoke
   --clean true
 `);
 }

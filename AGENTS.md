@@ -172,7 +172,7 @@ Harness 不应替代整车测试任务管理，也不应直接把验收业务变
 - 业务规则、状态机、风险模型位于 `knowledge/`。
 - Harness 运行时模板位于 `vv-automation/harness/templates/`。
 - Harness 门禁策略位于 `vv-automation/harness/quality-gates/`。
-- 运行证据和报告分别位于 `vv-automation/harness/evidence/`、`vv-automation/harness/reports/` 或对应 `output/harness/<run>/`。
+- 运行证据和报告分别位于 `vv-automation/harness/evidence/`、`vv-automation/harness/reports/<run>/`。
 
 不要在单个生成资产中重复定义领域、状态、风险、Schema 或生命周期值。跨域集成应先通过 `contracts/` 表达，再由 adapter 或 runtime 代码消费。
 
@@ -183,11 +183,12 @@ Harness 不应替代整车测试任务管理，也不应直接把验收业务变
 1. 除非明确要求，不要编写业务/应用代码。
 2. 优先在 `contracts/` 下定义 schema-first 产物，在 `vv-automation/harness/templates/` 下定义模板。
 3. 可执行 Harness 逻辑放入 `vv-automation/harness/runtime/`、`adapters/`、`validators/` 或 `quality-gates/`。
-4. 生成或候选测试资产放入 `vv-automation/harness/assets/` 或 `output/harness/<run>/`。
-5. 执行证据放入 `vv-automation/harness/evidence/` 或 `output/harness/<run>/evidence/`，不要放在源模板旁边。
-6. 每个生成用例应能追溯到需求分析、测试功能点、fixture、validator 和 gate result。
-7. Review Agent 的 gate 是资产准入检查，不是可选评论。
-8. Critic Agent 的发现应定义修复范围、覆盖缺口、重复项和回归风险。
+4. 生成或候选测试资产放入 `vv-automation/harness/assets/`。
+5. 人类可读运行报告、导出表格和门禁样例结果放入 `vv-automation/harness/reports/<run>/`。
+6. 执行证据放入 `vv-automation/harness/evidence/` 或 `vv-automation/harness/reports/<run>/evidence/`，不要放在源模板旁边。
+7. 每个生成用例应能追溯到需求分析、测试功能点、fixture、validator 和 gate result。
+8. Review Agent 的 gate 是资产准入检查，不是可选评论。
+9. Critic Agent 的发现应定义修复范围、覆盖缺口、重复项和回归风险。
 
 ## 8. 结构更新协议
 

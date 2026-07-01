@@ -11,7 +11,7 @@
 ```bash
 node vv-automation/harness/runtime/prd-to-harness.mjs \
   --pdf /path/to/prd.pdf \
-  --work-dir output/harness/prd-0330-auto \
+  --work-dir vv-automation/harness/reports/prd-0330-auto \
   --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-prd-auto \
   --feature "0330 乘客端小程序 PRD"
 ```
@@ -45,11 +45,11 @@ node vv-automation/harness/runtime/prd-to-harness.mjs \
 ```bash
 node vv-automation/harness/runtime/prd-to-harness.mjs \
   --pdf /path/to/prd.pdf \
-  --work-dir output/harness/prd-0330-auto \
+  --work-dir vv-automation/harness/reports/prd-0330-auto \
   --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-prd-auto \
   --feature "0330 乘客端小程序 PRD" \
   --clarifications-confirmed true \
-  --clarification-answers output/harness/prd-0330-auto/clarification-answers.md
+  --clarification-answers vv-automation/harness/reports/prd-0330-auto/clarification-answers.md
 ```
 
 `--clarification-answers` 可选；建议把产品/研发确认结论写入该文件，让澄清结论进入后续候选生成上下文。
@@ -58,8 +58,8 @@ node vv-automation/harness/runtime/prd-to-harness.mjs \
 
 ```bash
 node vv-automation/harness/runtime/clarification-answer.mjs \
-  --review-brief output/harness/prd-0330-auto/review-brief.json \
-  --out output/harness/prd-0330-auto/clarification-answers.md \
+  --review-brief vv-automation/harness/reports/prd-0330-auto/review-brief.json \
+  --out vv-automation/harness/reports/prd-0330-auto/clarification-answers.md \
   --default-answer "本轮按已明确范围生成；未明确规则不生成伪精确用例。" \
   --actor qa-owner
 ```
@@ -99,7 +99,7 @@ node vv-automation/harness/runtime/review-queue-update.mjs \
 ```bash
 node vv-automation/harness/runtime/prd-to-harness.mjs \
   --text-file tmp/pdfs/prd-0330/extracted-clean.txt \
-  --work-dir output/harness/prd-0330-auto \
+  --work-dir vv-automation/harness/reports/prd-0330-auto \
   --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-prd-auto \
   --feature "0330 乘客端小程序 PRD"
 ```
@@ -111,7 +111,7 @@ PDF 抽取默认优先使用 Codex bundled Python；也可以通过 `--python /p
 ```bash
 node vv-automation/harness/runtime/generator-runpipeline.mjs \
   --text-file tmp/pdfs/prd-0330/extracted-clean.txt \
-  --out output/harness/prd-0330/generator-frontend-runpipeline-artifacts.json
+  --out vv-automation/harness/reports/prd-0330/generator-frontend-runpipeline-artifacts.json
 ```
 
 说明：如果输入是 PDF，当前由 Codex 或外部 PDF 工具先抽取文本，再传给该命令。生成工具页面上传 PDF 时仍走原有 PDFJS 解析链路。
@@ -120,7 +120,7 @@ node vv-automation/harness/runtime/generator-runpipeline.mjs \
 
 ```bash
 node vv-automation/harness/runtime/candidate-to-harness.mjs \
-  --input output/harness/prd-0330/generator-frontend-runpipeline-artifacts.json \
+  --input vv-automation/harness/reports/prd-0330/generator-frontend-runpipeline-artifacts.json \
   --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-generator \
   --feature "0330 乘客端小程序 PRD"
 ```
@@ -201,9 +201,9 @@ node vv-automation/harness/runtime/gate-runner.mjs \
 
 ```bash
 node vv-automation/harness/runtime/execution-runner.mjs \
-  --case output/harness/harness-smoke/assets/mock-runtime-smoke.case.yaml \
+  --case vv-automation/harness/reports/harness-smoke/assets/mock-runtime-smoke.case.yaml \
   --adapter mock \
-  --out-dir output/harness/harness-smoke \
+  --out-dir vv-automation/harness/reports/harness-smoke \
   --gate true
 ```
 
@@ -231,7 +231,7 @@ Case
 
 ## Harness Smoke
 
-`harness-smoke.mjs` 是项目级冒烟入口。它会在 `output/harness/harness-smoke/` 下生成一套临时 mock 资产，覆盖订单状态、站点推荐、短信/Push 三类 validator，并调用 `execution-runner.mjs` 跑完整执行闭环。
+`harness-smoke.mjs` 是项目级冒烟入口。它会在 `vv-automation/harness/reports/harness-smoke/` 下生成一套临时 mock 资产，覆盖订单状态、站点推荐、短信/Push 三类 validator，并调用 `execution-runner.mjs` 跑完整执行闭环。
 
 ```bash
 node vv-automation/harness/runtime/harness-smoke.mjs

@@ -32,7 +32,7 @@
     "安全员"
   ],
   "paths": {
-    "filtered_yaml": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/output/harness/prd-0330-passenger-miniapp-20260630/filtered-clear-scope/accepted-test-cases-clear-scope.yaml",
-    "filtered_review_queue": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/output/harness/prd-0330-passenger-miniapp-20260630/filtered-clear-scope/review-queue-clear-scope.json"
+    "filtered_yaml": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/filtered-clear-scope/accepted-test-cases-clear-scope.yaml",
+    "filtered_review_queue": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/filtered-clear-scope/review-queue-clear-scope.json"
   }
 }

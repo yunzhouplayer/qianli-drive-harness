@@ -37,7 +37,7 @@ Run first without `--clarifications-confirmed`:
 ```bash
 node vv-automation/harness/runtime/prd-to-harness.mjs \
   --pdf /absolute/path/to/prd.pdf \
-  --work-dir output/harness/<short-run-name> \
+  --work-dir vv-automation/harness/reports/<short-run-name> \
   --out-dir vv-automation/harness/assets/<short-run-name>/final-generated \
   --feature "<feature name>" \
   --sample-limit 5 \
@@ -51,15 +51,15 @@ If the result contains `clarificationGate.decision: "blocked"` or `review-brief.
 After the user answers the clarification items, write the answers to:
 
 ```text
-output/harness/<short-run-name>/clarification-answers.md
+vv-automation/harness/reports/<short-run-name>/clarification-answers.md
 ```
 
 Prefer using the helper because it also updates `review-brief.json`:
 
 ```bash
 node vv-automation/harness/runtime/clarification-answer.mjs \
-  --review-brief output/harness/<short-run-name>/review-brief.json \
-  --out output/harness/<short-run-name>/clarification-answers.md \
+  --review-brief vv-automation/harness/reports/<short-run-name>/review-brief.json \
+  --out vv-automation/harness/reports/<short-run-name>/clarification-answers.md \
   --default-answer "<user-confirmed clarification policy>" \
   --actor "qa-owner"
 ```
@@ -69,18 +69,18 @@ Then rerun:
 ```bash
 node vv-automation/harness/runtime/prd-to-harness.mjs \
   --pdf /absolute/path/to/prd.pdf \
-  --work-dir output/harness/<short-run-name> \
+  --work-dir vv-automation/harness/reports/<short-run-name> \
   --out-dir vv-automation/harness/assets/<short-run-name>/final-generated \
   --feature "<feature name>" \
   --sample-limit 5 \
   --review-limit 30 \
   --clarifications-confirmed true \
-  --clarification-answers output/harness/<short-run-name>/clarification-answers.md
+  --clarification-answers vv-automation/harness/reports/<short-run-name>/clarification-answers.md
 ```
 
 Use stable, descriptive names:
 
-- `output/harness/prd-0330-final`
+- `vv-automation/harness/reports/prd-0330-final`
 - `vv-automation/harness/assets/prd-0330-passenger-miniapp/final-generated`
 
 Avoid overwriting prior useful runs unless the user asks to refresh the same output.
@@ -92,7 +92,7 @@ Only after Phase 2 succeeds and `accepted-test-cases.yaml` exists, export readab
 ```bash
 python3 skills/test-design/harness-prd-test-cases/scripts/export_harness_cases.py \
   --input vv-automation/harness/assets/<short-run-name>/final-generated/accepted-test-cases.yaml \
-  --out-dir output/harness/<short-run-name>
+  --out-dir vv-automation/harness/reports/<short-run-name>
 ```
 
 If `python3` lacks `openpyxl`, use the Codex bundled Python when available:
@@ -101,7 +101,7 @@ If `python3` lacks `openpyxl`, use the Codex bundled Python when available:
 /Users/langwen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
   skills/test-design/harness-prd-test-cases/scripts/export_harness_cases.py \
   --input vv-automation/harness/assets/<short-run-name>/final-generated/accepted-test-cases.yaml \
-  --out-dir output/harness/<short-run-name>
+  --out-dir vv-automation/harness/reports/<short-run-name>
 ```
 
 The script writes:

@@ -34,7 +34,7 @@ async function main() {
 
   const startedAt = new Date().toISOString();
   const runId = args.runId || buildRunId(startedAt);
-  const outDir = normalizeRepoPath(args.outDir || path.join("output/harness/execution-runs", runId));
+  const outDir = normalizeRepoPath(args.outDir || path.join("vv-automation/harness/reports/execution-runs", runId));
   const evidenceDir = path.join(outDir, "evidence");
   const reportDir = path.join(outDir, "reports");
   const gateDir = path.join(outDir, "gates");
@@ -357,7 +357,7 @@ function printUsage() {
   node vv-automation/harness/runtime/execution-runner.mjs \\
     --case vv-automation/harness/assets/cases/mock-runtime-smoke.case.yaml \\
     --adapter mock \\
-    --out-dir output/harness/execution-smoke \\
+    --out-dir vv-automation/harness/reports/execution-smoke \\
     --gate true
 `);
 }

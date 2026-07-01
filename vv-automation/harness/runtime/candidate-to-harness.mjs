@@ -444,7 +444,7 @@ function parseArgs(argv) {
 function printUsage() {
   console.log(`Usage:
   node vv-automation/harness/runtime/candidate-to-harness.mjs \\
-    --input output/harness/prd-0330/generator-frontend-runpipeline-artifacts.json \\
+    --input vv-automation/harness/reports/prd-0330/generator-frontend-runpipeline-artifacts.json \\
     --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-generator \\
     --feature "0330 乘客端小程序 PRD"
 `);

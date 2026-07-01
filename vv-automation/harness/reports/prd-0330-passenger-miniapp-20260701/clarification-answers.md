@@ -1,6 +1,6 @@
 # Clarification Answers
 
-- Source review brief: output/harness/prd-0330-passenger-miniapp-20260701/review-brief.json
+- Source review brief: vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/review-brief.json
 - Answered by: qa-owner
 - Answered at: 2026-07-01T07:47:24.660Z
 - Confirmed: 11

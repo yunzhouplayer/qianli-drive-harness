@@ -1071,7 +1071,7 @@ function isPlainObject(value) {
 
 function inferWorkDir(args) {
   const baseName = args.pdf || args.textFile || "prd";
-  return path.join("output/harness", slugify(path.basename(baseName, path.extname(baseName))));
+  return path.join("vv-automation/harness/reports", slugify(path.basename(baseName, path.extname(baseName))));
 }
 
 function inferFeatureName(args) {
@@ -1118,18 +1118,18 @@ function printUsage() {
   console.log(`Usage:
   node vv-automation/harness/runtime/prd-to-harness.mjs \\
     --pdf /path/to/prd.pdf \\
-    --work-dir output/harness/prd-0330-auto \\
+    --work-dir vv-automation/harness/reports/prd-0330-auto \\
     --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-prd-auto \\
     --feature "0330 乘客端小程序 PRD"
 
   # After clarification items are confirmed:
   node vv-automation/harness/runtime/prd-to-harness.mjs \\
     --pdf /path/to/prd.pdf \\
-    --work-dir output/harness/prd-0330-auto \\
+    --work-dir vv-automation/harness/reports/prd-0330-auto \\
     --out-dir vv-automation/harness/assets/prd-0330-passenger-miniapp/from-prd-auto \\
     --feature "0330 乘客端小程序 PRD" \\
     --clarifications-confirmed true \\
-    --clarification-answers output/harness/prd-0330-auto/clarification-answers.md
+    --clarification-answers vv-automation/harness/reports/prd-0330-auto/clarification-answers.md
 
   node vv-automation/harness/runtime/prd-to-harness.mjs \\
     --text-file tmp/pdfs/prd-0330/extracted-clean.txt \\

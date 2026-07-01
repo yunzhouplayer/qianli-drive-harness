@@ -5,7 +5,7 @@ description: 生成工具 raw candidates 经 Harness 收敛后的准入场景。
 domain: mobile_passenger
 source:
   type: agent_suggestion
-  ref: "output/harness/prd-0330-passenger-miniapp-20260701/generator-runpipeline-artifacts.json"
+  ref: "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/generator-runpipeline-artifacts.json"
 risk:
   level: P0
   impact_tags:

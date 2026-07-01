@@ -1,19 +1,19 @@
 {
   "input": {
     "pdf": "/Users/langwen/Downloads/0330版本-乘客端小程序PRD.pdf",
-    "text_file": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/output/harness/prd-0330-passenger-miniapp-20260630/generation-input-with-clarifications.txt",
-    "original_text_file": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/output/harness/prd-0330-passenger-miniapp-20260630/extracted.txt",
+    "text_file": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/generation-input-with-clarifications.txt",
+    "original_text_file": "/Users/langwen/Documents/00_workspace/01_qianli-drive-harness/vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/extracted.txt",
     "extracted_chars": 5710,
-    "clarification_answers": "output/harness/prd-0330-passenger-miniapp-20260630/clarification-answers.md"
+    "clarification_answers": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/clarification-answers.md"
   },
   "outputs": {
-    "work_dir": "output/harness/prd-0330-passenger-miniapp-20260630",
-    "generator_artifacts": "output/harness/prd-0330-passenger-miniapp-20260630/generator-runpipeline-artifacts.json",
+    "work_dir": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630",
+    "generator_artifacts": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/generator-runpipeline-artifacts.json",
     "harness_out_dir": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated",
-    "run_summary_json": "output/harness/prd-0330-passenger-miniapp-20260630/run-summary.json",
-    "run_summary_md": "output/harness/prd-0330-passenger-miniapp-20260630/run-summary.md",
-    "review_brief_json": "output/harness/prd-0330-passenger-miniapp-20260630/review-brief.json",
-    "review_brief_md": "output/harness/prd-0330-passenger-miniapp-20260630/review-brief.md"
+    "run_summary_json": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/run-summary.json",
+    "run_summary_md": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/run-summary.md",
+    "review_brief_json": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/review-brief.json",
+    "review_brief_md": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/review-brief.md"
   },
   "intake_gate": {
     "artifact_type": "requirement_intake_gate_result",
@@ -53,7 +53,7 @@
     "decision": "confirmed",
     "reason": "需求澄清项已确认，继续生成测试用例。",
     "clarification_items_total": 9,
-    "clarification_answers": "output/harness/prd-0330-passenger-miniapp-20260630/clarification-answers.md"
+    "clarification_answers": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/clarification-answers.md"
   },
   "generator": {
     "requirementUnits": 102,
@@ -78,31 +78,31 @@
   "gates": [
     {
       "case": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-001.case.yaml",
-      "result": "output/harness/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-001.gate-result.yaml",
+      "result": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-001.gate-result.yaml",
       "exit_code": 1,
       "decision": "blocked"
     },
     {
       "case": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-002.case.yaml",
-      "result": "output/harness/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-002.gate-result.yaml",
+      "result": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-002.gate-result.yaml",
       "exit_code": 1,
       "decision": "blocked"
     },
     {
       "case": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-003.case.yaml",
-      "result": "output/harness/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-003.gate-result.yaml",
+      "result": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-003.gate-result.yaml",
       "exit_code": 1,
       "decision": "blocked"
     },
     {
       "case": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-004.case.yaml",
-      "result": "output/harness/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-004.gate-result.yaml",
+      "result": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-004.gate-result.yaml",
       "exit_code": 1,
       "decision": "blocked"
     },
     {
       "case": "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-005.case.yaml",
-      "result": "output/harness/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-005.gate-result.yaml",
+      "result": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/gate-results/CASE-HARNESS-005.gate-result.yaml",
       "exit_code": 1,
       "decision": "blocked"
     }

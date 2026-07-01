@@ -163,14 +163,14 @@ function normalizeAliasArgs(args) {
 function printUsage() {
   console.log(`Usage:
   node vv-automation/harness/runtime/clarification-answer.mjs \\
-    --review-brief output/harness/<run>/review-brief.json \\
-    --out output/harness/<run>/clarification-answers.md \\
+    --review-brief vv-automation/harness/reports/<run>/review-brief.json \\
+    --out vv-automation/harness/reports/<run>/clarification-answers.md \\
     --default-answer "本轮暂不纳入未明确规则，按已确认范围生成。" \\
     --actor "qa-owner"
 
   node vv-automation/harness/runtime/clarification-answer.mjs \\
-    --review-brief output/harness/<run>/review-brief.json \\
-    --out output/harness/<run>/clarification-answers.md \\
+    --review-brief vv-automation/harness/reports/<run>/review-brief.json \\
+    --out vv-automation/harness/reports/<run>/clarification-answers.md \\
     --answer CLARIFY-SCOPE-001="车控延期项本轮不纳入" \\
     --answer CLARIFY-DOC-001="按当前 PRD 文本生成"
 `);

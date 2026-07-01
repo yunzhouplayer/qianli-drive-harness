@@ -6,27 +6,27 @@ source_gate_set:
   id: "harness-quality-gates.v1"
   path: "vv-automation/harness/quality-gates/gates.yaml"
 gate_run:
-  gate_run_id: "GATE-RUN-20260630054415"
-  run_at: "2026-06-30T05:44:15.487Z"
+  gate_run_id: "GATE-RUN-20260701074701"
+  run_at: "2026-07-01T07:47:01.937Z"
   trigger:
     type: manual
     actor: "local-user"
   asset:
-    id: "CASE-HARNESS-003"
+    id: "CASE-HARNESS-005"
     type: case
-    path: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-003.case.yaml"
+    path: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/case-samples/CASE-HARNESS-005.case.yaml"
     version: v1
-    risk_level: P0
+    risk_level: P1
   inputs:
     source_refs:
-      - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/accepted-requirements.yaml"
-      - "output/harness/prd-0330-passenger-miniapp-20260630/generator-runpipeline-artifacts.json"
+      - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/accepted-requirements.yaml"
+      - "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/generator-runpipeline-artifacts.json"
     related_assets:
-      scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/scenario.asset.yaml"
-      case: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-003.case.yaml"
-      fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-fixture.asset.yaml"
+      scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/scenario.asset.yaml"
+      case: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/case-samples/CASE-HARNESS-005.case.yaml"
+      fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-fixture.asset.yaml"
       validators:
-        - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml"
+        - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml"
       agent_artifacts: []
       traceability_matrix: ""
   results:
@@ -99,27 +99,27 @@ gate_run:
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.id_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.id_present"
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.version_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.version_present"
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.title_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.title_present"
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.inputs_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.inputs_present"
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.rules_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.rules_present"
           status: passed
           message: OK
         -
-          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml.result_present"
+          name: "validator:vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml.result_present"
           status: passed
           message: OK
       findings: []
@@ -237,7 +237,7 @@ gate_run:
         -
           name: risk_level_checked
           status: passed
-          message: Risk level is P0.
+          message: Risk level is P1.
         -
           name: high_risk_requires_human_review
           status: blocked

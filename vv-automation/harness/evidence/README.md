@@ -5,9 +5,9 @@ Evidence 存放测试执行证据、日志、trace、接口响应、状态快照
 第一版执行链路由 `execution-runner.mjs` 生成：
 
 ```text
-output/harness/<run>/evidence/execution-evidence.json
-output/harness/<run>/evidence/execution-evidence.yaml
-output/harness/<run>/evidence/validator-results.json
+vv-automation/harness/reports/<run>/evidence/execution-evidence.json
+vv-automation/harness/reports/<run>/evidence/execution-evidence.yaml
+vv-automation/harness/reports/<run>/evidence/validator-results.json
 ```
 
 最小 evidence 必须包含：

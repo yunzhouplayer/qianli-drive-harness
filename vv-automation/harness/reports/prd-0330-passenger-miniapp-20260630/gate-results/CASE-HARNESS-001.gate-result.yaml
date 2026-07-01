@@ -7,23 +7,23 @@ source_gate_set:
   path: "vv-automation/harness/quality-gates/gates.yaml"
 gate_run:
   gate_run_id: "GATE-RUN-20260630054415"
-  run_at: "2026-06-30T05:44:15.512Z"
+  run_at: "2026-06-30T05:44:15.436Z"
   trigger:
     type: manual
     actor: "local-user"
   asset:
-    id: "CASE-HARNESS-004"
+    id: "CASE-HARNESS-001"
     type: case
-    path: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-004.case.yaml"
+    path: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-001.case.yaml"
     version: v1
     risk_level: P0
   inputs:
     source_refs:
       - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/accepted-requirements.yaml"
-      - "output/harness/prd-0330-passenger-miniapp-20260630/generator-runpipeline-artifacts.json"
+      - "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260630/generator-runpipeline-artifacts.json"
     related_assets:
       scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/scenario.asset.yaml"
-      case: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-004.case.yaml"
+      case: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/case-samples/CASE-HARNESS-001.case.yaml"
       fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-fixture.asset.yaml"
       validators:
         - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260630/final-generated/runtime-validator.asset.yaml"

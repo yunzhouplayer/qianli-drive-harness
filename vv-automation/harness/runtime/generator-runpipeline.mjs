@@ -148,7 +148,7 @@ function printUsage() {
   console.log(`Usage:
   node vv-automation/harness/runtime/generator-runpipeline.mjs \\
     --text-file tmp/pdfs/prd-0330/extracted-clean.txt \\
-    --out output/harness/prd-0330/generator-frontend-runpipeline-artifacts.json
+    --out vv-automation/harness/reports/prd-0330/generator-frontend-runpipeline-artifacts.json
 `);
 }
 

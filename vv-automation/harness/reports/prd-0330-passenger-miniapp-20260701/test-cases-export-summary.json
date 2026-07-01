@@ -1,0 +1,11 @@
+{
+  "total": 174,
+  "p0": 70,
+  "p1": 104,
+  "p2": 0,
+  "paths": {
+    "markdown": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/test-cases.md",
+    "csv": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/test-cases.csv",
+    "xlsx": "vv-automation/harness/reports/prd-0330-passenger-miniapp-20260701/test-cases.xlsx"
+  }
+}
