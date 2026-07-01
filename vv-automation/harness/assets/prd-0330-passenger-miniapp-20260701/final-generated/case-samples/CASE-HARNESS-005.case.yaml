@@ -1,0 +1,53 @@
+id: "CASE-HARNESS-005"
+original_candidate_id: "CASE-FUNC-013"
+version: v1
+title: 功能反馈：产品功能反馈
+description: "由生成工具候选用例 CASE-FUNC-013 经 Harness Candidate Quality Gate 收敛。"
+scenario: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/scenario.asset.yaml"
+source:
+  type: requirement
+  ref: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/accepted-requirements.yaml"
+traceability:
+  requirement_ids:
+    - "REQ-SENT-007"
+  function_point_ids:
+    - "TP-013"
+execution:
+  type: manual
+  environment: test
+  timeout_seconds: 600
+  retry:
+    enabled: false
+    max_attempts: 1
+fixture: "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-fixture.asset.yaml"
+preconditions:
+  - 测试用户、订单、车辆或相关业务数据已准备。
+steps:
+  - name: 步骤 1
+    action: 进入产品功能反馈入口。
+    expected_observation: ""
+  - name: 步骤 2
+    action: 提交包含文本和可选联系方式的反馈内容。
+    expected_observation: ""
+  - name: 步骤 3
+    action: 检查提交成功提示、后台记录和异常输入提示。
+    expected_observation: 系统行为与验收标准一致，关键状态和用户可见反馈正确。
+validators:
+  - "vv-automation/harness/assets/prd-0330-passenger-miniapp-20260701/final-generated/runtime-validator.asset.yaml"
+expected_result:
+  summary: 系统行为与验收标准一致，关键状态和用户可见反馈正确。
+  evidence:
+    - screenshot
+    - operation_log
+    - validator_result
+risk:
+  level: P1
+  impact_tags:
+    - passenger_experience
+tags:
+  - "candidate-to-harness"
+  - functional
+created_by: agent
+review:
+  status: pending_review
+  source_status: pending_human_review

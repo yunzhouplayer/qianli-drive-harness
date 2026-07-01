@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "id": "codex-ops-workbench",
+      "name": "Codex Ops Workbench",
+      "domain": "platform",
+      "description": "Codex 本地管理工作台服务。",
+      "cwd": "vv-automation/codex-ops-workbench",
+      "command": ["node", "server.mjs"],
+      "port": 8777,
+      "healthCheck": "http://127.0.0.1:8777/api/health",
+      "autostartDefault": false,
+      "autoRestartDefault": true,
+      "memoryLimitMb": 384,
+      "memoryGrowthThresholdMb": 96,
+      "tags": ["codex", "ops", "dashboard"]
+    },
+    {
+      "id": "testcase-generator-web",
+      "name": "测试用例生成器",
+      "domain": "vv-automation",
+      "description": "需求解析、Agent 协作、测试点/用例生成与 Harness Gate MVP。",
+      "cwd": "vv-automation/test-preparation/testcase-generator-web",
+      "command": ["node", "server.mjs"],
+      "port": 8765,
+      "healthCheck": "http://127.0.0.1:8765/",
+      "autostartDefault": false,
+      "autoRestartDefault": true,
+      "memoryLimitMb": 512,
+      "memoryGrowthThresholdMb": 128,
+      "tags": ["agent", "testcase", "harness"]
+    }
+  ]
+}

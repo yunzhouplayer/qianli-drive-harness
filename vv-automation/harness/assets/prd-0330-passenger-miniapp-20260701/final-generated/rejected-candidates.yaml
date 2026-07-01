@@ -1,0 +1,2253 @@
+artifact_type: rejected_candidates
+rejected:
+  - id: "CASE-FUNC-001"
+    title: 背景：基于目前缺少车控能⼒，和站点推荐体验 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-001"
+      - "TP-001"
+    reasons:
+      - noise_source_or_title
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: passed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-002"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-001"
+      - "TP-002"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-004"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-002"
+      - "TP-004"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-005"
+    title: 站点：对于站点的推荐，提升站点选择的体验度 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-003"
+      - "TP-005"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-006"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-003"
+      - "TP-006"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-008"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-004"
+      - "TP-008"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-010"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-005"
+      - "TP-010"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-012"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-006"
+      - "TP-012"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-014"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-007"
+      - "TP-014"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-016"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-008"
+      - "TP-016"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-018"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-009"
+      - "TP-018"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-020"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-010"
+      - "TP-020"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-022"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-011"
+      - "TP-022"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-024"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-012"
+      - "TP-024"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-025"
+    title: 小程序的模板ID 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-013"
+      - "TP-025"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-026"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-013"
+      - "TP-026"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-027"
+    title: 现，后续再增加） 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-014"
+      - "TP-027"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-028"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-014"
+      - "TP-028"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-030"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-015"
+      - "TP-030"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-032"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-016"
+      - "TP-032"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-034"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-017"
+      - "TP-034"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-035"
+    title: "更改目的地站点-icon 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-018"
+      - "TP-035"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-036"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-018"
+      - "TP-036"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-037"
+    title: "更改途径站点-icon 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-019"
+      - "TP-037"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-038"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-019"
+      - "TP-038"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-040"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-020"
+      - "TP-040"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-042"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-021"
+      - "TP-042"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-043"
+    title: 根据已有地址附近站点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-022"
+      - "TP-043"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-044"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-022"
+      - "TP-044"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-045"
+    title: 小程序消息订阅 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-023"
+      - "TP-045"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-046"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-023"
+      - "TP-046"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-047"
+    title: 根据模板配置 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-024"
+      - "TP-047"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-048"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-024"
+      - "TP-048"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-049"
+    title: 5个固定模板 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-025"
+      - "TP-049"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-050"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-025"
+      - "TP-050"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-052"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-026"
+      - "TP-052"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-054"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-027"
+      - "TP-054"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-056"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-028"
+      - "TP-056"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-058"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-029"
+      - "TP-058"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-060"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-030"
+      - "TP-060"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-062"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-031"
+      - "TP-062"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-064"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-032"
+      - "TP-064"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-065"
+    title: c.安全员护航本次行程 应具备明确输入、处理结果和用户可见反馈。
+    priority: P0
+    sourceRefs:
+      - "AC-033"
+      - "TP-065"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-066"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-033"
+      - "TP-066"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-067"
+    title: d.为保护您的出行安全，行程中请系好安全带 应具备明确输入、处理结果和用户可见反馈。
+    priority: P0
+    sourceRefs:
+      - "AC-034"
+      - "TP-067"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-068"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-034"
+      - "TP-068"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-069"
+    title: "接驾上车 【接驾上车页-车辆到达】 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-035"
+      - "TP-069"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-070"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-035"
+      - "TP-070"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-071"
+    title: 场景：接驾上车页（车辆到达时，继续跑⻢下 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-036"
+      - "TP-071"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-072"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-036"
+      - "TP-072"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-074"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-037"
+      - "TP-074"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-076"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-038"
+      - "TP-076"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-078"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-039"
+      - "TP-078"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-079"
+    title: 解锁成功则：约车页面显⽰“车辆已解锁，请 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-040"
+      - "TP-079"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-080"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-040"
+      - "TP-080"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-081"
+    title: 上车开启行程” 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-041"
+      - "TP-081"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-082"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-041"
+      - "TP-082"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-083"
+    title: 新增加：座舱管家模块 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-042"
+      - "TP-083"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-084"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-042"
+      - "TP-084"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-086"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-043"
+      - "TP-086"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-088"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-044"
+      - "TP-088"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-090"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-045"
+      - "TP-090"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-092"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-046"
+      - "TP-092"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-094"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-047"
+      - "TP-094"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-095"
+    title: "个⼈中 新增icon:产品反馈 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-048"
+      - "TP-095"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-096"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-048"
+      - "TP-096"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-097"
+    title: "个⼈中⼼页-新增-产品反馈icon 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-049"
+      - "TP-097"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-098"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-049"
+      - "TP-098"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-100"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-050"
+      - "TP-100"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-101"
+    title: 产品反馈 页面名称：产品反馈 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-051"
+      - "TP-101"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-102"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-051"
+      - "TP-102"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-104"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-052"
+      - "TP-104"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-106"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-053"
+      - "TP-106"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-108"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-054"
+      - "TP-108"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-109"
+    title: 钮”是置灰，如果是有任意⼀个地址有站点，则 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-055"
+      - "TP-109"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-110"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-055"
+      - "TP-110"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-112"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-056"
+      - "TP-112"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-113"
+    title: 起点：右侧新增箭头按钮，点击可编辑起点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-057"
+      - "TP-113"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-114"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-057"
+      - "TP-114"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-115"
+    title: 终点：右侧新增箭头按钮，点击可编辑终点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-058"
+      - "TP-115"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-116"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-058"
+      - "TP-116"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-117"
+    title: 起点和终点：右侧新增箭头按钮，点击可编 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-059"
+      - "TP-117"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-118"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-059"
+      - "TP-118"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-120"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-060"
+      - "TP-120"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-122"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-061"
+      - "TP-122"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-124"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-062"
+      - "TP-124"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-126"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-063"
+      - "TP-126"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-127"
+    title: 如果是跨区域选择站点，给提⽰ 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-064"
+      - "TP-127"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-128"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-064"
+      - "TP-128"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-130"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-065"
+      - "TP-130"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-131"
+    title: "⾸页-下车 【为您推荐的热⻔站点】 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-066"
+      - "TP-131"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-132"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-066"
+      - "TP-132"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-133"
+    title: 此区域默认为：10条推荐站点，下拉后不再加 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-067"
+      - "TP-133"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-134"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-067"
+      - "TP-134"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-135"
+    title: 为您推荐 载 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-068"
+      - "TP-135"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-136"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-068"
+      - "TP-136"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-137"
+    title: 前3条站点：为运营配置的热区站点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-069"
+      - "TP-137"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-138"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-069"
+      - "TP-138"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-139"
+    title: 后7条站点：为当前定位的附近站点，由近到远 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-070"
+      - "TP-139"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-140"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-070"
+      - "TP-140"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-142"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-071"
+      - "TP-142"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-143"
+    title: 附近的其他站点区、为您推荐的热⻔站点区 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-072"
+      - "TP-143"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-144"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-072"
+      - "TP-144"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-145"
+    title: "「{确认页的下车站点}」附近的其他站点区 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-073"
+      - "TP-145"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-146"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-073"
+      - "TP-146"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-147"
+    title: a.为：确认页的下车站点，最近的3个站点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-074"
+      - "TP-147"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-148"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-074"
+      - "TP-148"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-149"
+    title: 为您推荐的热⻔站点区 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-075"
+      - "TP-149"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-150"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-075"
+      - "TP-150"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-151"
+    title: a.为运营配置的热区站点，仅显⽰3条站点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-076"
+      - "TP-151"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-152"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-076"
+      - "TP-152"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-154"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-077"
+      - "TP-154"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-155"
+    title: "「{确认页的上车站点}」附近的其他站点区 应具备明确输入、处理结果和用户可见反馈。"
+    priority: P1
+    sourceRefs:
+      - "AC-078"
+      - "TP-155"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-156"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-078"
+      - "TP-156"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-157"
+    title: a.为：确认页的上车站点，最近的3个站点 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-079"
+      - "TP-157"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-158"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-079"
+      - "TP-158"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-159"
+    title: 9 消息订阅： 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-080"
+      - "TP-159"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-160"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-080"
+      - "TP-160"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-162"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-081"
+      - "TP-162"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-163"
+    title: 2个消息：车辆到达上车点提醒、车辆接驾提醒 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-082"
+      - "TP-163"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-164"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-082"
+      - "TP-164"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-165"
+    title: 车辆到达上车点提醒 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-083"
+      - "TP-165"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-166"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-083"
+      - "TP-166"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-167"
+    title: 车辆接驾提醒 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-084"
+      - "TP-167"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-168"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-084"
+      - "TP-168"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-170"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-085"
+      - "TP-170"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-172"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-086"
+      - "TP-172"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-174"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-087"
+      - "TP-174"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-176"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-088"
+      - "TP-176"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-178"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-089"
+      - "TP-178"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-180"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-090"
+      - "TP-180"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-182"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-091"
+      - "TP-182"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-184"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-092"
+      - "TP-184"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-185"
+    title: 背景：接⼊短信服务商的短信发送回调结果接⼝ 应具备明确输入、处理结果和用户可见反馈。
+    priority: P0
+    sourceRefs:
+      - "AC-093"
+      - "TP-185"
+    reasons:
+      - noise_source_or_title
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: passed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-186"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-093"
+      - "TP-186"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-187"
+    title: 目标：可以⽀持统计发出的短信，统计到服务商发送给用户的成功失败结果的统计 应具备明确输入、处理结
+    priority: P0
+    sourceRefs:
+      - "AC-094"
+      - "TP-187"
+    reasons:
+      - noise_source_or_title
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: passed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-188"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-094"
+      - "TP-188"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-190"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-095"
+      - "TP-190"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-192"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-096"
+      - "TP-192"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-194"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-097"
+      - "TP-194"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-196"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-098"
+      - "TP-196"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-198"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-099"
+      - "TP-198"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-200"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-100"
+      - "TP-200"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-202"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-101"
+      - "TP-202"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-204"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-102"
+      - "TP-204"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-206"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-103"
+      - "TP-206"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-208"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-104"
+      - "TP-208"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-210"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-105"
+      - "TP-210"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-212"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-106"
+      - "TP-212"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-214"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-107"
+      - "TP-214"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-215"
+    title: 不同车型不支持时如何展示和下发 应具备明确输入、处理结果和用户可见反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-108"
+      - "TP-215"
+    reasons:
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: passed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-216"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P2
+    sourceRefs:
+      - "AC-108"
+      - "TP-216"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed
+  - id: "CASE-FUNC-218"
+    title: 异常输入或前置条件不满足时，系统有明确失败反馈。
+    priority: P1
+    sourceRefs:
+      - "AC-109"
+      - "TP-218"
+    reasons:
+      - noise_source_or_title
+      - generic_or_not_specific
+    gates:
+      traceability_gate: passed
+      noise_gate: failed
+      specificity_gate: failed
+      atomicity_gate: passed
+      expected_result_gate: passed

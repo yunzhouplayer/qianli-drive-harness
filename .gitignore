@@ -33,3 +33,4 @@ tmp/
 # Local tool scratch data
 .hatch-pet-runs/
 .playwright-cli/
+vv-automation/codex-ops-workbench/.runtime/

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Ops Workbench</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">VIT</div>
+        <div>
+          <h1>Codex Ops</h1>
+          <p>本地运维工作台</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#overview" class="active">总览</a>
+        <a href="#services">服务管理</a>
+        <a href="#codex">Codex 状态</a>
+        <a href="#agents">Agent 工作台</a>
+        <a href="#usage">用量与审计</a>
+      </nav>
+      <div class="side-footer">
+        <span id="repoRoot">加载中</span>
+      </div>
+    </aside>
+
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Operations Console</p>
+          <h2>千里智行 Codex 管理工作台</h2>
+        </div>
+        <div class="top-actions">
+          <button id="refreshBtn" class="primary">刷新</button>
+          <button id="installAutostartBtn">安装自启动</button>
+        </div>
+      </header>
+
+      <section id="overview" class="section">
+        <div class="section-head">
+          <h3>总览</h3>
+          <span id="generatedAt" class="muted">未刷新</span>
+        </div>
+        <div class="metric-grid" id="summaryMetrics"></div>
+        <div class="panel">
+          <div class="panel-head">
+            <h4>最近事件</h4>
+          </div>
+          <div id="eventList" class="event-list"></div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-head">
+          <h3>服务管理</h3>
+          <span class="muted">注册表驱动，禁止 UI 传任意命令</span>
+        </div>
+        <div id="serviceGrid" class="service-grid"></div>
+      </section>
+
+      <section id="codex" class="section">
+        <div class="section-head">
+          <h3>Codex 状态</h3>
+          <span id="codexHome" class="muted">CODEX_HOME</span>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h4>运行与配置</h4></div>
+            <div id="codexStatus" class="kv-list"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h4>配置线索</h4></div>
+            <pre id="configHints" class="code-block"></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="agents" class="section">
+        <div class="section-head">
+          <h3>Agent 工作台</h3>
+          <span class="muted">Product / Development / Testing / Review / Critic</span>
+        </div>
+        <div id="agentGrid" class="agent-grid"></div>
+        <div class="panel">
+          <div class="panel-head"><h4>工作流资产</h4></div>
+          <div id="agentAssets" class="kv-list"></div>
+        </div>
+      </section>
+
+      <section id="usage" class="section">
+        <div class="section-head">
+          <h3>用量与审计</h3>
+          <span class="muted">首版为本地日志估算，准确账单需接 Analytics API</span>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h4>模型调用估算</h4></div>
+          <div id="usagePanel" class="usage-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
