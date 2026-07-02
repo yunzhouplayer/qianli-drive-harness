@@ -33,6 +33,9 @@ draft
 默认策略：
 
 - `P0`、`P1` 风险资产必须人工评审。
+- Case、Scenario、Fixture、Validator 必须符合 `contracts/test-assets/` 中的契约 Schema。
+- Evidence 类型必须来自 `vv-automation/harness/evidence/evidence-standards.yaml`。
+- Evidence 计划必须满足执行类型、业务域和风险等级的最小证据要求。
 - Agent 生成资产必须通过 Agent Artifact Gate。
 - Tool 必须通过 Tool Safety Gate。
 - Case 必须引用 Fixture 和 Validator。
@@ -58,15 +61,21 @@ draft
 - `blocked`：依赖外部信息或人工确认。
 - `warning`：允许进入低风险试运行，但不能作为发布准入依据。
 
-## 后续实现建议
+## 当前实现状态
 
-当前文件是规则定义。后续可以实现：
+`gate-runner.mjs` 已实现第一版可执行门禁：
 
-- YAML/JSON Schema 校验器。
-- 资产引用完整性检查器。
-- 敏感数据扫描。
-- Tool 权限和环境策略检查。
-- Agent 产物自检和人工评审状态检查。
-- Critic reflection finding 检查器。
-- coverage gap、duplicate candidate、repair scope 的准入判断。
-- CI/CT 中的门禁执行器。
+- `Schema Gate`：消费 `contracts/test-assets/*.schema.yaml`，检查必填字段、嵌套必填字段、类型和枚举。
+- `Traceability Gate`：检查 source、scenario 和需求/来源追溯。
+- `Fixture Gate`：检查 data scope、隔离、清理、PII 和明文密钥。
+- `Validator Gate`：检查确定性规则、失败输出和 evidence fields。
+- `Evidence Gate`：检查 evidence 标准、最小证据类型、validator evidence 和运行证据引用。
+- `Review Gate`：P0/P1 未人工评审时阻断；关联生成资产未评审时阻断高风险准入。
+- `Reflection Gate`：Agent 生成资产缺 Critic reflection 时给 warning。
+
+仍待补齐：
+
+- Tool Safety Gate 的完整工具权限和生产限制检查。
+- Agent Artifact Gate 的独立产物自检入口。
+- Critic finding 的结构化 coverage gap、duplicate、repair scope 阻断规则。
+- CI/CT 中的批量门禁执行器。

@@ -179,13 +179,29 @@ node vv-automation/harness/runtime/gate-runner.mjs \
 
 | Gate | 当前检查 |
 |---|---|
-| Schema Gate | Case、Fixture、Validator 的必填字段 |
+| Schema Gate | Case、Scenario、Fixture、Validator 是否符合 `contracts/test-assets/*.schema.yaml`，包含必填字段、嵌套必填、类型和枚举 |
 | Traceability Gate | source、scenario、需求或来源追溯 |
 | Fixture Gate | data_scope、isolation、cleanup、PII、明文密钥 |
 | Validator Gate | validator 引用、确定性 rules、failure_output、evidence fields |
-| Evidence Gate | expected_result.evidence、validator evidence 字段、运行时 evidence 引用 |
+| Evidence Gate | `evidence-standards.yaml` 中定义的 evidence 类型、按执行类型/领域/风险等级要求的最小证据、validator evidence 字段、运行时 evidence 引用 |
 | Review Gate | P0/P1 人工评审状态 |
 | Reflection Gate | Agent 生成资产是否提供 Critic reflection，未提供时 warning |
+
+### 批量评审高风险用例
+
+`review-queue-update.mjs` 支持按风险等级和评审状态批量更新，并强制记录审批原因：
+
+```bash
+node vv-automation/harness/runtime/review-queue-update.mjs \
+  --queue vv-automation/harness/assets/<run>/final-generated/review-queue.json \
+  --cases vv-automation/harness/assets/<run>/final-generated/accepted-test-cases.yaml \
+  --case-dir vv-automation/harness/assets/<run>/final-generated/case-samples \
+  --action approve \
+  --risk P0,P1 \
+  --status pending_review \
+  --actor qa-owner \
+  --reason "Batch reviewed by QA"
+```
 
 ### 退出码
 

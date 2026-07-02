@@ -1,0 +1,49 @@
+standard_id: harness-evidence-standard.v1
+description: Harness minimum evidence standard for executable test assets.
+allowed_evidence_types:
+  - api_request_response
+  - app_screenshot
+  - dispatch_event_log
+  - execution_log
+  - network_profile
+  - operation_log
+  - simulation_trace
+  - state_snapshot
+  - status_timeline
+  - system_trace
+  - validator_result
+minimum_required:
+  always:
+    - validator_result
+  by_execution_type:
+    api:
+      - api_request_response
+      - execution_log
+    ui:
+      - app_screenshot
+      - execution_log
+    simulation:
+      - status_timeline
+      - simulation_trace
+    integration:
+      - system_trace
+      - state_snapshot
+    mock:
+      - operation_log
+      - state_snapshot
+  by_domain:
+    order:
+      - status_timeline
+    dispatch:
+      - dispatch_event_log
+    vehicle_cloud:
+      - system_trace
+    data_quality:
+      - state_snapshot
+  by_risk_level:
+    P0:
+      - execution_log
+    P1: []
+release_rule:
+  runtime_evidence_required_for_release: true
+  evidence_plan_without_runtime_ref: warning

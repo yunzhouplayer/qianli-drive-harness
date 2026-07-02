@@ -3,12 +3,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { validateAssetContract } from "./schema-validator.mjs";
 
 const REPO_ROOT = findRepoRoot(process.cwd());
 const GATE_SET_PATH = "vv-automation/harness/quality-gates/gates.yaml";
+const SCENARIO_SCHEMA_PATH = "contracts/test-assets/scenario.schema.yaml";
 const CASE_SCHEMA_PATH = "contracts/test-assets/case.schema.yaml";
 const FIXTURE_SCHEMA_PATH = "contracts/test-assets/fixture.schema.yaml";
 const VALIDATOR_SCHEMA_PATH = "contracts/test-assets/validator.schema.yaml";
+const EVIDENCE_STANDARDS_PATH = "vv-automation/harness/evidence/evidence-standards.yaml";
 
 const REVIEW_APPROVED_STATUSES = new Set(["approved", "accepted", "reviewed", "passed"]);
 const HIGH_RISK_LEVELS = new Set(["P0", "P1"]);
@@ -80,7 +83,7 @@ function runSchemaGate(context) {
   const checks = [];
   const findings = [];
 
-  checkRequiredFields({
+  checkContractSchema({
     asset: context.caseAsset,
     schemaPath: CASE_SCHEMA_PATH,
     assetLabel: "case",
@@ -88,8 +91,21 @@ function runSchemaGate(context) {
     findings,
   });
 
+  if (context.scenario) {
+    checkContractSchema({
+      asset: context.scenario,
+      schemaPath: SCENARIO_SCHEMA_PATH,
+      assetLabel: "scenario",
+      checks,
+      findings,
+    });
+  } else {
+    addCheck(checks, "scenario_asset_loaded", "failed", "Scenario file could not be loaded or was not declared.");
+    addFinding(findings, "blocker", "Case must reference a resolvable scenario asset.");
+  }
+
   if (context.fixture) {
-    checkRequiredFields({
+    checkContractSchema({
       asset: context.fixture,
       schemaPath: FIXTURE_SCHEMA_PATH,
       assetLabel: "fixture",
@@ -103,7 +119,7 @@ function runSchemaGate(context) {
 
   if (context.validators.length > 0) {
     for (const validator of context.validators) {
-      checkRequiredFields({
+      checkContractSchema({
         asset: validator.asset,
         schemaPath: VALIDATOR_SCHEMA_PATH,
         assetLabel: `validator:${validator.path}`,
@@ -203,8 +219,33 @@ function runEvidenceGate(context) {
   const checks = [];
   const findings = [];
   const evidencePlan = context.caseAsset.expected_result?.evidence;
+  const standard = loadYamlFile(EVIDENCE_STANDARDS_PATH);
+  const declaredEvidenceTypes = new Set(asArray(evidencePlan));
 
   addBooleanCheck(checks, findings, "evidence_type_declared", nonEmptyArray(evidencePlan), "Case expected_result.evidence must declare evidence types.");
+
+  for (const evidenceType of declaredEvidenceTypes) {
+    const known = asArray(standard.allowed_evidence_types).includes(evidenceType);
+    addCheck(
+      checks,
+      `evidence_type_known:${evidenceType}`,
+      known ? "passed" : "failed",
+      known ? "Evidence type is defined in the Harness evidence standard." : `Evidence type is not defined in ${EVIDENCE_STANDARDS_PATH}: ${evidenceType}`,
+    );
+    if (!known) addFinding(findings, "blocker", `Evidence type is not defined in Harness standards: ${evidenceType}`);
+  }
+
+  const requiredEvidence = requiredEvidenceTypes(context, standard);
+  for (const evidenceType of requiredEvidence) {
+    const present = declaredEvidenceTypes.has(evidenceType);
+    addCheck(
+      checks,
+      `required_evidence_present:${evidenceType}`,
+      present ? "passed" : "failed",
+      present ? "Required evidence type is declared." : `Required evidence type is missing: ${evidenceType}`,
+    );
+    if (!present) addFinding(findings, "blocker", `Required evidence type is missing: ${evidenceType}`);
+  }
 
   const validatorsRequireEvidence = context.validators.every((validator) => validator.asset.evidence?.required !== true || nonEmptyArray(validator.asset.evidence?.fields));
   addBooleanCheck(checks, findings, "validator_result_linked", validatorsRequireEvidence, "Validators that require evidence must declare evidence fields.");
@@ -284,14 +325,32 @@ function runReflectionGate(context) {
   return gate("reflection_gate", checks, findings, statusFromChecks(checks));
 }
 
-function checkRequiredFields({ asset, schemaPath, assetLabel, checks, findings }) {
+function checkContractSchema({ asset, schemaPath, assetLabel, checks, findings }) {
   const schema = loadYamlFile(schemaPath);
-  const required = schema.required || [];
-  for (const field of required) {
-    const present = hasValue(asset?.[field]);
-    const checkName = `${assetLabel}.${field}_present`;
-    addBooleanCheck(checks, findings, checkName, present, `${assetLabel} is missing required field: ${field}`);
+  const result = validateAssetContract(asset, schema, { assetLabel });
+  if (result.errors.length === 0) {
+    addCheck(checks, `${assetLabel}_schema_contract_valid`, "passed", `${assetLabel} conforms to ${schemaPath}.`);
+  } else {
+    for (const error of result.errors) {
+      addCheck(checks, `${assetLabel}_schema_contract_valid`, "failed", error);
+      addFinding(findings, "blocker", error);
+    }
   }
+  for (const warning of result.warnings) {
+    addCheck(checks, `${assetLabel}_schema_contract_warning`, "warning", warning);
+    addFinding(findings, "low", warning);
+  }
+}
+
+function requiredEvidenceTypes(context, standard) {
+  const required = new Set(asArray(standard.minimum_required?.always));
+  const executionType = context.caseAsset.execution?.type;
+  for (const item of asArray(standard.minimum_required?.by_execution_type?.[executionType])) required.add(item);
+  const domain = context.scenario?.domain || context.caseAsset.domain;
+  for (const item of asArray(standard.minimum_required?.by_domain?.[domain])) required.add(item);
+  const riskLevel = context.caseAsset.risk?.level || context.scenario?.risk?.level;
+  for (const item of asArray(standard.minimum_required?.by_risk_level?.[riskLevel])) required.add(item);
+  return [...required];
 }
 
 function buildGateResult(context, results, decision) {

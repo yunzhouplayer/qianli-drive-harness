@@ -15,7 +15,7 @@ main().catch((error) => {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   normalizeAliasArgs(args);
-  if (args.help || !args.queue || !args.action || (!args.case && !isEnabled(args.allPending))) {
+  if (args.help || !args.queue || !args.action || (!args.case && !isEnabled(args.allPending) && !args.risk && !args.status)) {
     printUsage();
     process.exit(args.help ? 0 : 2);
   }
@@ -26,6 +26,9 @@ async function main() {
   const reviewedAt = new Date().toISOString();
   const targetIds = resolveTargetIds(queue, args);
   const action = normalizeAction(args.action);
+  if (["approve", "reject", "revise"].includes(action) && !String(args.reason || "").trim()) {
+    throw new Error("--reason is required for review decisions.");
+  }
 
   const updates = [];
   const rejected = [];
@@ -92,9 +95,18 @@ function normalizeAction(action) {
 }
 
 function resolveTargetIds(queue, args) {
+  const cases = queue.manual_review_cases || [];
   if (isEnabled(args.allPending)) {
-    return new Set((queue.manual_review_cases || [])
+    return new Set(cases
       .filter((item) => !APPROVED_STATUSES.has(item.review_status))
+      .map((item) => item.id));
+  }
+  const selectorRiskLevels = new Set(normalizeList(args.risk || args.riskLevel).map((item) => item.toUpperCase()));
+  const selectorStatuses = new Set(normalizeList(args.status));
+  if (selectorRiskLevels.size > 0 || selectorStatuses.size > 0) {
+    return new Set(cases
+      .filter((item) => selectorRiskLevels.size === 0 || selectorRiskLevels.has(String(item.risk_level || "").toUpperCase()))
+      .filter((item) => selectorStatuses.size === 0 || selectorStatuses.has(item.review_status || ""))
       .map((item) => item.id));
   }
   return new Set(normalizeList(args.case));
@@ -253,6 +265,7 @@ function normalizeAliasArgs(args) {
   if (args["expected-result"] && !args.expectedResult) args.expectedResult = args["expected-result"];
   if (args["approve-related-assets"] && !args.approveRelatedAssets) args.approveRelatedAssets = args["approve-related-assets"];
   if (args["rejected-out"] && !args.rejectedOut) args.rejectedOut = args["rejected-out"];
+  if (args["risk-level"] && !args.riskLevel) args.riskLevel = args["risk-level"];
 }
 
 function printUsage() {
@@ -265,6 +278,15 @@ function printUsage() {
     --case CASE-HARNESS-001 \\
     --actor qa-owner \\
     --reason "Reviewed by QA"
+
+  node vv-automation/harness/runtime/review-queue-update.mjs \\
+    --queue vv-automation/harness/assets/<run>/final-generated/review-queue.json \\
+    --cases vv-automation/harness/assets/<run>/final-generated/accepted-test-cases.yaml \\
+    --action approve \\
+    --risk P0,P1 \\
+    --status pending_review \\
+    --actor qa-owner \\
+    --reason "Batch reviewed by QA"
 
   node vv-automation/harness/runtime/review-queue-update.mjs \\
     --queue vv-automation/harness/assets/<run>/final-generated/review-queue.json \\

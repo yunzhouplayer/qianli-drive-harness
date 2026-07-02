@@ -28,6 +28,7 @@ expected_result:
   evidence:
     - status_timeline
     - dispatch_event_log
+    - simulation_trace
     - validator_result
 risk:
   level: P1
